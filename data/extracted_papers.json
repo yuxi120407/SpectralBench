@@ -1,0 +1,3168 @@
+[
+  {
+    "doi": "10.1103/PhysRevMaterials.9.023802",
+    "year": 2025,
+    "spectroscopy": "xanes",
+    "element": "Ti, Zn",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "Zinc titanate combinatory thin film",
+    "insight": "Ti and Zn local structure motif",
+    "application": "fundamental understanding",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Resolving local structural motifs across the phase evolution of zinc titanates with computational x-ray absorption spectroscopy",
+    "authors": [
+      "Xuance Jiang",
+      "Ruoshui Li",
+      "Dario J Stacchiola",
+      "Eli Stavitski",
+      "Xiaohui Qu",
+      "Mark S. Hybertsen",
+      "Mingzhao Liu",
+      "Deyu Lu"
+    ],
+    "venue": "Physical Review Materials",
+    "classification": {
+      "category": "thin_film",
+      "confidence": "high",
+      "reasoning": "The study investigates the phase evolution and local structural motifs across a combinatorial zinc titanate thin film grown with a continuous spatial composition gradient of the Ti:Zn ratio.",
+      "key_variables": [
+        "Ti fraction (fTi)",
+        "spatial position along the gradient axis"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ti, Zn",
+      "edge": "K",
+      "category": "thin_film",
+      "uses_our_phases": true,
+      "analysis_type": "cBSS",
+      "sample_conditions": [
+        {
+          "sample_id": "Combinatorial film, fTi = 0.1 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.1, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "Pulsed laser deposition (PLD)",
+          "substrate": "Fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.1",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.1",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "The combinatorial ZnO-TiO2 film was grown on a fused silica substrate via pulsed laser deposition (PLD) using a KrF excimer laser (248 nm). Zinc oxide and titanium oxide targets were ablated alternatively for 250 cycles under 10 mTorr oxygen ambient with the substrate heated to 600 \u00b0C.",
+          "method": "Pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient (base pressure 10^-7 Torr)",
+          "precursors": "Zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.2 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.2, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.2",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.2",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.8
+            },
+            {
+              "phase": "Ti6L",
+              "fraction": 0.2
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "The combinatorial ZnO-TiO2 film was grown on a fused silica substrate via pulsed laser deposition (PLD) using a KrF excimer laser. Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient with the substrate heated to 600 \u00b0C. A total of 250 cycles were executed to achieve thorough mixing and a total thickness of about 100 nm.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "Zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.3 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.3, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.3",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.3",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.55
+            },
+            {
+              "phase": "Ti6L",
+              "fraction": 0.45
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) using a KrF excimer laser (248 nm). Zinc oxide and titanium oxide targets were ablated alternatively for 250 cycles under 10 mTorr oxygen ambient with the substrate heated to 600 \u00b0C.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.4 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.4, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "Pulsed laser deposition (PLD)",
+          "substrate": "Fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.4",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.4",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.45
+            },
+            {
+              "phase": "Ti6L",
+              "fraction": 0.45
+            },
+            {
+              "phase": "Ti6H",
+              "fraction": 0.1
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) with a KrF excimer laser. Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient for 250 cycles.",
+          "method": "Pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.5 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.5, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": 100,
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.5",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.5",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.55
+            },
+            {
+              "phase": "Ti6L",
+              "fraction": 0.25
+            },
+            {
+              "phase": "Ti6H",
+              "fraction": 0.2
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) with a KrF excimer laser (248 nm). The chamber was pumped to a base pressure of 10^-7 Torr, the substrate was heated to 600 \u00b0C, and deposition was performed under 10 mTorr oxygen ambient using alternating zinc oxide and titanium oxide targets for 250 cycles.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.6 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.6, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.6",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.6",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.6
+            },
+            {
+              "phase": "Ti6L",
+              "fraction": 0.05
+            },
+            {
+              "phase": "Ti6H",
+              "fraction": 0.35
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown via pulsed laser deposition (PLD) with a KrF excimer laser (248 nm). Zinc oxide and titanium oxide targets were ablated alternatively for 250 cycles under 10 mTorr oxygen ambient with the substrate heated to 600 \u00b0C.",
+          "method": "pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "Zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.7 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.7, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "Pulsed laser deposition (PLD)",
+          "substrate": "Fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "70-120",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.7",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.7",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.5
+            },
+            {
+              "phase": "Ti6H",
+              "fraction": 0.4
+            },
+            {
+              "phase": "TiO2",
+              "fraction": 0.1
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown via pulsed laser deposition (PLD) using alternating ablation of ZnO and TiO2 targets. The chamber was pumped to a base pressure of 10^-7 Torr, substrate heated to 600 \u00b0C, and deposition performed under 10 mTorr oxygen ambient for 250 cycles.",
+          "method": "Pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "Zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.8 (Ti K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.8, Ti K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "70-120",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.8",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.8",
+          "phase_fractions": [
+            {
+              "phase": "TiUD",
+              "fraction": 0.4
+            },
+            {
+              "phase": "Ti6H",
+              "fraction": 0.4
+            },
+            {
+              "phase": "TiO2",
+              "fraction": 0.2
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) with a KrF excimer laser. Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient with the substrate heated to 600 \u00b0C. A total of 250 deposition cycles were executed.",
+          "method": "pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.1 (Zn K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.1, Zn K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.1",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.1",
+          "phase_fractions": [
+            {
+              "phase": "ZnO",
+              "fraction": 0.5
+            },
+            {
+              "phase": "Zn4",
+              "fraction": 0.5
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown via pulsed laser deposition (PLD) with a KrF excimer laser (\u03bb = 248 nm). Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient onto a fused silica substrate heated to 600 \u00b0C. The deposition consisted of 250 cycles to achieve thorough mixing and a composition gradient.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "Zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.2 (Zn K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.2, Zn K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "Pulsed laser deposition (PLD)",
+          "substrate": "Fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.2",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.2",
+          "phase_fractions": [
+            {
+              "phase": "ZnO",
+              "fraction": 0.15
+            },
+            {
+              "phase": "Zn4",
+              "fraction": 0.7
+            },
+            {
+              "phase": "Zn6",
+              "fraction": 0.15
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) with a KrF excimer laser. Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient at 600\u00b0C for 250 cycles to create a composition gradient.",
+          "method": "Pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.3 (Zn K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.3, Zn K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica (JGS2)",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.3",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.3",
+          "phase_fractions": [
+            {
+              "phase": "ZnO",
+              "fraction": 0.05
+            },
+            {
+              "phase": "Zn4",
+              "fraction": 0.85
+            },
+            {
+              "phase": "Zn6",
+              "fraction": 0.1
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) using ZnO and TiO2 targets. The chamber was pumped to a base pressure of 10^-7 Torr, the substrate was heated to 600 \u00b0C, and deposition was performed alternatively under 10 mTorr oxygen ambient for 250 cycles.",
+          "method": "pulsed laser deposition (PLD)",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.4 (Zn K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.4, Zn K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition (PLD)",
+          "substrate": "fused silica",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": "100",
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.4",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.4",
+          "phase_fractions": [
+            {
+              "phase": "Zn4",
+              "fraction": 0.95
+            },
+            {
+              "phase": "Zn6",
+              "fraction": 0.05
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown via pulsed laser deposition (PLD) using a KrF excimer laser (248 nm). Zinc oxide and titanium oxide targets were ablated alternatively under 10 mTorr oxygen ambient onto a fused silica substrate heated to 600 \u00b0C. 250 cycles were executed to achieve thorough mixing and a thickness gradient.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen",
+          "precursors": "ZnO and TiO2 targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        },
+        {
+          "sample_id": "Combinatorial film, fTi = 0.5 (Zn K-edge)",
+          "description": "Combinatorial Ti-Zn oxide thin film at Ti fraction 0.5, Zn K-edge analysis",
+          "material": "Ti-Zn oxide on fused silica",
+          "deposition_method": "pulsed laser deposition",
+          "substrate": "fused silica",
+          "deposition_temperature_C": null,
+          "film_thickness_nm": 100,
+          "composition_variable": "Ti fraction (fTi)",
+          "composition_value": "0.5",
+          "annealing": null,
+          "key_variable": "Ti fraction",
+          "key_variable_value": "0.5",
+          "phase_fractions": [
+            {
+              "phase": "Zn4",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_10",
+          "r_factor": null,
+          "conditions_from_ref": "10.1088/1361-6528/acad09",
+          "preparation": "Combinatorial ZnO-TiO2 film grown on a fused silica substrate via pulsed laser deposition (PLD) using alternating zinc oxide and titanium oxide targets. The substrate was heated to 600\u00b0C and deposition occurred under 10 mTorr oxygen ambient for 250 cycles.",
+          "method": "pulsed laser deposition",
+          "temperature_C": 600,
+          "environment": "10 mTorr oxygen ambient",
+          "precursors": "zinc oxide and titanium oxide targets",
+          "conditions_source_doi": "10.1088/1361-6528/acad09"
+        }
+      ],
+      "causal_reasoning": "Increasing Ti fraction drives the structural evolution from wurtzite ZnO with isolated Ti defects to layered Ti-induced structures, then to a mixture of amorphous/polycrystalline regions with TiZn2O4 and Ti3Zn2O8 motifs, and finally to amorphous TiO2.",
+      "condition_fraction_rules": [
+        "At low Ti fraction (fTi < 0.2), the structure is dominated by ZnO and under-coordinated Ti defects (TiUD).",
+        "At intermediate Ti fraction (0.2 < fTi < 0.4), the Ti6L motif (representing TiZn2O4) emerges and peaks.",
+        "At high Ti fraction (fTi > 0.4), the Ti6H motif (representing Ti3Zn2O8) and eventually TiO2 emerge, while Zn sites are predominantly 4-coordinated (Zn4)."
+      ],
+      "phase_names": [
+        "TiUD",
+        "Ti6L",
+        "Ti6H",
+        "TiO2",
+        "ZnO",
+        "Zn4",
+        "Zn6"
+      ],
+      "n_phases": 7,
+      "key_finding": "Cluster blind-signal-separation of XANES spectra reveals the evolution of local structural motifs in a combinatorial zinc titanate thin film, showing a transition from ZnO with Ti defects to complex amorphous/polycrystalline mixed motifs and finally to TiO2 as Ti fraction increases.",
+      "classification": {
+        "category": "thin_film",
+        "confidence": "high",
+        "reasoning": "The study investigates the phase evolution and local structural motifs across a combinatorial zinc titanate thin film grown with a continuous spatial composition gradient of the Ti:Zn ratio.",
+        "key_variables": [
+          "Ti fraction (fTi)",
+          "spatial position along the gradient axis"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1021/acs.jpcc.3c02029",
+    "year": 2023,
+    "spectroscopy": "xanes",
+    "element": "C",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "amorphous carbon",
+    "insight": "C hybridization type",
+    "application": "fundamental understanding ",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Harnessing Neural Networks for Elucidating X-ray Absorption Structure\u2013Spectrum Relationships in Amorphous Carbon",
+    "authors": [
+      "Hyuna Kwon",
+      "Wenyu Sun",
+      "Tim Hsu",
+      "Wonseok Jeong",
+      "Fikret Aydin",
+      "Shubham Sharma",
+      "Fanchen Meng",
+      "Matthew R. Carbone",
+      "Xiao Chen",
+      "Deyu Lu",
+      "Liwen F. Wan",
+      "Michael H. Nielsen",
+      "Tuan Anh Pham"
+    ],
+    "venue": "The Journal of Physical Chemistry C",
+    "classification": {
+      "category": "synthesis",
+      "confidence": "medium",
+      "reasoning": "The study uses computational molecular dynamics simulations as a virtual synthesis method, varying the initial density to generate amorphous carbon structures with different sp, sp2, and sp3 hybridization fractions for training machine learning models.",
+      "key_variables": [
+        "density"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "C",
+      "edge": "K",
+      "category": "synthesis",
+      "uses_our_phases": false,
+      "analysis_type": "other",
+      "sample_conditions": [
+        {
+          "sample_id": "Annealed graphene",
+          "description": "Experimental XANES data of an annealed graphene sample evaluated using the trained neural network model.",
+          "material": "graphene",
+          "preparation": "Annealed graphene sample (synthesis details in cited reference).",
+          "method": "null",
+          "precursors": null,
+          "temperature_C": null,
+          "duration_hours": null,
+          "heating_rate_C_per_min": null,
+          "atmosphere": null,
+          "cooling_method": null,
+          "post_treatment": "annealed",
+          "key_variable": "material type",
+          "key_variable_value": "graphene",
+          "phase_fractions": [
+            {
+              "phase": "sp2 carbon",
+              "fraction": 0.979
+            },
+            {
+              "phase": "sp3 carbon",
+              "fraction": 0.021
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": "10.1021/acs.jpcc.1c05282"
+        },
+        {
+          "sample_id": "Diamond",
+          "description": "Experimental XANES data of diamond evaluated using the trained neural network model.",
+          "material": "diamond",
+          "preparation": "Nanodiamond powders (synthesis details in cited reference).",
+          "method": "null",
+          "precursors": null,
+          "temperature_C": null,
+          "duration_hours": null,
+          "heating_rate_C_per_min": null,
+          "atmosphere": null,
+          "cooling_method": null,
+          "post_treatment": null,
+          "key_variable": "material type",
+          "key_variable_value": "diamond",
+          "phase_fractions": [
+            {
+              "phase": "sp carbon",
+              "fraction": 0.219
+            },
+            {
+              "phase": "sp2 carbon",
+              "fraction": 0.244
+            },
+            {
+              "phase": "sp3 carbon",
+              "fraction": 0.528
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": "10.1021/ja063303n"
+        }
+      ],
+      "causal_reasoning": "The neural network model predicts the global chemical composition (sp:sp2:sp3 hybridization ratio) directly from the experimental XANES spectra, reflecting the intrinsic bonding nature and structural motifs of the different carbon allotropes.",
+      "condition_fraction_rules": [
+        "Graphene samples are predominantly composed of sp2 hybridized carbon.",
+        "Diamond samples contain a majority of sp3 hybridized carbon, though surface effects or defects in nanodiamonds can introduce significant sp and sp2 fractions."
+      ],
+      "phase_names": [
+        "sp carbon",
+        "sp2 carbon",
+        "sp3 carbon"
+      ],
+      "n_phases": 3,
+      "key_finding": "A neural network model trained on DFT-calculated XANES spectra can successfully predict the global sp:sp2:sp3 hybridization ratio of experimental carbon samples, outperforming traditional linear combination fitting approaches.",
+      "classification": {
+        "category": "synthesis",
+        "confidence": "medium",
+        "reasoning": "The study uses computational molecular dynamics simulations as a virtual synthesis method, varying the initial density to generate amorphous carbon structures with different sp, sp2, and sp3 hybridization fractions for training machine learning models.",
+        "key_variables": [
+          "density"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1038/s41524-024-01408-1",
+    "year": 2024,
+    "spectroscopy": "xanes",
+    "element": "Cu",
+    "edge": "L",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "Cu metal and oxides",
+    "insight": "Cu oxidation state",
+    "application": "fundamental understanding ",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Prediction of the Cu oxidation state from EELS and XAS spectra using supervised machine learning",
+    "authors": [
+      "Samuel P. Gleason",
+      "Deyu Lu",
+      "Jim Ciston"
+    ],
+    "venue": "npj Computational Materials",
+    "classification": {
+      "category": "pure_phase",
+      "confidence": "high",
+      "reasoning": "The experimental portion of the study consists of measuring known pure-phase reference standards (Cu metal, Cu2O, CuO) and creating artificial linear combinations of these spectra to validate a machine learning model.",
+      "key_variables": [
+        "reference compound",
+        "artificial mixture fraction"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Cu",
+      "edge": "L",
+      "category": "pure_phase",
+      "uses_our_phases": true,
+      "analysis_type": "reference measurement",
+      "sample_conditions": [
+        {
+          "sample_id": "Cu Metal EELS",
+          "description": "Experimental EELS standard for Cu metal",
+          "material": "Cu",
+          "crystal_structure": null,
+          "oxidation_state": "0",
+          "coordination": null,
+          "purity": "99.999%",
+          "measurement_mode": "EELS",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Drop in intensity of the two higher energy peaks in the L3 edge and an increase in intensity in the lowest energy peak compared to pure Cu(0), indicating surface oxidation to Cu(I).",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "metallic_copper_L3",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_3",
+          "r_factor": null
+        },
+        {
+          "sample_id": "Cu2O EELS",
+          "description": "Experimental EELS standard for Cu2O",
+          "material": "Cu2O",
+          "crystal_structure": null,
+          "oxidation_state": "+1",
+          "coordination": null,
+          "purity": "99.99%",
+          "measurement_mode": "EELS",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "L3 peak at almost exactly the same energy as Cu(0).",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "cuprite_L3",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_3",
+          "r_factor": null
+        },
+        {
+          "sample_id": "CuO EELS",
+          "description": "Experimental EELS standard for CuO",
+          "material": "CuO",
+          "crystal_structure": null,
+          "oxidation_state": "+2",
+          "coordination": null,
+          "purity": "99.99%",
+          "measurement_mode": "EELS",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "L3 edge is roughly 2 eV lower in energy than Cu(I) and Cu(0).",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "tenorite_L3",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_3",
+          "r_factor": null
+        }
+      ],
+      "phase_names": [
+        "metallic_copper_L3",
+        "cuprite_L3",
+        "tenorite_L3"
+      ],
+      "n_phases": 3,
+      "key_finding": "Experimental EELS and literature XAS spectra of Cu, Cu2O, and CuO were used to validate a random forest model for predicting Cu oxidation states from L-edge spectra.",
+      "classification": {
+        "category": "pure_phase",
+        "confidence": "high",
+        "reasoning": "The experimental portion of the study consists of measuring known pure-phase reference standards (Cu metal, Cu2O, CuO) and creating artificial linear combinations of these spectra to validate a machine learning model.",
+        "key_variables": [
+          "reference compound",
+          "artificial mixture fraction"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1038/s41467-025-67397-x",
+    "year": 2026,
+    "spectroscopy": "xanes",
+    "element": "Ni",
+    "edge": "L",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "Ni-Al intermetallic compounds",
+    "insight": "Ni-Al phase identification",
+    "application": "surface science",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Thermally driven surface phase separation in intermetallic alloys",
+    "authors": [
+      "Shyam Bharatkumar Patel",
+      "Xiaobo Chen",
+      "Dongxiang Wu",
+      "Zhikang Zhou",
+      "Yupeng Wu",
+      "Yaguang Zhu",
+      "Chaoran Li",
+      "Xianhu Sun",
+      "Xiao Tong",
+      "Abdullah Al-Mahboob",
+      "Deyu Lu",
+      "Jorge Anibal Boscoboinik",
+      "Jerzy T. Sadowski",
+      "Guangwen Zhou"
+    ],
+    "venue": "Nature Communications",
+    "pmcid": "PMC12816748",
+    "classification": {
+      "category": "synthesis",
+      "confidence": "medium",
+      "reasoning": "The study investigates how thermal treatment (temperature) drives phase separation and the formation of new surface precipitate phases in Ni-Al intermetallic alloys.",
+      "key_variables": [
+        "temperature",
+        "heating duration"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ni",
+      "edge": "L",
+      "category": "synthesis",
+      "uses_our_phases": true,
+      "analysis_type": "phase_id",
+      "sample_conditions": [
+        {
+          "sample_id": "Pristine \u03b2-NiAl(100)",
+          "description": "Surrounding pristine area of the single crystal surface during annealing",
+          "material": "\u03b2-NiAl",
+          "preparation": "Annealing a bulk \u03b2-NiAl(100) single crystal",
+          "method": "thermal annealing",
+          "precursors": null,
+          "temperature_C": 800,
+          "duration_hours": null,
+          "heating_rate_C_per_min": null,
+          "atmosphere": "UHV",
+          "cooling_method": null,
+          "post_treatment": null,
+          "key_variable": "surface region",
+          "key_variable_value": "pristine area",
+          "phase_fractions": [
+            {
+              "phase": "\u03b2-NiAl",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "\u03b3\u2018-Ni3Al precipitate island",
+          "description": "Precipitate island formed on the surface during annealing",
+          "material": "\u03b3\u2018-Ni3Al",
+          "preparation": "Annealing a bulk \u03b2-NiAl(100) single crystal",
+          "method": "thermal annealing",
+          "precursors": null,
+          "temperature_C": 800,
+          "duration_hours": null,
+          "heating_rate_C_per_min": null,
+          "atmosphere": "UHV",
+          "cooling_method": null,
+          "post_treatment": null,
+          "key_variable": "surface region",
+          "key_variable_value": "precipitate island",
+          "phase_fractions": [
+            {
+              "phase": "\u03b3\u2018-Ni3Al",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "Thermal annealing at 800 \u00b0C activates bulk thermal vacancies. The lower vacancy formation energy for Ni compared to Al drives preferential Ni migration to the surface, causing phase separation and the formation of Ni-rich \u03b3\u2018-Ni3Al islands.",
+      "condition_fraction_rules": [
+        "Annealing \u03b2-NiAl at 800 \u00b0C in UHV leads to the formation of \u03b3\u2018-Ni3Al surface precipitates."
+      ],
+      "phase_names": [
+        "\u03b2-NiAl",
+        "\u03b3\u2018-Ni3Al",
+        "metallic Ni"
+      ],
+      "n_phases": 3,
+      "key_finding": "In-situ NEXAFS confirms that high-temperature annealing of \u03b2-NiAl drives surface phase separation, forming \u03b3\u2018-Ni3Al precipitates due to preferential Ni segregation.",
+      "classification": {
+        "category": "synthesis",
+        "confidence": "medium",
+        "reasoning": "The study investigates how thermal treatment (temperature) drives phase separation and the formation of new surface precipitate phases in Ni-Al intermetallic alloys.",
+        "key_variables": [
+          "temperature",
+          "heating duration"
+        ]
+      }
+    },
+    "fulltext_source": "cached_text",
+    "content_type": "text"
+  },
+  {
+    "doi": "10.1038/s41597-023-02262-4",
+    "year": 2023,
+    "spectroscopy": "xanes",
+    "element": "S",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "lithium thiophosphate ",
+    "insight": "database",
+    "application": "Li ion solid state eletrolyte",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Simulated sulfur K-edge X-ray absorption spectroscopy database of lithium thiophosphate solid electrolytes",
+    "authors": [
+      "Haoyue Guo",
+      "Matthew R. Carbone",
+      "Chuntian Cao",
+      "Jianzhou Qu",
+      "Yonghua Du",
+      "Seong-Min Bak",
+      "Conan Weiland",
+      "Feng Wang",
+      "Shinjae Yoo",
+      "Nongnuch Artrith",
+      "Alexander Urban",
+      "Deyu Lu"
+    ],
+    "venue": "Scientific Data",
+    "classification": {
+      "category": "pure_phase",
+      "confidence": "high",
+      "reasoning": "The paper focuses on generating a database of simulated XAS spectra for specific structural models and provides experimental measurements of known reference compounds (Li2S, P2S5, NiS, Li3PS4) to serve as standards.",
+      "key_variables": [
+        "composition",
+        "crystal structure",
+        "local coordination"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "S",
+      "edge": "K",
+      "category": "pure_phase",
+      "uses_our_phases": true,
+      "analysis_type": "reference measurement",
+      "sample_conditions": [
+        {
+          "sample_id": "Li2S",
+          "description": "Experimental benchmark measurement of lithium sulfide",
+          "material": "Li2S",
+          "crystal_structure": null,
+          "oxidation_state": null,
+          "coordination": null,
+          "purity": null,
+          "measurement_mode": "electron yield",
+          "sample_form": "pellet",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Three main features at 2474, 2476.5, and 2484 eV, as well as a peak shoulder at 2480 eV",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "Li2S",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3a",
+          "r_factor": null
+        },
+        {
+          "sample_id": "P2S5",
+          "description": "Experimental benchmark measurement of phosphorus pentasulfide",
+          "material": "P2S5",
+          "crystal_structure": null,
+          "oxidation_state": null,
+          "coordination": "Terminal S coordinated with one P atom, bridging S coordinated with two P atoms",
+          "purity": null,
+          "measurement_mode": "fluorescence yield",
+          "sample_form": "pellet",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Main edge region between 2470 to 2474 eV exhibits a two-peak feature originating from S sites under two different local chemical environments",
+          "spectral_description": "Self-absorption (SA) corrected data shown in Figure 3b",
+          "phase_fractions": [
+            {
+              "phase": "P2S5",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3b",
+          "r_factor": null
+        },
+        {
+          "sample_id": "NiS",
+          "description": "Experimental benchmark measurement of nickel sulfide",
+          "material": "NiS",
+          "crystal_structure": null,
+          "oxidation_state": null,
+          "coordination": null,
+          "purity": null,
+          "measurement_mode": "electron yield",
+          "sample_form": "pellet",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Peaks are at 2476, 2478.3, and 2483 eV",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "NiS",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3c",
+          "r_factor": null
+        },
+        {
+          "sample_id": "beta-Li3PS4",
+          "description": "Experimental benchmark measurement of beta-phase lithium thiophosphate",
+          "material": "beta-Li3PS4",
+          "crystal_structure": "beta",
+          "oxidation_state": null,
+          "coordination": "Three inequivalent S sites",
+          "purity": null,
+          "measurement_mode": "electron yield",
+          "sample_form": "pellet",
+          "edge_position_eV": 2471,
+          "pre_edge_description": null,
+          "white_line_description": "Absorption edge is around 2471 eV, likely due to the S 1s to S 3p sigma* transition; exhibits peak splitting",
+          "spectral_description": null,
+          "phase_fractions": [
+            {
+              "phase": "beta-Li3PS4",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3d",
+          "r_factor": null
+        }
+      ],
+      "phase_names": [
+        "Li2S",
+        "P2S5",
+        "NiS",
+        "beta-Li3PS4"
+      ],
+      "n_phases": 4,
+      "key_finding": "Experimental S K-edge XAS spectra of Li2S, P2S5, NiS, and beta-Li3PS4 were measured to benchmark a large database of simulated XAS spectra for lithium thiophosphate solid electrolytes.",
+      "classification": {
+        "category": "pure_phase",
+        "confidence": "high",
+        "reasoning": "The paper focuses on generating a database of simulated XAS spectra for specific structural models and provides experimental measurements of known reference compounds (Li2S, P2S5, NiS, Li3PS4) to serve as standards.",
+        "key_variables": [
+          "composition",
+          "crystal structure",
+          "local coordination"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1103/PhysRevMaterials.4.034401",
+    "year": 2020,
+    "spectroscopy": "xanes",
+    "element": "O",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": " croconic acid",
+    "insight": "ferroelectricity spectral signature",
+    "application": "fundamental understanding ",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Probing ferroelectricity by x-ray absorption spectroscopy in molecular crystals",
+    "authors": [
+      "Fujie Tang",
+      "Xuanyuan Jiang",
+      "Hsin-Yu Ko",
+      "Jianhang Xu",
+      "Mehmet Topsakal",
+      "Guanhua Hao",
+      "Alpha T. N'Diaye",
+      "Peter A. Dowben",
+      "Deyu Lu",
+      "Xiaoshan Xu",
+      "Xifan Wu"
+    ],
+    "venue": "Physical Review Materials",
+    "classification": {
+      "category": "pure_phase",
+      "confidence": "high",
+      "reasoning": "The paper investigates the intrinsic XAS signature of a pure croconic acid molecular crystal to establish the spectral features associated with its ferroelectric state, serving as a fundamental reference study.",
+      "key_variables": []
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "O",
+      "edge": "K",
+      "category": "pure_phase",
+      "uses_our_phases": false,
+      "analysis_type": "reference measurement",
+      "sample_conditions": [
+        {
+          "sample_id": "croconic acid film",
+          "description": "polycrystalline croconic acid film",
+          "material": "croconic acid (C5H2O5)",
+          "crystal_structure": "Pca21 (ferroelectric ground state)",
+          "oxidation_state": null,
+          "coordination": null,
+          "purity": null,
+          "measurement_mode": "total electron yield",
+          "sample_form": "thin film",
+          "edge_position_eV": null,
+          "pre_edge_description": "Pre-edge feature from 528 eV to 534 eV. One sharp peak centered at 530.1 eV, followed by a less pronounced feature at 532.6 eV. Assigned to bound exciton (pi* state).",
+          "white_line_description": "Main-edge from 534 eV to 548 eV, broader spectral signals with stronger intensities centered around 540 eV (exciton resonance states with antibonding sigma* character).",
+          "spectral_description": "A kink feature at 536.1 eV on the left shoulder of the main-edge (transitions from exciton resonance states with pi* orbitals hybridized with sigma*).",
+          "phase_fractions": [
+            {
+              "phase": "croconic acid",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_2",
+          "r_factor": null
+        }
+      ],
+      "phase_names": [
+        "croconic acid"
+      ],
+      "n_phases": 1,
+      "key_finding": "The broken inversion symmetry in ferroelectric croconic acid splits the pre-edge feature in the O K-edge XAS, resulting in a satellite peak at higher excitation energy (532.6 eV) due to inequivalent H-bonding environments.",
+      "classification": {
+        "category": "pure_phase",
+        "confidence": "high",
+        "reasoning": "The paper investigates the intrinsic XAS signature of a pure croconic acid molecular crystal to establish the spectral features associated with its ferroelectric state, serving as a fundamental reference study.",
+        "key_variables": []
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1126/science.aax3520",
+    "year": 2020,
+    "spectroscopy": "xanes",
+    "element": "Li",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": " lithium titanate (Li4+xTi5O12) ",
+    "insight": "titanium motif local distortion and lithium diffusion",
+    "application": "lithium ion battery anode",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Kinetic pathways of ionic transport in fast-charging lithium titanate",
+    "authors": [
+      "Wei Zhang",
+      "Dong-Hwa Seo",
+      "Tina Chen",
+      "Lijun Wu",
+      "Mehmet Topsakal",
+      "Yimei Zhu",
+      "Deyu Lu",
+      "Gerbrand Ceder",
+      "Feng Wang"
+    ],
+    "venue": "Science",
+    "classification": {
+      "category": "electrochemistry",
+      "confidence": "high",
+      "reasoning": "The paper describes an operando electron energy-loss spectroscopy (EELS) study tracking lithium migration and phase transformations in a lithium titanate battery electrode during galvanostatic charging and discharging at various C-rates.",
+      "key_variables": [
+        "state of charge (SOC)",
+        "Li concentration (x)",
+        "C-rate",
+        "voltage"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Li",
+      "edge": "K",
+      "category": "electrochemistry",
+      "uses_our_phases": true,
+      "analysis_type": "peak_fitting",
+      "sample_conditions": [
+        {
+          "sample_id": "Pristine LTO",
+          "description": "Pristine lithium titanate before cycling",
+          "material": "Li4Ti5O12",
+          "electrode_type": "anode",
+          "electrolyte": "1.0 M LiTFSI in 1-butyl-1-methylpyrrolidinium bis(trifluoromethylsulfonyl)imide",
+          "cell_type": "in-situ TEM cell",
+          "charge_discharge": "OCV",
+          "c_rate": null,
+          "voltage_V": null,
+          "state_of_charge": "x=0",
+          "cycle_number": 0,
+          "capacity_mAh_g": null,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "State of charge",
+          "key_variable_value": "x=0",
+          "phase_fractions": [
+            {
+              "phase": "stable configurations (Li4Ti5O12/Li7Ti5O12)",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Intermediate LTO (Low Rate)",
+          "description": "Partially lithiated LTO during cycling at low rates (1C, 2C), derived from IM/IS peak ratio ~0.2",
+          "material": "Li4Ti5O12",
+          "electrode_type": "anode",
+          "electrolyte": "1.0 M LiTFSI in 1-butyl-1-methylpyrrolidinium bis(trifluoromethylsulfonyl)imide",
+          "cell_type": "in-situ TEM cell",
+          "charge_discharge": "discharging",
+          "c_rate": "1C",
+          "voltage_V": null,
+          "state_of_charge": "intermediate x",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "C-rate",
+          "key_variable_value": "1C",
+          "phase_fractions": [
+            {
+              "phase": "stable configurations (Li4Ti5O12/Li7Ti5O12)",
+              "fraction": 0.83
+            },
+            {
+              "phase": "metastable intermediate (Li4+xTi5O12)",
+              "fraction": 0.17
+            }
+          ],
+          "data_source": "text/figure_2E",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Intermediate LTO (High Rate)",
+          "description": "Partially lithiated LTO during cycling at high rates (3C, 8C), derived from IM/IS peak ratio ~2.0",
+          "material": "Li4Ti5O12",
+          "electrode_type": "anode",
+          "electrolyte": "1.0 M LiTFSI in 1-butyl-1-methylpyrrolidinium bis(trifluoromethylsulfonyl)imide",
+          "cell_type": "in-situ TEM cell",
+          "charge_discharge": "discharging",
+          "c_rate": "8C",
+          "voltage_V": null,
+          "state_of_charge": "intermediate x",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "C-rate",
+          "key_variable_value": "8C",
+          "phase_fractions": [
+            {
+              "phase": "stable configurations (Li4Ti5O12/Li7Ti5O12)",
+              "fraction": 0.33
+            },
+            {
+              "phase": "metastable intermediate (Li4+xTi5O12)",
+              "fraction": 0.67
+            }
+          ],
+          "data_source": "text/figure_2E",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "At low rates, lithiation proceeds primarily via a two-phase reaction with a small fraction of metastable intermediate configurations at the phase boundaries. At high rates, the elevated overpotential drives the formation of a much larger fraction of highly distorted metastable intermediate configurations (interfacial solid solution) to enable fast Li+ transport, as evidenced by the abrupt increase in the pre-peak M intensity.",
+      "condition_fraction_rules": [
+        "At the fully charged (x=0) and fully discharged (x=3) states, only the stable configurations (pre-peak S) are present.",
+        "During intermediate states of charge, the fraction of the metastable intermediate (pre-peak M) increases significantly with increasing C-rate."
+      ],
+      "phase_names": [
+        "stable configurations (Li4Ti5O12/Li7Ti5O12)",
+        "metastable intermediate (Li4+xTi5O12)"
+      ],
+      "n_phases": 2,
+      "key_finding": "Operando Li-EELS reveals that fast charging in lithium titanate is enabled by the rate-dependent formation of metastable intermediate configurations with distorted Li polyhedra that provide low-barrier kinetic pathways.",
+      "classification": {
+        "category": "electrochemistry",
+        "confidence": "high",
+        "reasoning": "The paper describes an operando electron energy-loss spectroscopy (EELS) study tracking lithium migration and phase transformations in a lithium titanate battery electrode during galvanostatic charging and discharging at various C-rates.",
+        "key_variables": [
+          "state of charge (SOC)",
+          "Li concentration (x)",
+          "C-rate",
+          "voltage"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1039/d0ta00226g",
+    "year": 2020,
+    "spectroscopy": "xanes",
+    "element": "Ti, S",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "N",
+    "material": "Titanium sulfide (TiS2, Na0.55TiS2, and NaTiS)",
+    "insight": "phase identification",
+    "application": "Na-ion batterie electrode",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "<i>Operando</i>\n                    structural and chemical evolutions of TiS\n                    <sub>2</sub>\n                    in Na-ion batteries",
+    "authors": [
+      "Cheng-Hung Lin",
+      "Mehmet Topsakal",
+      "Ke Sun",
+      "Jianming Bai",
+      "Chonghang Zhao",
+      "Eric Dooryhee",
+      "Paul Northrup",
+      "Hong Gan",
+      "Deyu Lu",
+      "Eli Stavitski",
+      "Yu-chen Karen Chen-Wiegart"
+    ],
+    "venue": "Journal of Materials Chemistry A",
+    "classification": {
+      "category": "electrochemistry",
+      "confidence": "high",
+      "reasoning": "The paper describes an operando XAS study investigating the phase transformations of TiS2 electrodes in Na-ion batteries during electrochemical charge and discharge cycles.",
+      "key_variables": [
+        "state of charge (SOC)",
+        "relative capacity",
+        "voltage",
+        "depth of discharge"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ti, S",
+      "edge": "K",
+      "category": "electrochemistry",
+      "uses_our_phases": true,
+      "analysis_type": "PCA",
+      "sample_conditions": [
+        {
+          "sample_id": "State 0 (Pristine)",
+          "description": "Pristine TiS2 cathode before sodiation",
+          "material": "TiS2",
+          "electrode_type": "cathode",
+          "electrolyte": "1.0 M NaClO4",
+          "cell_type": "operando tube cell",
+          "charge_discharge": "OCV",
+          "c_rate": "C/12",
+          "voltage_V": null,
+          "state_of_charge": "0% relative capacity",
+          "cycle_number": 1,
+          "capacity_mAh_g": 0,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "state_of_charge",
+          "key_variable_value": "0%",
+          "phase_fractions": [
+            {
+              "phase": "TiS2",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "Figure 4D",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "State 1 (40% relative capacity)",
+          "description": "Partially sodiated TiS2 at 40% relative capacity",
+          "material": "TiS2",
+          "electrode_type": "cathode",
+          "electrolyte": "1.0 M NaClO4",
+          "cell_type": "operando tube cell",
+          "charge_discharge": "discharging",
+          "c_rate": "C/12",
+          "voltage_V": null,
+          "state_of_charge": "40% relative capacity",
+          "cycle_number": 1,
+          "capacity_mAh_g": 87,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "state_of_charge",
+          "key_variable_value": "40%",
+          "phase_fractions": [
+            {
+              "phase": "TiS2",
+              "fraction": 0.29
+            },
+            {
+              "phase": "Na0.55TiS2",
+              "fraction": 0.66
+            },
+            {
+              "phase": "NaTiS2",
+              "fraction": 0.05
+            }
+          ],
+          "data_source": "Table S2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "State 2 (82% relative capacity)",
+          "description": "Partially sodiated TiS2 at 82% relative capacity",
+          "material": "TiS2",
+          "electrode_type": "cathode",
+          "electrolyte": "1.0 M NaClO4",
+          "cell_type": "operando tube cell",
+          "charge_discharge": "discharging",
+          "c_rate": "C/12",
+          "voltage_V": null,
+          "state_of_charge": "82% relative capacity",
+          "cycle_number": 1,
+          "capacity_mAh_g": 193,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "state_of_charge",
+          "key_variable_value": "82%",
+          "phase_fractions": [
+            {
+              "phase": "TiS2",
+              "fraction": 0.08
+            },
+            {
+              "phase": "Na0.55TiS2",
+              "fraction": 0.37
+            },
+            {
+              "phase": "NaTiS2",
+              "fraction": 0.55
+            }
+          ],
+          "data_source": "Table S2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "State 3 (Full sodiation)",
+          "description": "Fully sodiated TiS2 at 100% relative capacity",
+          "material": "TiS2",
+          "electrode_type": "cathode",
+          "electrolyte": "1.0 M NaClO4",
+          "cell_type": "operando tube cell",
+          "charge_discharge": "discharged",
+          "c_rate": "C/12",
+          "voltage_V": 1.1,
+          "state_of_charge": "100% relative capacity",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "operando",
+          "temperature_C": null,
+          "key_variable": "state_of_charge",
+          "key_variable_value": "100%",
+          "phase_fractions": [
+            {
+              "phase": "NaTiS2",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "Figure 4D",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "Electrochemical insertion of Na ions into the TiS2 cathode drives a phase transformation. Unlike the single-phase solid-solution reaction in Li-ion batteries, sodiation proceeds via a three-component reaction, forming an intermediate Na0.55TiS2 phase before reaching the fully sodiated NaTiS2 state.",
+      "condition_fraction_rules": [
+        "As depth of discharge (sodiation) increases, the fraction of pristine TiS2 decreases.",
+        "The intermediate phase (Na0.55TiS2) reaches its maximum concentration near 40-50% relative capacity.",
+        "The fully sodiated phase (NaTiS2) continuously increases during discharge and becomes the sole phase at 100% relative capacity."
+      ],
+      "phase_names": [
+        "TiS2",
+        "Na0.55TiS2",
+        "NaTiS2"
+      ],
+      "n_phases": 3,
+      "key_finding": "Operando XANES coupled with MCR-ALS analysis reveals that the sodiation of TiS2 is a three-component reaction involving a distinct intermediate phase (Na0.55TiS2), contrasting with the two-component intercalation mechanism observed during lithiation.",
+      "classification": {
+        "category": "electrochemistry",
+        "confidence": "high",
+        "reasoning": "The paper describes an operando XAS study investigating the phase transformations of TiS2 electrodes in Na-ion batteries during electrochemical charge and discharge cycles.",
+        "key_variables": [
+          "state of charge (SOC)",
+          "relative capacity",
+          "voltage",
+          "depth of discharge"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1021/acs.nanolett.8b04888",
+    "year": 2019,
+    "spectroscopy": "xanes",
+    "element": "Ti",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "amorphous TiO2 film",
+    "insight": "Ti local structure motif",
+    "application": "ZnO photoelectrode coating",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Ultrathin Amorphous Titania on Nanowires: Optimization of Conformal Growth and Elucidation of Atomic-Scale Motifs",
+    "authors": [
+      "Danhua Yan",
+      "Mehmet Topsakal",
+      "Sencer Selcuk",
+      "John L. Lyons",
+      "Wenrui Zhang",
+      "Qiyuan Wu",
+      "Iradwikanari Waluyo",
+      "Eli Stavitski",
+      "Klaus Attenkofer",
+      "Shinjae Yoo",
+      "Mark S. Hybertsen",
+      "Deyu Lu",
+      "Dario J. Stacchiola",
+      "Mingzhao Liu"
+    ],
+    "venue": "Nano Letters",
+    "classification": {
+      "category": "thin_film",
+      "confidence": "high",
+      "reasoning": "The study uses XANES to determine the local coordination and atomic-scale motifs of ultrathin amorphous TiO2 films deposited via ALD on ZnO nanowires, evaluating how substrate pre-treatments affect the resulting film structure.",
+      "key_variables": [
+        "substrate pre-treatment",
+        "O2 plasma sputtering",
+        "thermal annealing"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ti",
+      "edge": "K",
+      "category": "thin_film",
+      "uses_our_phases": false,
+      "analysis_type": "LCF",
+      "sample_conditions": [
+        {
+          "sample_id": "ZnO-APT (LCF fit)",
+          "description": "Amorphous TiO2 shell on ZnO nanowires (core annealed and plasma treated)",
+          "material": "TiO2 on ZnO",
+          "deposition_method": "ALD",
+          "substrate": "ZnO nanowires",
+          "deposition_temperature_C": 250,
+          "film_thickness_nm": 3,
+          "composition_variable": null,
+          "composition_value": null,
+          "annealing": "ZnO core annealed in O2 at 500 \u00b0C and O2 plasma sputtered prior to ALD",
+          "key_variable": "Analysis method",
+          "key_variable_value": "LCF of computed crystalline polymorph spectra",
+          "phase_fractions": [
+            {
+              "phase": "Ti4c",
+              "fraction": 0.1
+            },
+            {
+              "phase": "Ti5c",
+              "fraction": 0.32
+            },
+            {
+              "phase": "Ti6c",
+              "fraction": 0.58
+            }
+          ],
+          "data_source": "figure_5b",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "ZnO-APT (Amorphous Model)",
+          "description": "Amorphous TiO2 shell on ZnO nanowires (core annealed and plasma treated)",
+          "material": "TiO2 on ZnO",
+          "deposition_method": "ALD",
+          "substrate": "ZnO nanowires",
+          "deposition_temperature_C": 250,
+          "film_thickness_nm": 3,
+          "composition_variable": null,
+          "composition_value": null,
+          "annealing": "ZnO core annealed in O2 at 500 \u00b0C and O2 plasma sputtered prior to ALD",
+          "key_variable": "Analysis method",
+          "key_variable_value": "Amorphous structural model (simulated annealing + MD)",
+          "phase_fractions": [
+            {
+              "phase": "Ti5c",
+              "fraction": 0.5
+            },
+            {
+              "phase": "Ti6c",
+              "fraction": 0.47
+            },
+            {
+              "phase": "Ti7c",
+              "fraction": 0.03
+            }
+          ],
+          "data_source": "figure_5a",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "The amorphous nature of the ultrathin ALD TiO2 film, combined with surface and interfacial energy effects on the nanowire substrate, stabilizes a high fraction of undercoordinated Ti sites (Ti4c, Ti5c) compared to bulk crystalline TiO2 which is exclusively Ti6c.",
+      "condition_fraction_rules": [
+        "Ultrathin amorphous TiO2 films contain roughly 40-50% undercoordinated Ti sites (Ti4c, Ti5c)."
+      ],
+      "phase_names": [
+        "Ti4c",
+        "Ti5c",
+        "Ti6c",
+        "Ti7c"
+      ],
+      "n_phases": 4,
+      "key_finding": "Ti K-edge XANES analysis, supported by first-principles calculations, reveals that the ultrathin amorphous titania shell contains a substantial fraction (~50%) of undercoordinated Ti ions, unlike bulk crystalline TiO2.",
+      "classification": {
+        "category": "thin_film",
+        "confidence": "high",
+        "reasoning": "The study uses XANES to determine the local coordination and atomic-scale motifs of ultrathin amorphous TiO2 films deposited via ALD on ZnO nanowires, evaluating how substrate pre-treatments affect the resulting film structure.",
+        "key_variables": [
+          "substrate pre-treatment",
+          "O2 plasma sputtering",
+          "thermal annealing"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1021/jacs.7b07628",
+    "year": 2017,
+    "spectroscopy": "xanes",
+    "element": "Ti",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "lithium titanate",
+    "insight": "Ti local structure motif",
+    "application": "lithium ion battery anode",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Multi-Stage Structural Transformations in Zero-Strain Lithium Titanate Unveiled by\n                    <i>in Situ</i>\n                    X-ray Absorption Fingerprints",
+    "authors": [
+      "Wei Zhang",
+      "Mehmet Topsakal",
+      "Christina Cama",
+      "Christopher J. Pelliccione",
+      "Hu Zhao",
+      "Steven Ehrlich",
+      "Lijun Wu",
+      "Yimei Zhu",
+      "Anatoly I. Frenkel",
+      "Kenneth J. Takeuchi",
+      "Esther S. Takeuchi",
+      "Amy C. Marschilok",
+      "Deyu Lu",
+      "Feng Wang"
+    ],
+    "venue": "Journal of the American Chemical Society",
+    "classification": {
+      "category": "electrochemistry",
+      "confidence": "high",
+      "reasoning": "The paper describes an in situ XAS study tracking the structural transformations of lithium titanate battery electrodes during electrochemical discharge (lithiation).",
+      "key_variables": [
+        "lithium concentration (x)",
+        "voltage",
+        "state of charge (SOC)"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ti",
+      "edge": "K",
+      "category": "electrochemistry",
+      "uses_our_phases": false,
+      "analysis_type": "LCF",
+      "sample_conditions": [
+        {
+          "sample_id": "Pristine Li4/3Ti5/3O4",
+          "description": "Pristine electrode before discharge",
+          "material": "Li4/3Ti5/3O4",
+          "electrode_type": "working electrode",
+          "electrolyte": "EC/DMC/LiPF6 (1:1:1)",
+          "cell_type": "in-situ coin cell",
+          "charge_discharge": "OCV",
+          "c_rate": null,
+          "voltage_V": "2.50",
+          "state_of_charge": "0.0",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "in-situ",
+          "temperature_C": null,
+          "key_variable": "Li concentration x",
+          "key_variable_value": "0.0",
+          "phase_fractions": [
+            {
+              "phase": "Li4/3Ti5/3O4",
+              "fraction": 1.0
+            },
+            {
+              "phase": "Li7/3Ti5/3O4",
+              "fraction": 0.0
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Intermediate x=0.5",
+          "description": "Electrode discharged to x=0.5, end of quasi-solid solution regime",
+          "material": "Li4/3Ti5/3O4",
+          "electrode_type": "working electrode",
+          "electrolyte": "EC/DMC/LiPF6 (1:1:1)",
+          "cell_type": "in-situ coin cell",
+          "charge_discharge": "discharging",
+          "c_rate": "C/10",
+          "voltage_V": null,
+          "state_of_charge": "0.5",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "in-situ",
+          "temperature_C": null,
+          "key_variable": "Li concentration x",
+          "key_variable_value": "0.5",
+          "phase_fractions": [
+            {
+              "phase": "Li4/3Ti5/3O4",
+              "fraction": 0.92
+            },
+            {
+              "phase": "Li7/3Ti5/3O4",
+              "fraction": 0.08
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Intermediate x=0.6",
+          "description": "Electrode discharged to x=0.6 during two-phase transformation",
+          "material": "Li4/3Ti5/3O4",
+          "electrode_type": "working electrode",
+          "electrolyte": "EC/DMC/LiPF6 (1:1:1)",
+          "cell_type": "in-situ coin cell",
+          "charge_discharge": "discharging",
+          "c_rate": "C/10",
+          "voltage_V": null,
+          "state_of_charge": "0.6",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "in-situ",
+          "temperature_C": null,
+          "key_variable": "Li concentration x",
+          "key_variable_value": "0.6",
+          "phase_fractions": [
+            {
+              "phase": "Li4/3Ti5/3O4",
+              "fraction": 0.77
+            },
+            {
+              "phase": "Li7/3Ti5/3O4",
+              "fraction": 0.23
+            }
+          ],
+          "data_source": "figure_3_caption",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Intermediate x=0.87",
+          "description": "Electrode discharged to x=0.87, intersection with ideal two-phase line",
+          "material": "Li4/3Ti5/3O4",
+          "electrode_type": "working electrode",
+          "electrolyte": "EC/DMC/LiPF6 (1:1:1)",
+          "cell_type": "in-situ coin cell",
+          "charge_discharge": "discharging",
+          "c_rate": "C/10",
+          "voltage_V": null,
+          "state_of_charge": "0.87",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "in-situ",
+          "temperature_C": null,
+          "key_variable": "Li concentration x",
+          "key_variable_value": "0.87",
+          "phase_fractions": [
+            {
+              "phase": "Li4/3Ti5/3O4",
+              "fraction": 0.13
+            },
+            {
+              "phase": "Li7/3Ti5/3O4",
+              "fraction": 0.87
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Fully discharged x=1.0",
+          "description": "Fully discharged electrode",
+          "material": "Li4/3Ti5/3O4",
+          "electrode_type": "working electrode",
+          "electrolyte": "EC/DMC/LiPF6 (1:1:1)",
+          "cell_type": "in-situ coin cell",
+          "charge_discharge": "discharged",
+          "c_rate": "C/10",
+          "voltage_V": "1.00",
+          "state_of_charge": "1.0",
+          "cycle_number": 1,
+          "capacity_mAh_g": null,
+          "measurement_mode": "in-situ",
+          "temperature_C": null,
+          "key_variable": "Li concentration x",
+          "key_variable_value": "1.0",
+          "phase_fractions": [
+            {
+              "phase": "Li4/3Ti5/3O4",
+              "fraction": 0.0
+            },
+            {
+              "phase": "Li7/3Ti5/3O4",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_3",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "During electrochemical discharge (lithiation), Li ions intercalate into the Li4/3Ti5/3O4 structure, causing a multi-stage phase transformation to Li7/3Ti5/3O4. The transformation deviates from a simple macroscopic two-phase reaction, involving a quasi-solid solution at early stages (x <= 0.5) where the pristine phase fraction decreases very slowly, followed by a rapid macroscopic phase separation at intermediate concentrations (0.5 < x < 0.87).",
+      "condition_fraction_rules": [
+        "At x=0, the material is 100% pristine Li4/3Ti5/3O4.",
+        "For x <= 0.5, the phase fraction of Li4/3Ti5/3O4 decreases slowly (only to ~0.92), indicating a quasi-solid solution rather than ideal two-phase behavior.",
+        "For 0.5 < x < 0.87, the phase fraction of Li4/3Ti5/3O4 drops rapidly as macroscopic two-phase transformation dominates.",
+        "At x=1.0, the material is 100% fully lithiated Li7/3Ti5/3O4."
+      ],
+      "phase_names": [
+        "Li4/3Ti5/3O4",
+        "Li7/3Ti5/3O4"
+      ],
+      "n_phases": 2,
+      "key_finding": "In situ Ti K-edge XANES reveals that lithium intercalation into zero-strain lithium titanate proceeds via a multi-stage kinetic pathway involving a quasi-solid solution followed by a two-phase transformation, rather than a simple macroscopic two-phase reaction.",
+      "classification": {
+        "category": "electrochemistry",
+        "confidence": "high",
+        "reasoning": "The paper describes an in situ XAS study tracking the structural transformations of lithium titanate battery electrodes during electrochemical discharge (lithiation).",
+        "key_variables": [
+          "lithium concentration (x)",
+          "voltage",
+          "state of charge (SOC)"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1103/PhysRevMaterials.2.125403",
+    "year": 2018,
+    "spectroscopy": "xanes",
+    "element": "Mn",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "Mn doped lithium titanate",
+    "insight": "identification of Mn doping site",
+    "application": "lithium ion battery anode",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Identification of dopant site and its effect on electrochemical activity in Mn-doped lithium titanate",
+    "authors": [
+      "Harishchandra Singh",
+      "Mehmet Topsakal",
+      "Klaus Attenkofer",
+      "Tamar Wolf",
+      "Michal Leskes",
+      "Yandong Duan",
+      "Feng Wang",
+      "John Vinson",
+      "Deyu Lu",
+      "Anatoly I. Frenkel"
+    ],
+    "venue": "Physical Review Materials",
+    "classification": {
+      "category": "synthesis",
+      "confidence": "high",
+      "reasoning": "The XANES measurements are performed on static, as-synthesized powder pellets to determine the local coordination environment and site occupancy of the Mn dopant, rather than tracking dynamic changes during electrochemical cycling.",
+      "key_variables": [
+        "dopant presence",
+        "material composition"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Mn",
+      "edge": "K",
+      "category": "synthesis",
+      "uses_our_phases": false,
+      "analysis_type": "simulation",
+      "sample_conditions": [
+        {
+          "sample_id": "1% Mn-LTO",
+          "description": "1 at. % Mn doped lithium titanate",
+          "material": "Mn-doped Li4/3Ti5/3O4",
+          "preparation": "The samples of pristine and 1 at. % Mn doped LTO were prepared by solid state reactions as described previously [31].",
+          "method": "solid-state",
+          "precursors": null,
+          "temperature_C": null,
+          "duration_hours": null,
+          "heating_rate_C_per_min": null,
+          "atmosphere": null,
+          "cooling_method": null,
+          "post_treatment": null,
+          "key_variable": "Mn doping concentration",
+          "key_variable_value": "1 at. %",
+          "phase_fractions": [
+            {
+              "phase": "Mn at Li-8a site in LTO",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "figure_4",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "DFT total energy calculations and OCEAN XANES simulations demonstrate that Mn2+ substitution at the tetrahedral Li-8a site is energetically most favorable and provides an excellent match to the experimental XANES spectral features (specifically reproducing the distinct peak D).",
+      "condition_fraction_rules": [
+        "Dilute (1 at. %) Mn doping in LTO results in Mn occupying the tetrahedral Li-8a sites."
+      ],
+      "phase_names": [
+        "Mn at Li-8a site in LTO"
+      ],
+      "n_phases": 1,
+      "key_finding": "XANES spectroscopy combined with theoretical modeling reveals that in 1 at. % Mn-doped LTO, Mn2+ ions reside on tetrahedral (8a) sites, which partially blocks Li diffusion pathways and explains the observed 20% decrease in electrochemical capacity.",
+      "classification": {
+        "category": "synthesis",
+        "confidence": "high",
+        "reasoning": "The XANES measurements are performed on static, as-synthesized powder pellets to determine the local coordination environment and site occupancy of the Mn dopant, rather than tracking dynamic changes during electrochemical cycling.",
+        "key_variables": [
+          "dopant presence",
+          "material composition"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1021/acs.jpclett.7b02364",
+    "year": 2017,
+    "spectroscopy": "xanes",
+    "element": "Pt",
+    "edge": "L",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "Pt nanoparticle",
+    "insight": "Pt nanoparticle shape and size",
+    "application": "catalysis",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Supervised Machine-Learning-Based Determination of Three-Dimensional Structure of Metallic Nanoparticles",
+    "authors": [
+      "Janis Timoshenko",
+      "Deyu Lu",
+      "Yuewei Lin",
+      "Anatoly I. Frenkel"
+    ],
+    "venue": "The Journal of Physical Chemistry Letters",
+    "classification": {
+      "category": "catalyst",
+      "confidence": "high",
+      "reasoning": "The paper focuses on determining the 3D structure, size, and shape of supported Pt nanoparticle catalysts under different gas atmospheres using XANES and machine learning.",
+      "key_variables": [
+        "particle size",
+        "particle shape",
+        "preparation method",
+        "gas atmosphere"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Pt",
+      "edge": "L",
+      "category": "catalyst",
+      "uses_our_phases": false,
+      "analysis_type": "simulation",
+      "sample_conditions": [
+        {
+          "sample_id": "Foil",
+          "description": "Bulk Pt reference foil",
+          "material": "Pt",
+          "support": null,
+          "active_metal_loading": null,
+          "particle_size_nm": null,
+          "preparation_method": "commercial foil",
+          "treatment": null,
+          "reaction_conditions": "room temperature",
+          "measurement_mode": "ex-situ",
+          "key_variable": "reference material",
+          "key_variable_value": "bulk",
+          "phase_fractions": [
+            {
+              "phase": "Bulk Pt model {12, 6, 24, 12}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "A3",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "3.0",
+          "preparation_method": "impregnation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "impregnation, 3 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {9.4, 4.0, 14.4, 7.1}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1021/ja901427n"
+        },
+        {
+          "sample_id": "S4",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "1.2",
+          "preparation_method": "inverse micelle encapsulation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "inverse micelle, 1.2 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {8.5, 3.2, 11.5, 5.0}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1103/PhysRevB.82.155450"
+        },
+        {
+          "sample_id": "S2",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "1.2",
+          "preparation_method": "inverse micelle encapsulation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "inverse micelle, 1.2 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {7.8, 3.3, 9.6, 4.1}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1103/PhysRevB.82.155450"
+        },
+        {
+          "sample_id": "S3",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "0.9",
+          "preparation_method": "inverse micelle encapsulation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "inverse micelle, 0.9 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {7.7, 3.1, 9.2, 3.8}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1103/PhysRevB.82.155450"
+        },
+        {
+          "sample_id": "S1",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "1.1",
+          "preparation_method": "inverse micelle encapsulation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "inverse micelle, 1.1 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {7.4, 2.6, 8.0, 3.3}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1103/PhysRevB.82.155450"
+        },
+        {
+          "sample_id": "A2",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "1.1",
+          "preparation_method": "impregnation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "impregnation, 1.1 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {6.6, 2.1, 6.0, 2.9}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1021/ja901427n"
+        },
+        {
+          "sample_id": "A1",
+          "description": "Pt nanoparticles on alumina",
+          "material": "Pt",
+          "support": "gamma-Al2O3",
+          "active_metal_loading": null,
+          "particle_size_nm": "0.9",
+          "preparation_method": "impregnation method",
+          "treatment": null,
+          "reaction_conditions": "H2/He atmosphere, room temperature",
+          "measurement_mode": "in-situ",
+          "key_variable": "synthesis method and size",
+          "key_variable_value": "impregnation, 0.9 nm",
+          "phase_fractions": [
+            {
+              "phase": "Pt NP model {6.2, 1.9, 5.1, 2.4}",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "table_1",
+          "r_factor": null,
+          "conditions_from_ref": "10.1021/ja901427n"
+        }
+      ],
+      "causal_reasoning": "A neural network trained on ab-initio XANES simulations (FEFF/FDMNES) was used to predict the first four coordination numbers (CNs) directly from experimental XANES spectra. These predicted CNs were then matched to specific 3D nanoparticle structural models to identify the average size and shape of the nanoparticles.",
+      "condition_fraction_rules": [
+        "Smaller nanoparticles exhibit lower coordination numbers due to a higher fraction of undercoordinated surface sites.",
+        "Nanoparticles prepared via the impregnation method (A1-A3) tend to form flatter, raft-like shapes due to strong interaction with the support, whereas those prepared via inverse micelle encapsulation (S1-S4) form more spherical, symmetric particles."
+      ],
+      "phase_names": [
+        "Bulk Pt model {12, 6, 24, 12}",
+        "Pt NP model {9.4, 4.0, 14.4, 7.1}",
+        "Pt NP model {8.5, 3.2, 11.5, 5.0}",
+        "Pt NP model {7.8, 3.3, 9.6, 4.1}",
+        "Pt NP model {7.7, 3.1, 9.2, 3.8}",
+        "Pt NP model {7.4, 2.6, 8.0, 3.3}",
+        "Pt NP model {6.6, 2.1, 6.0, 2.9}",
+        "Pt NP model {6.2, 1.9, 5.1, 2.4}"
+      ],
+      "n_phases": 8,
+      "key_finding": "A supervised machine learning approach using artificial neural networks trained on theoretical spectra successfully extracted coordination numbers up to the fourth shell from Pt L3-edge XANES, enabling the determination of 3D nanoparticle size and shape.",
+      "classification": {
+        "category": "catalyst",
+        "confidence": "high",
+        "reasoning": "The paper focuses on determining the 3D structure, size, and shape of supported Pt nanoparticle catalysts under different gas atmospheres using XANES and machine learning.",
+        "key_variables": [
+          "particle size",
+          "particle shape",
+          "preparation method",
+          "gas atmosphere"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1039/c6cp04030f",
+    "year": 2016,
+    "spectroscopy": "xanes",
+    "element": "Pd",
+    "edge": "K",
+    "has_exp": "Y",
+    "has_sim": "Y",
+    "material": "palladium-doped gold thiolate cluster",
+    "insight": "Pt local structure motif",
+    "application": "catalysis",
+    "contributor": "Deyu Lu",
+    "source": "xlsx_curated",
+    "title": "Solving local structure around dopants in metal nanoparticles with ab initio modeling of X-ray absorption near edge structure",
+    "authors": [
+      "Janis Timoshenko",
+      "Atal Shivhare",
+      "Robert W. J. Scott",
+      "Deyu Lu",
+      "Anatoly I. Frenkel"
+    ],
+    "venue": "Physical Chemistry Chemical Physics",
+    "classification": {
+      "category": "catalyst",
+      "confidence": "high",
+      "reasoning": "The paper investigates the site occupancy (phase fractions) of Pd dopants in gold nanoparticle catalysts, tracking how these structural motifs change depending on catalyst preparation (precursor ratio) and activation methods (thermal or chemical treatments).",
+      "key_variables": [
+        "Pd precursor ratio",
+        "thermal treatment",
+        "chemical treatment"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Pd",
+      "edge": "K",
+      "category": "catalyst",
+      "uses_our_phases": false,
+      "analysis_type": "LCF",
+      "sample_conditions": [
+        {
+          "sample_id": "Au25 + 6 Pd, as prepared",
+          "description": "Pd-doped gold thiolate cluster prepared with 6.0 equiv Pd acetate",
+          "material": "Pd-doped Au25(SC8H9)18",
+          "support": null,
+          "active_metal_loading": null,
+          "particle_size_nm": "~1",
+          "preparation_method": "reaction of thiolated Au25 clusters with 6.0 equiv Pd acetate",
+          "treatment": "as prepared",
+          "reaction_conditions": null,
+          "measurement_mode": "ex-situ",
+          "key_variable": "treatment",
+          "key_variable_value": "none",
+          "phase_fractions": [
+            {
+              "phase": "core site",
+              "fraction": 0.2
+            },
+            {
+              "phase": "surface site",
+              "fraction": 0.0
+            },
+            {
+              "phase": "staple site",
+              "fraction": 0.8
+            }
+          ],
+          "data_source": "table_2",
+          "r_factor": null,
+          "conditions_from_ref": "Ref 44"
+        },
+        {
+          "sample_id": "Au25 + 6 Pd, chemically treated",
+          "description": "Pd-doped gold thiolate cluster prepared with 6.0 equiv Pd acetate, chemically treated",
+          "material": "Pd-doped Au25(SC8H9)18",
+          "support": null,
+          "active_metal_loading": null,
+          "particle_size_nm": "~1",
+          "preparation_method": "reaction of thiolated Au25 clusters with 6.0 equiv Pd acetate",
+          "treatment": "0.1 mL of LiBH4 added to 100 mg sample suspended in hexane, washed and dried",
+          "reaction_conditions": null,
+          "measurement_mode": "ex-situ",
+          "key_variable": "treatment",
+          "key_variable_value": "chemical (LiBH4)",
+          "phase_fractions": [
+            {
+              "phase": "core site",
+              "fraction": 0.2
+            },
+            {
+              "phase": "surface site",
+              "fraction": 0.3
+            },
+            {
+              "phase": "staple site",
+              "fraction": 0.5
+            }
+          ],
+          "data_source": "table_2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Au25 + 6 Pd, thermally treated",
+          "description": "Pd-doped gold thiolate cluster prepared with 6.0 equiv Pd acetate, thermally treated",
+          "material": "Pd-doped Au25(SC8H9)18",
+          "support": null,
+          "active_metal_loading": null,
+          "particle_size_nm": "~1",
+          "preparation_method": "reaction of thiolated Au25 clusters with 6.0 equiv Pd acetate",
+          "treatment": "calcinated at 250C for 90 minutes in air, then treated for 90 minutes in H2 atmosphere",
+          "reaction_conditions": null,
+          "measurement_mode": "ex-situ",
+          "key_variable": "treatment",
+          "key_variable_value": "thermal (250C air, then H2)",
+          "phase_fractions": [
+            {
+              "phase": "core site",
+              "fraction": 0.2
+            },
+            {
+              "phase": "surface site",
+              "fraction": 0.4
+            },
+            {
+              "phase": "staple site",
+              "fraction": 0.4
+            }
+          ],
+          "data_source": "table_2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Au25 + 0.5 Pd, chemically treated",
+          "description": "Pd-doped gold thiolate cluster prepared with 0.5 equiv Pd acetate, chemically treated",
+          "material": "Pd-doped Au25(SC8H9)18",
+          "support": null,
+          "active_metal_loading": null,
+          "particle_size_nm": "~1",
+          "preparation_method": "reaction of thiolated Au25 clusters with 0.5 equiv Pd acetate",
+          "treatment": "0.1 mL of LiBH4 added to 100 mg sample suspended in hexane, washed and dried",
+          "reaction_conditions": null,
+          "measurement_mode": "ex-situ",
+          "key_variable": "treatment",
+          "key_variable_value": "chemical (LiBH4)",
+          "phase_fractions": [
+            {
+              "phase": "core site",
+              "fraction": 0.3
+            },
+            {
+              "phase": "surface site",
+              "fraction": 0.2
+            },
+            {
+              "phase": "staple site",
+              "fraction": 0.5
+            }
+          ],
+          "data_source": "table_2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "Chemical and thermal treatments partially remove thiols (staple motifs), causing Pd atoms to migrate from staple sites to the cluster surface, while core occupancy remains relatively stable.",
+      "condition_fraction_rules": [
+        "As-prepared samples have Pd predominantly in staple sites (~80%).",
+        "Chemical or thermal treatment reduces staple site occupancy to ~40-50% and increases surface site occupancy to ~20-40%.",
+        "Core site occupancy remains stable at ~20-30% regardless of treatment."
+      ],
+      "phase_names": [
+        "core site",
+        "surface site",
+        "staple site"
+      ],
+      "n_phases": 3,
+      "key_finding": "Ab initio XANES modeling combined with blind signal separation reveals that Pd dopants in Au25 clusters initially occupy staple motifs but migrate to the cluster surface upon chemical or thermal activation.",
+      "classification": {
+        "category": "catalyst",
+        "confidence": "high",
+        "reasoning": "The paper investigates the site occupancy (phase fractions) of Pd dopants in gold nanoparticle catalysts, tracking how these structural motifs change depending on catalyst preparation (precursor ratio) and activation methods (thermal or chemical treatments).",
+        "key_variables": [
+          "Pd precursor ratio",
+          "thermal treatment",
+          "chemical treatment"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1021/acsnano.6c05068",
+    "year": null,
+    "spectroscopy": "xanes",
+    "element": "",
+    "edge": "",
+    "has_exp": "",
+    "has_sim": "",
+    "material": "",
+    "insight": "",
+    "application": "",
+    "contributor": "",
+    "source": "xlsx_curated",
+    "title": "Sub-20 nm Hard X-ray\nSpectromicroscopy Reveals\nNanoscale Redox Heterogeneity in Ultrafine Particulates",
+    "authors": [
+      "Ajith Pattammattel",
+      "Robert Root",
+      "Zirui Gao",
+      "Dmitri Gavrilov",
+      "Randy Smith",
+      "Yong S. Chu",
+      "Xiaojing Huang",
+      "Jon Chorover",
+      "Hanfei Yan"
+    ],
+    "venue": "ACS Nano",
+    "classification": {
+      "category": "environmental",
+      "confidence": "high",
+      "reasoning": "The study investigates the nanoscale chemical speciation and weathering of arsenopyrite particles, which are environmental contaminants from mine tailings, including their reactivity in simulated biological fluids.",
+      "key_variables": [
+        "spatial location (nanoscale heterogeneity)",
+        "weathering (air oxidation)",
+        "in vitro bioassay exposure (synthetic gastric fluid)"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "As",
+      "edge": "K-edge",
+      "category": "environmental",
+      "uses_our_phases": false,
+      "analysis_type": "LCF/phase_id",
+      "sample_conditions": [
+        {
+          "sample_id": "Pristine As-Pyr (core)",
+          "description": "Central region of a micron-sized pristine arsenopyrite particle",
+          "material": "arsenopyrite mineral",
+          "sample_origin": "Yaogangxian Mine, Hunan Province, China",
+          "environmental_conditions": "ambient air exposure during sample preparation",
+          "weathering_history": "unreacted, but exposed to ambient air during transfer",
+          "spatial_location": "central core of micron-sized particle",
+          "key_variable": "spatial region",
+          "key_variable_value": "core",
+          "phase_fractions": [
+            {
+              "phase": "As(-I)",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_2",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Rctd-As-Pyr (nanoparticle regions)",
+          "description": "Arsenopyrite particles reacted with synthetic gastric fluid (SGF) for 1 h, nanoparticle-sized clusters (<200 nm)",
+          "material": "reacted arsenopyrite",
+          "sample_origin": "Yaogangxian Mine, Hunan Province, China",
+          "environmental_conditions": "synthetic gastric fluid (SGF), 0.4 M glycine, pH 1.5, 37 \u00b0C, anoxic",
+          "weathering_history": "in vitro bioassay (IVBA) for 1 h",
+          "spatial_location": "nanoparticle-sized clusters (<200 nm)",
+          "key_variable": "particle size/morphology",
+          "key_variable_value": "<200 nm",
+          "phase_fractions": [
+            {
+              "phase": "As(III)",
+              "fraction": 0.89
+            },
+            {
+              "phase": "As(V)",
+              "fraction": 0.11
+            }
+          ],
+          "data_source": "text/figure_4",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Rctd-As-Pyr (submicron aggregates)",
+          "description": "Arsenopyrite particles reacted with synthetic gastric fluid (SGF) for 1 h, submicron crystalline-like aggregates (200-500 nm)",
+          "material": "reacted arsenopyrite",
+          "sample_origin": "Yaogangxian Mine, Hunan Province, China",
+          "environmental_conditions": "synthetic gastric fluid (SGF), 0.4 M glycine, pH 1.5, 37 \u00b0C, anoxic",
+          "weathering_history": "in vitro bioassay (IVBA) for 1 h",
+          "spatial_location": "submicron crystalline-like aggregates (200-500 nm)",
+          "key_variable": "particle size/morphology",
+          "key_variable_value": "200-500 nm",
+          "phase_fractions": [
+            {
+              "phase": "As(V)",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_4",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "In acidic synthetic gastric fluid, arsenopyrite dissolves and oxidizes, leading to As(V)-dominated submicron cores. However, localized reducing conditions at the mineral-fluid interface, likely driven by the accumulation of Fe(II) from arsenopyrite dissolution, stabilize or reduce As(V) to As(III), forming a highly labile As(III)-rich corona in the ultrafine nanoparticle fraction.",
+      "condition_fraction_rules": [
+        "Reaction of arsenopyrite in synthetic gastric fluid (pH 1.5) leads to As(V) dominated cores in submicron aggregates.",
+        "Nanoparticle clusters (<200 nm) of reacted arsenopyrite exhibit an inversion of the expected oxidation gradient, forming an As(III)-rich corona accounting for 80-98% of the total As signal."
+      ],
+      "phase_names": [
+        "As(-I)",
+        "As(III)",
+        "As(V)"
+      ],
+      "n_phases": 3,
+      "key_finding": "Sub-20 nm X-ray spectromicroscopy reveals that ultrafine arsenopyrite particles reacted in simulated gastric fluid develop an unexpected, highly toxic As(III)-rich corona surrounding As(V)-dominated cores.",
+      "classification": {
+        "category": "environmental",
+        "confidence": "high",
+        "reasoning": "The study investigates the nanoscale chemical speciation and weathering of arsenopyrite particles, which are environmental contaminants from mine tailings, including their reactivity in simulated biological fluids.",
+        "key_variables": [
+          "spatial location (nanoscale heterogeneity)",
+          "weathering (air oxidation)",
+          "in vitro bioassay exposure (synthetic gastric fluid)"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1126/sciadv.abb3615",
+    "year": null,
+    "spectroscopy": "xanes",
+    "element": "",
+    "edge": "",
+    "has_exp": "",
+    "has_sim": "",
+    "material": "",
+    "insight": "",
+    "application": "",
+    "contributor": "",
+    "source": "xlsx_curated",
+    "title": "High-sensitivity nanoscale chemical imaging with hard x-ray nano-XANES",
+    "authors": [
+      "A. Pattammattel",
+      "R. Tappero",
+      "M. Ge",
+      "Y. S. Chu",
+      "X. Huang",
+      "Y. Gao",
+      "H. Yan"
+    ],
+    "venue": "Science Advances",
+    "classification": {
+      "category": "electrochemistry",
+      "confidence": "high",
+      "reasoning": "The paper investigates the nanoscale chemical state and morphology of secondary Fe-phosphide phases in lithium iron phosphate (LFP) battery cathode particles before (pristine) and after electrochemical cycling (partially lithiated).",
+      "key_variables": [
+        "state of charge (SOC)",
+        "electrochemical cycling",
+        "lithiation state"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Fe",
+      "edge": "K-edge",
+      "category": "electrochemistry",
+      "uses_our_phases": true,
+      "analysis_type": "LCF",
+      "sample_conditions": [
+        {
+          "sample_id": "Reference mixture",
+          "description": "Physically mixed stainless steel and hematite nanoparticles used as a benchmark",
+          "material": "stainless steel and hematite",
+          "electrode_type": null,
+          "electrolyte": null,
+          "cell_type": null,
+          "charge_discharge": null,
+          "c_rate": null,
+          "voltage_V": null,
+          "state_of_charge": null,
+          "cycle_number": null,
+          "capacity_mAh_g": null,
+          "measurement_mode": "ex-situ",
+          "temperature_C": null,
+          "key_variable": "sample type",
+          "key_variable_value": "reference standard",
+          "phase_fractions": [
+            {
+              "phase": "stainless steel (Fe(0))",
+              "fraction": 0.96
+            },
+            {
+              "phase": "hematite (Fe(III))",
+              "fraction": 0.04
+            }
+          ],
+          "data_source": "text",
+          "r_factor": 0.0015,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Pristine LFP",
+          "description": "Pristine carbon-coated lithium iron phosphate particle",
+          "material": "LiFePO4",
+          "electrode_type": "cathode",
+          "electrolyte": null,
+          "cell_type": null,
+          "charge_discharge": "OCV",
+          "c_rate": null,
+          "voltage_V": null,
+          "state_of_charge": "pristine",
+          "cycle_number": 0,
+          "capacity_mAh_g": null,
+          "measurement_mode": "ex-situ",
+          "temperature_C": null,
+          "key_variable": "state of charge",
+          "key_variable_value": "pristine",
+          "phase_fractions": [
+            {
+              "phase": "Fe3P",
+              "fraction": 0.05
+            },
+            {
+              "phase": "LiFePO4 (Fe(II))",
+              "fraction": 0.95
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Partially (de)lithiated LFP (Particle 1)",
+          "description": "LFP particle after partial (de)lithiation showing phosphide nanonetworks",
+          "material": "LixFePO4",
+          "electrode_type": "cathode",
+          "electrolyte": "LiPF6 in dimethyl carbonate",
+          "cell_type": "CR-2032 coin cell",
+          "charge_discharge": "partially charged/discharged",
+          "c_rate": "0.1 C",
+          "voltage_V": "3.0 - 4.0",
+          "state_of_charge": "partially (de)lithiated",
+          "cycle_number": null,
+          "capacity_mAh_g": null,
+          "measurement_mode": "ex-situ",
+          "temperature_C": null,
+          "key_variable": "state of charge",
+          "key_variable_value": "partially (de)lithiated",
+          "phase_fractions": [
+            {
+              "phase": "Fe3P",
+              "fraction": 0.04
+            },
+            {
+              "phase": "Fe(II)/Fe(III) states",
+              "fraction": 0.96
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Partially (de)lithiated LFP (Particle 2)",
+          "description": "Another LFP particle after partial (de)lithiation showing higher phosphide content",
+          "material": "LixFePO4",
+          "electrode_type": "cathode",
+          "electrolyte": "LiPF6 in dimethyl carbonate",
+          "cell_type": "CR-2032 coin cell",
+          "charge_discharge": "partially charged/discharged",
+          "c_rate": "0.1 C",
+          "voltage_V": "3.0 - 4.0",
+          "state_of_charge": "partially (de)lithiated",
+          "cycle_number": null,
+          "capacity_mAh_g": null,
+          "measurement_mode": "ex-situ",
+          "temperature_C": null,
+          "key_variable": "state of charge",
+          "key_variable_value": "partially (de)lithiated",
+          "phase_fractions": [
+            {
+              "phase": "Fe3P",
+              "fraction": 0.18
+            },
+            {
+              "phase": "Fe(II)/Fe(III) states",
+              "fraction": 0.82
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "Electrochemical cycling (partial de/lithiation) causes the trace Fe-phosphide secondary phases (originally formed during high-temperature carbon coating) to transform from isolated nanoparticles into percolating nanonetworks within the LFP particles.",
+      "condition_fraction_rules": [
+        "Pristine LFP contains ~5% Fe-phosphide as isolated nanoparticles.",
+        "Partially (de)lithiated LFP contains variable amounts of Fe-phosphide (4-18%) that form percolating nanonetworks."
+      ],
+      "phase_names": [
+        "stainless steel (Fe(0))",
+        "hematite (Fe(III))",
+        "LiFePO4 (Fe(II))",
+        "Fe(II)/Fe(III) states",
+        "Fe3P"
+      ],
+      "n_phases": 5,
+      "key_finding": "High-sensitivity hard x-ray nano-XANES reveals that trace Fe-phosphide secondary phases in LFP transform from isolated nanoparticles to percolating nanonetworks during electrochemical cycling.",
+      "classification": {
+        "category": "electrochemistry",
+        "confidence": "high",
+        "reasoning": "The paper investigates the nanoscale chemical state and morphology of secondary Fe-phosphide phases in lithium iron phosphate (LFP) battery cathode particles before (pristine) and after electrochemical cycling (partially lithiated).",
+        "key_variables": [
+          "state of charge (SOC)",
+          "electrochemical cycling",
+          "lithiation state"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1088/1361-6528/acad09",
+    "element": "Ti, Zn",
+    "edge": "K",
+    "material": "Provides the original experimental Ti and Zn K-edge XANES spectra, experimental conditions, and previous MCR-ALS spectral decomposition results that are further analyzed in this study.",
+    "source": "citation_chase",
+    "cited_by": "",
+    "title": "Deciphering phase evolution in complex metal oxide thin films via high-throughput materials synthesis and characterization",
+    "authors": [
+      "Ruoshui Li",
+      "Xuance Jiang",
+      "Chenyu Zhou",
+      "Mehmet Topsakal",
+      "Dmytro Nykypanchuk",
+      "Klaus Attenkofer",
+      "Dario J Stacchiola",
+      "Mark S Hybertsen",
+      "Eli Stavitski",
+      "Xiaohui Qu",
+      "Deyu Lu",
+      "Mingzhao Liu"
+    ],
+    "venue": "Nanotechnology",
+    "classification": {
+      "category": "thin_film",
+      "confidence": "high",
+      "reasoning": "The study investigates phase evolution across a combinatorial metal oxide thin film where phase fractions depend on a spatially varying Ti:Zn composition gradient created via pulsed laser deposition.",
+      "key_variables": [
+        "spatial position",
+        "Ti:Zn atomic ratio",
+        "composition gradient"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Ti, Zn",
+      "edge": "K",
+      "category": "thin_film",
+      "uses_our_phases": true,
+      "analysis_type": "MCR/LCF",
+      "sample_conditions": [
+        {
+          "sample_id": "Pure TiO2 reference film",
+          "description": "Reference thin film of pure TiO2 deposited under identical conditions to the combinatorial film",
+          "material": "TiO2",
+          "deposition_method": "PLD",
+          "substrate": "fused silica",
+          "deposition_temperature_C": 600,
+          "film_thickness_nm": null,
+          "composition_variable": "Ti fraction",
+          "composition_value": "1.0",
+          "annealing": null,
+          "key_variable": "Reference material",
+          "key_variable_value": "Pure TiO2",
+          "phase_fractions": [
+            {
+              "phase": "anatase",
+              "fraction": 0.52
+            },
+            {
+              "phase": "rutile",
+              "fraction": 0.48
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Pure ZnO reference film",
+          "description": "Reference thin film of pure ZnO deposited under identical conditions to the combinatorial film",
+          "material": "ZnO",
+          "deposition_method": "PLD",
+          "substrate": "fused silica",
+          "deposition_temperature_C": 600,
+          "film_thickness_nm": null,
+          "composition_variable": "Ti fraction",
+          "composition_value": "0.0",
+          "annealing": null,
+          "key_variable": "Reference material",
+          "key_variable_value": "Pure ZnO",
+          "phase_fractions": [
+            {
+              "phase": "wurtzite ZnO",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Combinatorial film at fTi ~ 0.15",
+          "description": "Position on the combinatorial wafer where the MCR component TZ-4 reaches its maximum concentration",
+          "material": "Ti-Zn-O",
+          "deposition_method": "PLD",
+          "substrate": "fused silica",
+          "deposition_temperature_C": 600,
+          "film_thickness_nm": 100,
+          "composition_variable": "Ti fraction",
+          "composition_value": "0.15",
+          "annealing": null,
+          "key_variable": "Composition",
+          "key_variable_value": "fTi = 0.15",
+          "phase_fractions": [
+            {
+              "phase": "TZ-4 (Ti-doped ZnO motif)",
+              "fraction": 0.8
+            },
+            {
+              "phase": "TZ-5 (pure ZnO)",
+              "fraction": 0.1
+            },
+            {
+              "phase": "TZ-3 (TiZn2O4-like motif)",
+              "fraction": 0.1
+            }
+          ],
+          "data_source": "figure_5b",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Combinatorial film at fTi ~ 0.33",
+          "description": "Position on the combinatorial wafer where the MCR component TZ-3 reaches its maximum concentration",
+          "material": "Ti-Zn-O",
+          "deposition_method": "PLD",
+          "substrate": "fused silica",
+          "deposition_temperature_C": 600,
+          "film_thickness_nm": 100,
+          "composition_variable": "Ti fraction",
+          "composition_value": "0.33",
+          "annealing": null,
+          "key_variable": "Composition",
+          "key_variable_value": "fTi = 0.33",
+          "phase_fractions": [
+            {
+              "phase": "TZ-3 (TiZn2O4-like motif)",
+              "fraction": 0.6
+            },
+            {
+              "phase": "TZ-4 (Ti-doped ZnO motif)",
+              "fraction": 0.25
+            },
+            {
+              "phase": "TZ-2 (Ti3Zn2O8-like motif)",
+              "fraction": 0.15
+            }
+          ],
+          "data_source": "figure_5b",
+          "r_factor": null,
+          "conditions_from_ref": null
+        },
+        {
+          "sample_id": "Combinatorial film at fTi ~ 0.60",
+          "description": "Position on the combinatorial wafer where the MCR component TZ-2 reaches its maximum concentration",
+          "material": "Ti-Zn-O",
+          "deposition_method": "PLD",
+          "substrate": "fused silica",
+          "deposition_temperature_C": 600,
+          "film_thickness_nm": 100,
+          "composition_variable": "Ti fraction",
+          "composition_value": "0.60",
+          "annealing": null,
+          "key_variable": "Composition",
+          "key_variable_value": "fTi = 0.60",
+          "phase_fractions": [
+            {
+              "phase": "TZ-2 (Ti3Zn2O8-like motif)",
+              "fraction": 0.9
+            },
+            {
+              "phase": "TZ-1 (pure TiO2)",
+              "fraction": 0.05
+            },
+            {
+              "phase": "TZ-3 (TiZn2O4-like motif)",
+              "fraction": 0.05
+            }
+          ],
+          "data_source": "figure_5b",
+          "r_factor": null,
+          "conditions_from_ref": null
+        }
+      ],
+      "causal_reasoning": "The combinatorial PLD synthesis creates a continuous composition gradient of Ti and Zn across the wafer. This varying stoichiometry drives the formation of different local structural motifs and phases, transitioning from wurtzite ZnO to Ti-doped ZnO, inverse spinel TiZn2O4, defective spinel Ti3Zn2O8, and finally to a mixture of rutile and anatase TiO2.",
+      "condition_fraction_rules": [
+        "At the Zn-rich end (fTi = 0), the film is pure wurtzite ZnO.",
+        "As Ti fraction increases to ~0.15, a Ti-doped ZnO phase (TZ-4) dominates.",
+        "At intermediate Ti fractions (~0.33), an inverse spinel TiZn2O4-like phase (TZ-3) peaks.",
+        "At higher Ti fractions (~0.60), a defective spinel Ti3Zn2O8-like phase (TZ-2) dominates.",
+        "At the Ti-rich end (fTi = 1.0), the film is a mixture of anatase and rutile TiO2."
+      ],
+      "phase_names": [
+        "anatase",
+        "rutile",
+        "wurtzite ZnO",
+        "TZ-1 (pure TiO2)",
+        "TZ-2 (Ti3Zn2O8-like motif)",
+        "TZ-3 (TiZn2O4-like motif)",
+        "TZ-4 (Ti-doped ZnO motif)",
+        "TZ-5 (pure ZnO)"
+      ],
+      "n_phases": 8,
+      "key_finding": "MCR-ALS analysis of spatially resolved XANES spectra across a combinatorial Ti-Zn-O thin film reveals the evolution of five distinct structural phases, including three intermediate phases with motifs resembling Ti3Zn2O8, TiZn2O4, and Ti-doped ZnO, which correlate with a negative optical bowing effect.",
+      "classification": {
+        "category": "thin_film",
+        "confidence": "high",
+        "reasoning": "The study investigates phase evolution across a combinatorial metal oxide thin film where phase fractions depend on a spatially varying Ti:Zn composition gradient created via pulsed laser deposition.",
+        "key_variables": [
+          "spatial position",
+          "Ti:Zn atomic ratio",
+          "composition gradient"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  },
+  {
+    "doi": "10.1063/1.4908266",
+    "element": "Cu",
+    "edge": "K",
+    "material": "Cited as a foundational example of the spectral fingerprint approach, specifically using linear regression to fit measured XANES spectra with spectral basis functions of well-defined experimental standards.",
+    "source": "citation_chase",
+    "cited_by": "",
+    "title": "A high-resolution XAS study of aqueous Cu(II) in liquid and frozen solutions: Pyramidal, polymorphic, and non-centrosymmetric",
+    "authors": [
+      "Patrick Frank",
+      "Maurizio Benfatto",
+      "Munzarin Qayyam",
+      "Britt Hedman",
+      "Keith O. Hodgson"
+    ],
+    "venue": "The Journal of Chemical Physics",
+    "pmcid": "PMC4349298",
+    "classification": {
+      "category": "pure_phase",
+      "confidence": "high",
+      "reasoning": "The paper describes a fundamental structural investigation of a well-defined reference state (aqueous Cu(II) in liquid and frozen solutions) to establish its exact coordination geometry, serving as a foundational standard for spectral fingerprinting.",
+      "key_variables": [
+        "physical state (liquid vs. frozen)",
+        "temperature"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Cu",
+      "edge": "K",
+      "category": "pure_phase",
+      "uses_our_phases": false,
+      "analysis_type": "reference measurement",
+      "sample_conditions": [
+        {
+          "sample_id": "Liquid aqueous Cu(II)",
+          "description": "Cu(II) in liquid aqueous solution",
+          "material": "[Cu(H2O)5]2+",
+          "crystal_structure": "axially elongated square pyramidal",
+          "oxidation_state": "2+",
+          "coordination": "5",
+          "purity": null,
+          "measurement_mode": null,
+          "sample_form": "solution",
+          "edge_position_eV": null,
+          "pre_edge_description": "1s -> 3d transitions remained invariant in energy position and intensity",
+          "white_line_description": null,
+          "spectral_description": "Solvation shells found at ~3.6 \u00c5 (EXAFS) or ~3.8 \u00c5 (MXAN). Associates with an axially non-bonding 2.9 \u00c5 water molecule about half the time.",
+          "phase_fractions": [
+            {
+              "phase": "[Cu(H2O)5]2+",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text",
+          "r_factor": null
+        }
+      ],
+      "phase_names": [
+        "[Cu(H2O)5]2+"
+      ],
+      "n_phases": 1,
+      "key_finding": "High-resolution EXAFS and MXAN XAS analyses show that axially elongated square pyramidal [Cu(H2O)5]2+ dominates the structure of Cu(II) in both liquid and frozen aqueous solutions, with freezing producing a shoulder at 8989.6 eV on the rising XAS edge.",
+      "classification": {
+        "category": "pure_phase",
+        "confidence": "high",
+        "reasoning": "The paper describes a fundamental structural investigation of a well-defined reference state (aqueous Cu(II) in liquid and frozen solutions) to establish its exact coordination geometry, serving as a foundational standard for spectral fingerprinting.",
+        "key_variables": [
+          "physical state (liquid vs. frozen)",
+          "temperature"
+        ]
+      }
+    },
+    "fulltext_source": "cached_text",
+    "content_type": "text"
+  },
+  {
+    "doi": "10.1038/s41598-019-38482-1",
+    "element": "Mn, Fe",
+    "edge": "L",
+    "material": "Cited for predicting oxidation states in manganese and iron samples using supervised machine learning approaches",
+    "source": "citation_chase",
+    "cited_by": "",
+    "title": "Towards calibration-invariant spectroscopy using deep learning",
+    "authors": [
+      "M. Chatzidakis",
+      "G. A. Botton"
+    ],
+    "venue": "Scientific Reports",
+    "classification": {
+      "category": "pure_phase",
+      "confidence": "high",
+      "reasoning": "The study focuses on developing a machine learning model using spectra acquired from high-purity reference manganese oxide powders (MnO, Mn2O3, MnO2) to classify their oxidation states.",
+      "key_variables": [
+        "oxidation state",
+        "reference compound"
+      ]
+    },
+    "fulltext_analysis": {
+      "relevant": true,
+      "element": "Mn",
+      "edge": "L",
+      "category": "pure_phase",
+      "uses_our_phases": false,
+      "analysis_type": "reference measurement",
+      "sample_conditions": [
+        {
+          "sample_id": "MnO (Mn2+)",
+          "description": "Manganese(II) oxide reference powder",
+          "material": "MnO",
+          "crystal_structure": null,
+          "oxidation_state": "2+",
+          "coordination": "octahedral",
+          "purity": ">99%",
+          "measurement_mode": "transmission",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "The L2,3 white line peak is narrower than both Mn3+ and Mn4+",
+          "spectral_description": "EELS L2,3 core-loss edges cropped between 635 and 665 eV",
+          "phase_fractions": [
+            {
+              "phase": "MnO",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_2a",
+          "r_factor": null
+        },
+        {
+          "sample_id": "Mn2O3 (Mn3+)",
+          "description": "Manganese(III) oxide reference powder",
+          "material": "Mn2O3",
+          "crystal_structure": null,
+          "oxidation_state": "3+",
+          "coordination": "octahedral",
+          "purity": ">99%",
+          "measurement_mode": "transmission",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Broader than Mn2+, lacks the small shoulder on the low energy side of the larger peak that is present in Mn4+",
+          "spectral_description": "EELS L2,3 core-loss edges cropped between 635 and 665 eV",
+          "phase_fractions": [
+            {
+              "phase": "Mn2O3",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_2b",
+          "r_factor": null
+        },
+        {
+          "sample_id": "MnO2 (Mn4+)",
+          "description": "Manganese(IV) oxide reference powder",
+          "material": "MnO2",
+          "crystal_structure": null,
+          "oxidation_state": "4+",
+          "coordination": "octahedral",
+          "purity": ">99%",
+          "measurement_mode": "transmission",
+          "sample_form": "powder",
+          "edge_position_eV": null,
+          "pre_edge_description": null,
+          "white_line_description": "Differentiated from Mn3+ by a small shoulder located on the low energy side of the larger peak",
+          "spectral_description": "EELS L2,3 core-loss edges cropped between 635 and 665 eV",
+          "phase_fractions": [
+            {
+              "phase": "MnO2",
+              "fraction": 1.0
+            }
+          ],
+          "data_source": "text/figure_2c",
+          "r_factor": null
+        }
+      ],
+      "phase_names": [
+        "MnO",
+        "Mn2O3",
+        "MnO2"
+      ],
+      "n_phases": 3,
+      "key_finding": "Deep convolutional neural networks can accurately classify the oxidation states of manganese (Mn2+, Mn3+, Mn4+) from EELS L2,3-edge spectra, demonstrating translation-invariance and robustness to noise and calibration differences.",
+      "classification": {
+        "category": "pure_phase",
+        "confidence": "high",
+        "reasoning": "The study focuses on developing a machine learning model using spectra acquired from high-purity reference manganese oxide powders (MnO, Mn2O3, MnO2) to classify their oxidation states.",
+        "key_variables": [
+          "oxidation state",
+          "reference compound"
+        ]
+      }
+    },
+    "fulltext_source": "cached_pdf",
+    "content_type": "pdf"
+  }
+]

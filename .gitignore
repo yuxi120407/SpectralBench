@@ -1,0 +1,19 @@
+# API keys and credentials
+*api_key*
+*.env
+credentials*
+
+# Local environment paths
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Large/temporary files
+papers/
+*.zip
+xlsx_extracted_*.json
+stage1_examples_*.json
+
+# OS
+.DS_Store
+Thumbs.db
