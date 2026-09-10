@@ -255,6 +255,7 @@ def build_html(scenarios):
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, '{html.escape(s.get("id",""))}', '{html.escape(elem)}', '{html.escape(cat)}')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -346,6 +347,8 @@ h1 {{ font-size: 1.8em; margin-bottom: 5px; }}
 .review-btn {{ border: 1px solid #ddd; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-size: 0.85em; }}
 .review-btn.correct:hover, .review-btn.correct.selected {{ background: #c6f6d5; border-color: #38a169; }}
 .review-btn.incorrect:hover, .review-btn.incorrect.selected {{ background: #fed7d7; border-color: #e53e3e; }}
+.review-btn.issue {{ background: #fff; color: #b7791f; border-color: #ecc94b; }}
+.review-btn.issue:hover {{ background: #fefcbf; border-color: #d69e2e; }}
 .review-comment {{ flex: 1; min-width: 200px; border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px; font-size: 0.85em; }}
 .condition.reviewed-correct {{ border-left: 4px solid #38a169; }}
 .condition.reviewed-incorrect {{ border-left: 4px solid #e53e3e; }}
@@ -432,11 +435,22 @@ document.querySelectorAll('.filter-btn').forEach(btn => {{
 
 function markReview(btn, status) {{
     const condition = btn.closest('.condition');
-    const btns = btn.parentElement.querySelectorAll('.review-btn');
+    const btns = btn.parentElement.querySelectorAll('.review-btn:not(.issue)');
     btns.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     condition.classList.remove('reviewed-correct', 'reviewed-incorrect');
     condition.classList.add('reviewed-' + status);
+}}
+
+function reportIssue(btn, scenarioId, element, category) {{
+    const comment = btn.parentElement.querySelector('.review-comment').value || '';
+    const title = encodeURIComponent('[Scenario] ' + scenarioId);
+    let body = '**Scenario ID:** `' + scenarioId + '`\\n';
+    body += '**Element/Edge:** ' + element + '\\n';
+    body += '**Category:** ' + category + '\\n\\n';
+    body += '**Issue:**\\n' + (comment || '(describe the issue here)') + '\\n';
+    const url = 'https://github.com/yuxi120407/SpectralBench/issues/new?title=' + title + '&body=' + encodeURIComponent(body) + '&labels=scenario-review';
+    window.open(url, '_blank');
 }}
 </script>
 </body>

@@ -65,6 +65,8 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 .review-btn { border: 1px solid #ddd; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-size: 0.85em; }
 .review-btn.correct:hover, .review-btn.correct.selected { background: #c6f6d5; border-color: #38a169; }
 .review-btn.incorrect:hover, .review-btn.incorrect.selected { background: #fed7d7; border-color: #e53e3e; }
+.review-btn.issue { background: #fff; color: #b7791f; border-color: #ecc94b; }
+.review-btn.issue:hover { background: #fefcbf; border-color: #d69e2e; }
 .review-comment { flex: 1; min-width: 200px; border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px; font-size: 0.85em; }
 .condition.reviewed-correct { border-left: 4px solid #38a169; }
 .condition.reviewed-incorrect { border-left: 4px solid #e53e3e; }
@@ -165,6 +167,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.1 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -229,6 +232,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.2 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -293,6 +297,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.3 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -358,6 +363,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.4 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -423,6 +429,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.5 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -488,6 +495,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.6 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -553,6 +561,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.7 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -618,6 +627,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.8 (Ti K-edge)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -682,6 +692,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.1 (Zn K-edge)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -747,6 +758,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.2 (Zn K-edge)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -812,6 +824,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.3 (Zn K-edge)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -876,6 +889,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.4 (Zn K-edge)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -939,6 +953,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'resolving_local_stru_Combinatorial film, fTi = 0.5 (Zn K-edge)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1022,6 +1037,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'harnessing_neural_ne_Annealed graphene', 'C', 'synthesis')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1090,6 +1106,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'harnessing_neural_ne_Diamond', 'C', 'synthesis')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1175,6 +1192,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'prediction_of_the_cu_Cu Metal EELS', 'Cu', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1243,6 +1261,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'prediction_of_the_cu_Cu2O_EELS', 'Cu', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1312,6 +1331,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'prediction_of_the_cu_CuO EELS', 'Cu', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1394,6 +1414,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'thermally_driven_sur_Pristine_beta-NiAl_100', 'Ni', 'synthesis')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1460,6 +1481,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'thermally_driven_sur_gamma_prime_Ni3Al_precipitate_island', 'Ni', 'synthesis')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1546,6 +1568,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'simulated_sulfur_k_e_Li2S', 'S', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1614,6 +1637,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'simulated_sulfur_k_e_P2S5', 'S', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1683,6 +1707,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'simulated_sulfur_k_e_NiS', 'S', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1751,6 +1776,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'simulated_sulfur_k_e_beta-Li3PS4', 'S', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1837,6 +1863,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'probing_ferroelectri_croconic_acid_film', 'O', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1923,6 +1950,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'kinetic_pathways_of_Pristine_LTO', 'Li', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1994,6 +2022,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'kinetic_pathways_of_Intermediate_LTO_Low_Rate', 'Li', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2065,6 +2094,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'kinetic_pathways_of_Intermediate LTO (High Rate)', 'Li', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2154,6 +2184,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'i_operando__i_State 0 (Pristine)', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2226,6 +2257,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'i_operando__i_State 1 (40% relative capacity)', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2298,6 +2330,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'i_operando__i_State 2 (82% relative capacity)', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2368,6 +2401,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'i_operando__i_State 3 (Full sodiation)', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2449,6 +2483,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'ultrathin_amorphous_ZnO-APT_LCF', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2514,6 +2549,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'ultrathin_amorphous_ZnO-APT', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2602,6 +2638,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'multi_stage_structur_Pristine Li4/3Ti5/3O4', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2673,6 +2710,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'multi_stage_structur_Intermediate x=0.5', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2744,6 +2782,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'multi_stage_structur_Intermediate x=0.6', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2815,6 +2854,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'multi_stage_structur_Intermediate x=0.87', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2885,6 +2925,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'multi_stage_structur_Fully discharged x=1.0', 'Ti', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2967,6 +3008,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'identification_of_do_1% Mn-LTO', 'Mn', 'synthesis')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3046,6 +3088,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'supervised_machine_l_Foil', 'Pt', 'catalyst')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3127,6 +3170,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'solving_local_struct_Au25 + 6 Pd, as prepared', 'Pd', 'catalyst')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3192,6 +3236,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'solving_local_struct_Au25 + 6 Pd, chemically treated', 'Pd', 'catalyst')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3258,6 +3303,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'solving_local_struct_Au25_6Pd_thermally_treated', 'Pd', 'catalyst')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3324,6 +3370,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'solving_local_struct_Au25 + 0.5 Pd, chemically treated', 'Pd', 'catalyst')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3404,6 +3451,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'sub_20_nm_hard_x_ray_Pristine As-Pyr (core)', 'As', 'environmental')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3467,6 +3515,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'sub_20_nm_hard_x_ray_Rctd-As-Pyr_nanoparticle_regions', 'As', 'environmental')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3529,6 +3578,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'sub_20_nm_hard_x_ray_Rctd-As-Pyr_submicron_aggregates', 'As', 'environmental')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3618,6 +3668,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'high_sensitivity_nan_Reference mixture', 'Fe', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3689,6 +3740,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'high_sensitivity_nan_Pristine LFP', 'Fe', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3760,6 +3812,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'high_sensitivity_nan_Partially_delithiated_LFP', 'Fe', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3831,6 +3884,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'high_sensitivity_nan_Partially (de)lithiated LFP (Particle 2)', 'Fe', 'electrochemistry')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3911,6 +3965,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Pure TiO2 reference film', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3974,6 +4029,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Pure ZnO reference film', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4039,6 +4095,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.15 (Ti K)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4104,6 +4161,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.15 (Zn K)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4169,6 +4227,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.33 (Ti K)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4234,6 +4293,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.33 (Zn K)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4299,6 +4359,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.60 (Ti K)', 'Ti', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4364,6 +4425,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.60 (Zn K)', 'Zn', 'thin_film')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4449,6 +4511,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'a_high_resolution_xa_Liquid aqueous Cu(II)', 'Cu', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4533,6 +4596,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'towards_calibration_MnO (Mn2+)', 'Mn', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4601,6 +4665,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'towards_calibration_Mn2O3 (Mn3+)', 'Mn', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4670,6 +4735,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 'towards_calibration_MnO2 (Mn4+)', 'Mn', 'pure_phase')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4735,11 +4801,22 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 function markReview(btn, status) {
     const condition = btn.closest('.condition');
-    const btns = btn.parentElement.querySelectorAll('.review-btn');
+    const btns = btn.parentElement.querySelectorAll('.review-btn:not(.issue)');
     btns.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     condition.classList.remove('reviewed-correct', 'reviewed-incorrect');
     condition.classList.add('reviewed-' + status);
+}
+
+function reportIssue(btn, scenarioId, element, category) {
+    const comment = btn.parentElement.querySelector('.review-comment').value || '';
+    const title = encodeURIComponent('[Scenario] ' + scenarioId);
+    let body = '**Scenario ID:** `' + scenarioId + '`\n';
+    body += '**Element/Edge:** ' + element + '\n';
+    body += '**Category:** ' + category + '\n\n';
+    body += '**Issue:**\n' + (comment || '(describe the issue here)') + '\n';
+    const url = 'https://github.com/yuxi120407/SpectralBench/issues/new?title=' + title + '&body=' + encodeURIComponent(body) + '&labels=scenario-review';
+    window.open(url, '_blank');
 }
 </script>
 </body>
