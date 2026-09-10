@@ -1,14 +1,17 @@
 """
 Extract spectral analysis data from papers listed in xanes_literature_examples.xlsx.
 
-Downloads PDFs (preferred) or full text, then uses Gemini multimodal to extract
-data from both text AND figures. Covers LCF, phase identification, oxidation
-state analysis, spectral decomposition — not limited to LCF.
+V2 changes vs extract_from_xlsx.py: adds CRITICAL RULES to the extraction
+prompt to prevent downstream conflicts in stage 1:
+  1. Per-edge splitting for multi-element papers (Ti K + Zn K → 2 conditions)
+  2. Canonical, consistent phase names across all conditions in one paper
+  3. Deduplicate fitting-method variants (LCF vs shell-fit → 1 condition)
+  4. Consolidate pure reference samples (8 Pt-foil measurements → 1 condition)
 
 Usage:
-    python benchmark/auto_literature_download/extract_from_xlsx.py
-    python benchmark/auto_literature_download/extract_from_xlsx.py --max-papers 5
-    python benchmark/auto_literature_download/extract_from_xlsx.py --doi 10.1103/PhysRevMaterials.2.125403
+    python extract_from_xlsx_v2.py
+    python extract_from_xlsx_v2.py --max-papers 5
+    python extract_from_xlsx_v2.py --doi 10.1103/PhysRevMaterials.2.125403
 """
 
 import os
@@ -142,7 +145,35 @@ IMPORTANT:
 - Include ALL conditions/samples, even if phases are outside our reference set
 - If NO quantitative results exist at all, set relevant=false
 - If preparation details come from a CITED reference, put the DOI in conditions_from_ref
-- For fields not reported in the paper, use null — do NOT invent values"""
+- For fields not reported in the paper, use null — do NOT invent values
+
+CRITICAL RULES to prevent downstream conflicts:
+
+1. **PER-EDGE SPLITTING for multi-element papers**:
+   If XANES was measured at multiple absorption edges (e.g. Ti K AND Zn K),
+   create SEPARATE conditions per edge. Each must have its own phase_fractions
+   from the LCF/fit at THAT specific edge (they will usually differ).
+   Tag the sample_id with the edge: e.g. "Combinatorial film fTi=0.15 (Ti K-edge)"
+   and "Combinatorial film fTi=0.15 (Zn K-edge)". DO NOT copy the same fractions
+   to both edges — extract each edge's fit independently.
+
+2. **CANONICAL, CONSISTENT PHASE NAMES**:
+   Use the SAME phase name for the same phase across ALL conditions in the paper.
+   Prefer chemical formula with structure tag: "TiO2 (anatase)", "TiO2 (rutile)",
+   "LiFePO4", "Pd in staple site". Never mix "Pd staple site" and "Pd in staple site"
+   for the same thing. Do NOT include metadata like "(outside_references: true)" in
+   the phase name string.
+
+3. **DEDUPLICATE FITTING-METHOD VARIANTS**:
+   If the SAME sample is reported with multiple fitting methods (e.g. LCF fit vs
+   shell-fit vs amorphous model), output only ONE condition using the paper's
+   PRIMARY fit. Add a "fitting_method" field noting the method used. Do NOT
+   create separate conditions that differ only by analysis method.
+
+4. **CONSOLIDATE PURE REFERENCE SAMPLES**:
+   If multiple measurements yield the same pure reference (e.g. 8 different Pt
+   samples all giving metallic_platinum=1.0), output only ONE representative
+   condition with is_reference=true. Do not create 8 near-identical scenarios."""
 
 EXTRACT_PURE_PHASE_FOOTER = """
 IMPORTANT:
@@ -151,7 +182,15 @@ IMPORTANT:
 - Note which figure/table in data_source (e.g., "figure_3", "table_2")
 - Include ALL compounds measured, even if they are outside our reference set
 - Set relevant=true if the paper measures, describes, or shows XANES spectra of known compounds — even without LCF or quantitative fitting
-- For fields not reported in the paper, use null — do NOT invent values"""
+- For fields not reported in the paper, use null — do NOT invent values
+
+CRITICAL RULES to prevent downstream conflicts:
+1. Use CONSISTENT phase/compound names across all conditions in this paper
+   (e.g. always "TiO2 (anatase)", never mix with "anatase TiO2")
+2. For multi-edge papers, create SEPARATE conditions per edge with edge tag
+   in sample_id: "sample_X (Ti K-edge)" and "sample_X (Zn K-edge)"
+3. Deduplicate reference measurements — if 8 measurements all give the same
+   pure compound, output only ONE with is_reference=true"""
 
 EXTRACT_SYNTHESIS_PROMPT = EXTRACT_COMMON_HEADER + """
 This paper studies how SYNTHESIS CONDITIONS affect phase composition.

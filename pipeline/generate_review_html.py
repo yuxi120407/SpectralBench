@@ -255,7 +255,7 @@ def build_html(scenarios):
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, '{html.escape(s.get("id",""))}', '{html.escape(elem)}', '{html.escape(cat)}')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, {scenario_idx}, '{html.escape(s.get("id",""))}', '{html.escape(elem)}', '{html.escape(cat)}', '{html.escape(doi)}')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -442,10 +442,12 @@ function markReview(btn, status) {{
     condition.classList.add('reviewed-' + status);
 }}
 
-function reportIssue(btn, scenarioId, element, category) {{
+function reportIssue(btn, scenarioNum, scenarioId, element, category, doi) {{
     const comment = btn.parentElement.querySelector('.review-comment').value || '';
-    const title = encodeURIComponent('[Scenario] ' + scenarioId);
-    let body = '**Scenario ID:** `' + scenarioId + '`\\n';
+    const title = encodeURIComponent('[#' + scenarioNum + '] ' + scenarioId + ' (DOI: ' + doi + ')');
+    let body = '**Scenario #:** ' + scenarioNum + '\\n';
+    body += '**Scenario ID:** `' + scenarioId + '`\\n';
+    body += '**DOI:** ' + doi + '\\n';
     body += '**Element/Edge:** ' + element + '\\n';
     body += '**Category:** ' + category + '\\n\\n';
     body += '**Issue:**\\n' + (comment || '(describe the issue here)') + '\\n';

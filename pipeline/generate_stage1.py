@@ -819,10 +819,27 @@ def validate_scenarios(scenarios):
 
     # --- 5. Fraction sum check (non-pure-phase) ---
     sum_issues = 0
+    junk_keys = {"outside_references", "is_reference", "fitting_method", "notes",
+                 "reasoning", "confidence", "r_factor"}
     for s in scenarios:
         if s.get("category") == "pure_phase":
             continue
-        fracs = s.get("ground_truth", {}).get("fractions", {})
+        gt = s.get("ground_truth", {})
+        fracs = gt.get("fractions", {})
+        if not fracs:
+            continue
+        # Strip non-numeric junk that Gemini sometimes leaks into fractions
+        cleaned = {}
+        stripped = []
+        for k, v in fracs.items():
+            if k in junk_keys or not isinstance(v, (int, float)) or isinstance(v, bool):
+                stripped.append((k, v))
+                continue
+            cleaned[k] = v
+        if stripped:
+            print(f"  STRIPPED junk from {s['id']}: {stripped}")
+            gt["fractions"] = cleaned
+            fracs = cleaned
         if not fracs:
             continue
         total = sum(fracs.values())
@@ -859,12 +876,295 @@ def validate_scenarios(scenarios):
     return scenarios, n_issues
 
 
-def resolve_condition_elements(condition, paper_element, paper_edge):
+def harmonize_paper_phases(paper_scenarios):
+    """Normalize phase names across scenarios from the same paper.
+
+    Finds cases like "core site" vs "Pd in core site" and uses the longer form.
+    Only renames when the short form matches at a word boundary in the long form
+    (e.g. "core site" in "Pd in core site"), not chemical substrings
+    (e.g. "TiS2" should NOT match "NaTiS2").
+    """
+    if len(paper_scenarios) < 2:
+        return paper_scenarios, 0
+
+    all_phases = set()
+    for s in paper_scenarios:
+        gt = s.get("ground_truth", {})
+        for key in ("fractions", "candidate_phases", "significant_phases"):
+            val = gt.get(key, {})
+            if isinstance(val, dict):
+                all_phases.update(val.keys())
+            elif isinstance(val, list):
+                all_phases.update(val)
+
+    phase_list = sorted(all_phases)
+    rename_map = {}
+    for i, a in enumerate(phase_list):
+        for b in phase_list[i+1:]:
+            if a == b:
+                continue
+            short, long = (a, b) if len(a) < len(b) else (b, a)
+            if short.lower() not in long.lower():
+                continue
+            # Must match at word boundary: "core site" in "Pd in core site" OK,
+            # "TiS2" in "NaTiS2" NOT OK
+            # Skip if long form contains metadata artifacts
+            if "outside_references" in long or "true)" in long or "false)" in long:
+                continue
+            # Skip if short form is a complete chemical formula inside a longer phrase
+            # e.g. "Li4Ti5O12" inside "stable configurations (Li4Ti5O12/Li7Ti5O12)"
+            if re.match(r'^[A-Z][a-z]?\d', short) and "(" in long:
+                continue
+            pattern = r'(?<![A-Za-z0-9])' + re.escape(short) + r'(?![A-Za-z0-9])'
+            if re.search(pattern, long):
+                rename_map[short] = long
+
+    if not rename_map:
+        return paper_scenarios, 0
+
+    # Check for collisions: if two keys map to the same target, skip both
+    targets = {}
+    collisions = set()
+    for src, tgt in rename_map.items():
+        if tgt in targets:
+            collisions.add(tgt)
+        targets[tgt] = src
+    rename_map = {k: v for k, v in rename_map.items() if v not in collisions}
+
+    if not rename_map:
+        return paper_scenarios, 0
+
+    fixes = 0
+    for s in paper_scenarios:
+        gt = s.get("ground_truth", {})
+        for key in ("fractions", "candidate_phases", "significant_phases"):
+            val = gt.get(key)
+            if isinstance(val, dict):
+                new_dict = {}
+                for k, v in val.items():
+                    new_key = rename_map.get(k, k)
+                    # Also skip if rename would collide with existing key
+                    if new_key != k and new_key in val:
+                        new_key = k
+                    if new_key != k:
+                        fixes += 1
+                    new_dict[new_key] = v
+                gt[key] = new_dict
+            elif isinstance(val, list):
+                new_list = []
+                for item in val:
+                    new_item = rename_map.get(item, item)
+                    if new_item != item:
+                        fixes += 1
+                    new_list.append(new_item)
+                gt[key] = new_list
+
+    if fixes > 0:
+        renames = ", ".join(f'"{k}" -> "{v}"' for k, v in rename_map.items())
+        print(f"    Phase harmonization: {fixes} fixes ({renames})")
+
+    return paper_scenarios, fixes
+
+
+HARMONIZE_PROMPT = """You are reviewing benchmark scenarios generated from a single XANES paper.
+Each scenario has phase fractions (dict of phase_name -> fraction).
+Different scenarios may use inconsistent names for the SAME phase (e.g. "Pd staple site" vs "Pd in staple site" vs "staple motif").
+
+Your task: return a canonical rename map that unifies equivalent phase names.
+- DO NOT merge distinct phases (e.g. "core site" and "surface site" stay separate).
+- DO NOT change fraction values.
+- Prefer the most specific/descriptive form as canonical.
+- Only include entries in the map when a rename is needed.
+
+Input phase names (from this paper's scenarios):
+{phase_list}
+
+Return ONLY a JSON object mapping old_name -> canonical_name. No explanations.
+If no renames are needed, return {{}}.
+Example: {{"Pd staple site": "Pd in staple site", "staple motif": "Pd in staple site"}}
+"""
+
+
+def harmonize_via_gemini(paper_scenarios):
+    """Use Gemini to unify inconsistent phase names across a paper's scenarios."""
+    if len(paper_scenarios) < 2:
+        return 0
+
+    all_phases = set()
+    for s in paper_scenarios:
+        gt = s.get("ground_truth", {})
+        fracs = gt.get("fractions", {})
+        if isinstance(fracs, dict):
+            all_phases.update(fracs.keys())
+
+    if len(all_phases) < 2:
+        return 0
+
+    prompt = HARMONIZE_PROMPT.format(phase_list=json.dumps(sorted(all_phases), indent=2))
+    raw = call_gemini(prompt)
+    if not raw:
+        return 0
+
+    rename_map = parse_json(raw)
+    if not isinstance(rename_map, dict) or not rename_map:
+        return 0
+
+    # Skip renames that would cause collisions within one scenario
+    fixes = 0
+    for s in paper_scenarios:
+        gt = s.get("ground_truth", {})
+        for key in ("fractions", "candidate_phases", "significant_phases"):
+            val = gt.get(key)
+            if isinstance(val, dict):
+                new_dict = {}
+                for k, v in val.items():
+                    new_key = rename_map.get(k, k)
+                    if new_key != k and new_key in val and new_key not in new_dict:
+                        new_key = k
+                    if new_key in new_dict:
+                        new_dict[new_key] += v
+                    else:
+                        new_dict[new_key] = v
+                    if new_key != k:
+                        fixes += 1
+                gt[key] = new_dict
+            elif isinstance(val, list):
+                new_list = []
+                seen = set()
+                for item in val:
+                    new_item = rename_map.get(item, item)
+                    if new_item != item:
+                        fixes += 1
+                    if new_item not in seen:
+                        new_list.append(new_item)
+                        seen.add(new_item)
+                gt[key] = new_list
+
+    if fixes > 0:
+        renames = ", ".join(f'"{k}" -> "{v}"' for k, v in rename_map.items())
+        print(f"    Gemini harmonization: {fixes} fixes ({renames})")
+
+    return fixes
+
+
+def check_paper_consistency(scenarios, paper_start_idx):
+    """Run all per-paper checks on scenarios generated from one paper.
+
+    1. Harmonize phase names (rule-based + Gemini)
+    2. Detect near-duplicate prompts (same material + conditions → keep first)
+    3. Flag conflicting fractions for same element/edge
+    Returns updated scenarios list and number of removed scenarios.
+    """
+    paper_scenarios = scenarios[paper_start_idx:]
+    if len(paper_scenarios) < 2:
+        return scenarios, 0
+
+    # 1a. Rule-based harmonization (fast, catches simple cases)
+    harmonize_paper_phases(paper_scenarios)
+    # 1b. Gemini-based harmonization (handles semantic equivalence)
+    harmonize_via_gemini(paper_scenarios)
+
+    # 2. Detect near-duplicate prompts by comparing key fields
+    def prompt_signature(s):
+        p = s.get("prompt", "")
+        lines = []
+        for line in p.split("\n"):
+            line = line.strip()
+            if line.startswith("- **Material**"):
+                lines.append(line)
+            elif line.startswith("- **Deposition method**"):
+                lines.append(line)
+            elif line.startswith("- **Film thickness**"):
+                lines.append(line)
+            elif line.startswith("- **Deposition temperature**"):
+                lines.append(line)
+            elif line.startswith("- **Electrode"):
+                lines.append(line)
+            elif line.startswith("- **Active metal**"):
+                lines.append(line)
+            elif line.startswith("- **Compound**"):
+                lines.append(line)
+            elif line.startswith("- **State of charge**"):
+                lines.append(line)
+            elif line.startswith("- Treatment"):
+                lines.append(line)
+            elif line.startswith("- Composition"):
+                lines.append(line)
+        elem = s.get("element", "")
+        edge = s.get("edge", "")
+        return elem + "|" + edge + "|" + "|".join(sorted(lines))
+
+    seen_sigs = {}
+    to_remove = set()
+    sig_to_indices = {}
+    for idx, s in enumerate(paper_scenarios):
+        sig = prompt_signature(s)
+        sig_to_indices.setdefault(sig, []).append(idx)
+        if sig in seen_sigs:
+            first = seen_sigs[sig]
+            # Same input: check if output is also same
+            fi = paper_scenarios[first].get("ground_truth", {}).get("fractions", {})
+            fj = s.get("ground_truth", {}).get("fractions", {})
+            if fi == fj:
+                print(f"    REDUNDANT (same in → same out): #{paper_start_idx + idx + 1} "
+                      f"'{s.get('id','?')[:50]}' duplicates #{paper_start_idx + first + 1} — removing")
+            else:
+                print(f"    INCONSISTENT (same in → diff out): #{paper_start_idx + idx + 1} "
+                      f"vs #{paper_start_idx + first + 1}")
+                print(f"      #{paper_start_idx + first + 1}: {fi}")
+                print(f"      #{paper_start_idx + idx + 1}: {fj}")
+                print(f"      → keeping first, removing latter (needs manual review)")
+            to_remove.add(paper_start_idx + idx)
+        else:
+            seen_sigs[sig] = idx
+
+    # 3. Check for identical fractions across ALL pairs (different input → same output)
+    #    Includes cross-element pairs (e.g. Ti K vs Zn K of same sample)
+    active = [(idx, s) for idx, s in enumerate(paper_scenarios)
+              if (paper_start_idx + idx) not in to_remove]
+    for i in range(len(active)):
+        for j in range(i + 1, len(active)):
+            idx_i, si = active[i]
+            idx_j, sj = active[j]
+            if paper_start_idx + idx_j in to_remove:
+                continue
+            fi = si.get("ground_truth", {}).get("fractions", {})
+            fj = sj.get("ground_truth", {}).get("fractions", {})
+            if not (fi and fj and fi == fj):
+                continue
+            sig_i = prompt_signature(si)
+            sig_j = prompt_signature(sj)
+            if sig_i == sig_j:
+                continue  # already handled above
+            elem_i, edge_i = si.get("element", ""), si.get("edge", "")
+            elem_j, edge_j = sj.get("element", ""), sj.get("edge", "")
+            print(f"    SUSPICIOUS (diff in → same out): "
+                  f"#{paper_start_idx + idx_i + 1} ({elem_i} {edge_i}) and "
+                  f"#{paper_start_idx + idx_j + 1} ({elem_j} {edge_j}) "
+                  f"have identical fractions but different conditions")
+            print(f"      #{paper_start_idx + idx_i + 1}: {si.get('id','?')[:60]}")
+            print(f"      #{paper_start_idx + idx_j + 1}: {sj.get('id','?')[:60]}")
+            print(f"      fractions: {fi}")
+            print(f"      → removing latter (needs manual review)")
+            to_remove.add(paper_start_idx + idx_j)
+
+    if to_remove:
+        scenarios = [s for i, s in enumerate(scenarios) if i not in to_remove]
+        print(f"    Removed {len(to_remove)} redundant/conflicting scenario(s)")
+
+    return scenarios, len(to_remove)
+
+
+def resolve_condition_elements(condition, paper_element, paper_edge, all_conditions=None):
     """Resolve per-condition element/edge for multi-element papers.
 
     Returns list of (element, edge, id_suffix) tuples.
     Single-element papers return one tuple with empty suffix.
     Multi-element papers try: sample_id regex, material field, formula start, then split.
+
+    Method 3 (split) only fires if the paper's extraction contains per-edge data,
+    detected by ANY condition having an "(X K-edge)" tag in its sample_id.
+    Otherwise the split would produce redundant scenarios with identical fractions.
     """
     sample_id = condition.get("sample_id", "")
     elements = [e.strip() for e in paper_element.split(",")]
@@ -886,6 +1186,18 @@ def resolve_condition_elements(condition, paper_element, paper_edge):
             starts = [e for e in elements if material.startswith(e)]
             if len(starts) == 1:
                 return [(starts[0], paper_edge, "")]
+
+    # Method 3: only split if paper has per-edge data
+    has_per_edge = False
+    if all_conditions:
+        for c in all_conditions:
+            if re.search(r'\((\w+)\s+(K|L\d?)-edge\)', c.get("sample_id", "")):
+                has_per_edge = True
+                break
+
+    if not has_per_edge:
+        # Keep as single scenario using paper-level element (e.g. "Ti, Zn")
+        return [(paper_element, paper_edge, "")]
 
     results = []
     for e in elements:
@@ -989,12 +1301,13 @@ def main():
         benchmark_template = get_benchmark_template(category)
 
         paper_ok = 0
+        paper_start_idx = len(scenarios)
         for ci, condition in enumerate(conditions_with_fracs):
             sample_id = condition.get("sample_id", f"sample_{ci}")
             paper_short = (paper.get("title", "paper") or "paper")[:20].lower()
             paper_short = "".join(c if c.isalnum() else "_" for c in paper_short).strip("_")
 
-            resolved = resolve_condition_elements(condition, elem, edge)
+            resolved = resolve_condition_elements(condition, elem, edge, conditions_with_fracs)
 
             for cond_elem, cond_edge, id_suffix in resolved:
                 cond_idx += 1
@@ -1062,6 +1375,9 @@ def main():
                 time.sleep(2)
 
         print(f"    Generated {paper_ok}/{len(conditions_with_fracs)} scenarios from this paper")
+
+        # Per-paper consistency check: phase naming, duplicates, conflicts
+        scenarios, n_removed = check_paper_consistency(scenarios, paper_start_idx)
 
     # ── Post-generation validation: duplicates, conflicts, inconsistencies ──
     print(f"\n{'=' * 60}")
