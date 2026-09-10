@@ -58,6 +58,96 @@ def format_fractions(gt):
     return ", ".join(f"{k}: {v}" for k, v in fracs.items())
 
 
+def format_ground_truth_html(gt, category):
+    """Format full ground truth as HTML for display."""
+    parts = []
+
+    if category == "pure_phase":
+        parts.append(f'<div class="gt-field"><span class="gt-key">Compound:</span> {html.escape(str(gt.get("compound", "?")))}</div>')
+        parts.append(f'<div class="gt-field"><span class="gt-key">Oxidation state:</span> {html.escape(str(gt.get("oxidation_state", "?")))}</div>')
+        parts.append(f'<div class="gt-field"><span class="gt-key">Crystal structure:</span> {html.escape(str(gt.get("crystal_structure", "?")))}</div>')
+        parts.append(f'<div class="gt-field"><span class="gt-key">Coordination:</span> {html.escape(str(gt.get("coordination", "?")))}</div>')
+
+        sf = gt.get("spectral_features", {})
+        if sf:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Edge position:</span> {html.escape(str(sf.get("edge_position_eV", "?")))}</div>')
+
+            shape = sf.get("spectral_shape_summary", "")
+            if shape:
+                parts.append(f'<div class="gt-field"><span class="gt-key">Spectral shape:</span> {html.escape(shape)}</div>')
+
+            peaks = sf.get("labeled_peaks", [])
+            if peaks:
+                parts.append('<div class="gt-field"><span class="gt-key">Labeled peaks:</span></div>')
+                parts.append('<table class="gt-table"><tr><th>Label</th><th>Energy (eV)</th><th>Intensity</th><th>Origin</th><th>Source</th></tr>')
+                for pk in peaks:
+                    parts.append(
+                        f'<tr><td>{html.escape(str(pk.get("label", "")))}</td>'
+                        f'<td>{html.escape(str(pk.get("energy_eV", "")))}</td>'
+                        f'<td>{html.escape(str(pk.get("intensity", "")))}</td>'
+                        f'<td>{html.escape(str(pk.get("origin", "")))}</td>'
+                        f'<td>{html.escape(str(pk.get("source", "")))}</td></tr>'
+                    )
+                parts.append('</table>')
+
+            # old format fallback
+            pre = sf.get("pre_edge", {})
+            if isinstance(pre, dict) and pre.get("description"):
+                parts.append(f'<div class="gt-field"><span class="gt-key">Pre-edge:</span> {html.escape(pre["description"])}</div>')
+            wl = sf.get("white_line", {})
+            if isinstance(wl, dict) and wl.get("description"):
+                parts.append(f'<div class="gt-field"><span class="gt-key">White line:</span> {html.escape(wl["description"])}</div>')
+
+            sens = sf.get("structural_sensitivity", "")
+            if sens:
+                parts.append(f'<div class="gt-field"><span class="gt-key">Structural sensitivity:</span> {html.escape(sens)}</div>')
+            dist = sf.get("distinguishing_features", "")
+            if dist:
+                parts.append(f'<div class="gt-field"><span class="gt-key">Distinguishing features:</span> {html.escape(dist)}</div>')
+    else:
+        fracs = gt.get("fractions", {})
+        if fracs:
+            parts.append('<div class="gt-field"><span class="gt-key">Phase fractions:</span></div>')
+            parts.append('<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>')
+            for phase, frac in fracs.items():
+                parts.append(f'<tr><td>{html.escape(phase)}</td><td>{frac}</td></tr>')
+            parts.append('</table>')
+
+        candidates = gt.get("candidate_phases", [])
+        if candidates:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Candidate phases:</span> {html.escape(", ".join(candidates))}</div>')
+
+        refs = gt.get("recommended_references", [])
+        if refs:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Recommended references:</span> {html.escape(", ".join(refs))}</div>')
+
+    reasoning = gt.get("key_reasoning", "")
+    if reasoning:
+        parts.append(f'<div class="gt-field"><span class="gt-key">Key reasoning:</span> {html.escape(reasoning)}</div>')
+
+    return "\n".join(parts)
+
+
+def format_rubric_html(rubric):
+    """Format rubric as HTML table."""
+    if not rubric:
+        return ""
+    parts = ['<table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>']
+    for cat_name, cat_data in rubric.items():
+        max_score = cat_data.get("max_score", "?")
+        criteria = cat_data.get("criteria", [])
+        criteria_lines = []
+        for c in criteria:
+            pts = c.get("points", "?")
+            desc = c.get("description", "")
+            criteria_lines.append(f'{pts} pts — {html.escape(desc)}')
+        criteria_html = "<br>".join(criteria_lines)
+        display_name = cat_name.replace("_", " ").title()
+        parts.append(f'<tr><td class="rubric-cat">{html.escape(display_name)}</td><td class="rubric-max">{max_score}</td><td class="rubric-criteria">{criteria_html}</td></tr>')
+    parts.append('</table>')
+    return "\n".join(parts)
+
+
 def prompt_to_html(prompt):
     lines = prompt.split("\n")
     out = []
@@ -134,6 +224,9 @@ def build_html(scenarios):
             kv_str = f"{kv} = {kvv}" if kv else ""
             prompt_html = prompt_to_html(s.get("prompt", ""))
 
+            gt_html = format_ground_truth_html(gt, s.get("category", ""))
+            rubric_html = format_rubric_html(s.get("rubric", {}))
+
             conditions_html.append(f"""
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
@@ -146,11 +239,11 @@ def build_html(scenarios):
                 <div class="condition-body" style="display:none">
                     <div class="section">
                         <div class="section-title">Ground Truth</div>
-                        <div class="fractions">{html.escape(fracs)}</div>
+                        <div class="gt-box">{gt_html}</div>
                     </div>
                     <div class="section">
-                        <div class="section-title">Reasoning</div>
-                        <div class="reasoning">{html.escape(reasoning)}</div>
+                        <div class="section-title">Scoring Rubric (total: {sum(v.get('max_score', 0) for v in s.get('rubric', dict()).values())} pts)</div>
+                        <div class="rubric-box">{rubric_html}</div>
                     </div>
                     <div class="section">
                         <div class="section-title">LLM Prompt</div>
@@ -229,6 +322,19 @@ h1 {{ font-size: 1.8em; margin-bottom: 5px; }}
 .section-title {{ font-weight: 600; font-size: 0.85em; color: #4a5568; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }}
 .fractions {{ font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; background: #f7fafc; padding: 8px 12px; border-radius: 4px; }}
 .reasoning {{ font-size: 0.9em; color: #4a5568; }}
+.gt-box {{ background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 12px; font-size: 0.85em; }}
+.gt-field {{ margin: 4px 0; }}
+.gt-key {{ font-weight: 600; color: #2d3748; }}
+.gt-table {{ border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 0.9em; }}
+.gt-table th {{ background: #edf2f7; padding: 6px 10px; text-align: left; font-weight: 600; font-size: 0.85em; border: 1px solid #e2e8f0; }}
+.gt-table td {{ padding: 5px 10px; border: 1px solid #e2e8f0; vertical-align: top; }}
+.rubric-box {{ font-size: 0.85em; }}
+.rubric-table {{ border-collapse: collapse; width: 100%; margin: 4px 0; }}
+.rubric-table th {{ background: #edf2f7; padding: 6px 10px; text-align: left; font-weight: 600; font-size: 0.85em; border: 1px solid #e2e8f0; }}
+.rubric-table td {{ padding: 5px 10px; border: 1px solid #e2e8f0; vertical-align: top; }}
+.rubric-cat {{ font-weight: 500; white-space: nowrap; }}
+.rubric-max {{ text-align: center; font-weight: 600; color: #2c5282; }}
+.rubric-criteria {{ font-size: 0.9em; color: #4a5568; }}
 .prompt-box {{ background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 12px; font-size: 0.85em; }}
 .prompt-h {{ font-weight: 600; margin: 8px 0 4px; color: #2d3748; }}
 .prompt-field {{ margin: 2px 0; }}

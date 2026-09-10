@@ -183,18 +183,23 @@ Based on ALL the electrochemical conditions above:
 ## Sample Details
 - **Sample form**: [powder / foil / pellet / thin film / single crystal]
 - **Purity**: [purity or source information]
-- **Measurement mode**: [transmission / fluorescence / electron yield]
+- **Measurement mode**: [transmission / fluorescence / electron yield / EELS]
 
 ## Measurement
 This is a {element} {edge} XANES measurement of a known pure-phase reference compound.
 
 ## Questions
-Based on the compound identity and crystal structure above:
-1. What is the expected edge position (in eV) for this compound?
-2. Describe the expected pre-edge features: how many peaks, their approximate energy positions relative to the edge, and their physical origin (e.g., 1s->3d, 1s->4p transitions).
-3. Describe the expected white line (main absorption peak): its intensity relative to the edge jump, shape, and physical origin.
-4. What spectral features distinguish this compound from other common {element} phases? (e.g., how does the spectrum differ from other oxidation states or crystal structures?)
-5. Are there any other notable XANES features (shoulders, post-edge oscillations, multiple scattering resonances)?""",
+Based on the compound identity, crystal structure, and electronic configuration:
+
+1. **Spectral shape overview**: Describe the overall {element} {edge} XANES spectral shape for this compound. How many distinct peaks or features are visible in the near-edge region? Label them (e.g., A1, A2, B, pre-edge, white line) and describe their relative positions and intensities.
+
+2. **Peak positions and energies**: For each labeled feature, provide the approximate energy position (in eV) or energy relative to the absorption edge. Include the edge position itself.
+
+3. **Electronic structure origin**: For each major spectral feature, explain its physical origin in terms of electronic transitions and orbital character (e.g., which bands or states: t2g, eg, 4p, hybridized states). Which transitions are dipole-allowed vs. quadrupole or hybridization-enabled?
+
+4. **Structural sensitivity**: How do the spectral features depend on the crystal structure, coordination geometry, or bond lengths? Would a different polymorph or structural variant show different features, and if so, which ones and why?
+
+5. **Distinguishing features**: What specific spectral features (peak positions, relative intensities, presence/absence of features) distinguish this compound from other common {element} phases with different oxidation states or crystal structures?""",
 
     "thin_film": """## Sample Information
 - **Material**: [film composition and substrate]
@@ -403,7 +408,8 @@ GENERATION_PROMPT_PURE_PHASE = """You are an expert in XANES spectroscopy and be
 
 I need you to convert ONE pure-phase reference compound from a published XANES paper
 into a Stage 1 benchmark scenario that tests whether an LLM has deep XANES spectral
-knowledge.
+knowledge — at the level of specific peak labels, energy positions, orbital origins,
+and structural sensitivity (like a detailed spectroscopy textbook or review paper).
 
 PAPER CONTEXT:
   Element: {element}
@@ -447,22 +453,22 @@ The JSON object has this structure:
     "crystal_structure": "crystal system / space group",
     "coordination": "coordination geometry and number",
     "spectral_features": {{
-      "edge_position_eV": "expected edge energy in eV, or description if exact value not known",
-      "pre_edge": {{
-        "description": "detailed description of pre-edge features",
-        "n_peaks": "number of pre-edge peaks",
-        "origin": "physical origin (e.g., 1s->3d quadrupole, 1s->3d/4p hybridized)",
-        "intensity": "weak/moderate/strong and why (symmetry, d-electron count)"
-      }},
-      "white_line": {{
-        "description": "white line shape and intensity",
-        "intensity": "relative intensity (weak/moderate/strong) and why",
-        "origin": "physical origin of the white line"
-      }},
-      "distinguishing_features": "what makes this spectrum unique vs other {element} compounds — specific features to look for",
-      "other_features": "shoulders, post-edge oscillations, multiple scattering resonances, etc."
+      "edge_position_eV": "edge energy in eV",
+      "labeled_peaks": [
+        {{
+          "label": "peak label (e.g., A1, pre-edge, white line, B)",
+          "energy_eV": "approximate energy in eV or relative to edge",
+          "intensity": "relative intensity (weak/moderate/strong)",
+          "origin": "electronic transition and orbital character (e.g., 1s->3d t2g, 2p->4s continuum)",
+          "selection_rule": "dipole-allowed / quadrupole / hybridization-enabled",
+          "source": "paper_data or standard_knowledge"
+        }}
+      ],
+      "spectral_shape_summary": "overall shape description — number of peaks, their pattern, key visual characteristics",
+      "structural_sensitivity": "how features change with different polymorphs, coordination, or bond lengths (e.g., anatase vs rutile, octahedral vs tetrahedral)",
+      "distinguishing_features": "specific features that distinguish this compound from other common {element} phases"
     }},
-    "key_reasoning": "Why this crystal structure and oxidation state produce these specific spectral features — connect electronic structure to spectral shape"
+    "key_reasoning": "Connect the electronic configuration and crystal structure to each spectral feature — why this compound produces this specific spectral fingerprint"
   }},
 
   "condition_details": {{
@@ -471,45 +477,45 @@ The JSON object has this structure:
     "oxidation_state": "formal oxidation state",
     "coordination": "coordination geometry",
     "sample_form": "powder / foil / pellet / etc.",
-    "measurement_mode": "transmission / fluorescence / electron yield"
+    "measurement_mode": "transmission / fluorescence / electron yield / EELS"
   }},
 
   "rubric": {{
-    "edge_position": {{
+    "spectral_shape": {{
       "max_score": 20,
       "criteria": [
-        {{"points": 20, "description": "correct edge position within 1 eV"}},
-        {{"points": 10, "description": "correct edge position within 3 eV"}},
-        {{"points": 5, "description": "correct relative position (higher/lower than related compounds)"}},
-        {{"points": 0, "description": "wrong edge position"}}
+        {{"points": number, "description": "correctly describes overall spectral shape and identifies the right number of distinct features"}},
+        {{"points": number, "description": "provides meaningful peak labels and correct relative positions/intensities"}}
       ]
     }},
-    "pre_edge_features": {{
+    "peak_positions": {{
+      "max_score": 20,
+      "criteria": [
+        {{"points": 20, "description": "correct edge position and peak energies within 1-2 eV"}},
+        {{"points": 10, "description": "correct edge position within 3 eV, approximate peak energies"}},
+        {{"points": 5, "description": "correct relative ordering of features only"}},
+        {{"points": 0, "description": "wrong positions"}}
+      ]
+    }},
+    "electronic_origin": {{
       "max_score": 25,
       "criteria": [
-        {{"points": number, "description": "correct number of pre-edge peaks"}},
-        {{"points": number, "description": "correct physical origin (transition type)"}},
-        {{"points": number, "description": "correct intensity assessment and symmetry reasoning"}}
+        {{"points": number, "description": "correctly identifies the electronic transitions and orbital character for each major feature (e.g., t2g/eg bands, 3d-4p hybridization, dipole vs quadrupole)"}},
+        {{"points": number, "description": "correctly explains selection rules and why certain features are present/absent"}}
       ]
     }},
-    "white_line": {{
-      "max_score": 20,
-      "criteria": [
-        {{"points": number, "description": "correct white line shape description"}},
-        {{"points": number, "description": "correct intensity and physical origin"}}
-      ]
-    }},
-    "distinguishing_ability": {{
-      "max_score": 20,
-      "criteria": [
-        {{"points": number, "description": "correctly identifies key differences from related compounds"}},
-        {{"points": number, "description": "names specific spectral features that distinguish this compound"}}
-      ]
-    }},
-    "reasoning_quality": {{
+    "structural_sensitivity": {{
       "max_score": 15,
       "criteria": [
-        {{"points": number, "description": "correctly connects crystal structure / electronic structure to spectral features"}}
+        {{"points": number, "description": "correctly describes how features change with different polymorphs or coordination environments"}},
+        {{"points": number, "description": "identifies which specific peaks are sensitive to structural changes and why"}}
+      ]
+    }},
+    "distinguishing_features": {{
+      "max_score": 20,
+      "criteria": [
+        {{"points": number, "description": "correctly identifies key spectral differences from other common {element} phases"}},
+        {{"points": number, "description": "names specific features (peak presence/absence, intensity ratios, energy shifts) that are diagnostic"}}
       ]
     }}
   }}
@@ -518,12 +524,16 @@ The JSON object has this structure:
 IMPORTANT:
 - The ground truth spectral features MUST come from the paper's description of this
   compound's spectrum. Use the extracted condition data fields: edge_position_eV,
-  pre_edge_description, white_line_description, spectral_description.
+  labeled_peaks, pre_edge_description, white_line_description, spectral_shape_summary,
+  electronic_structure_interpretation, structural_sensitivity, distinguishing_features.
+- For labeled_peaks: extract as many individually identifiable peaks as the paper describes.
+  If the paper labels peaks (A1, A2, B, etc.), use those labels. If not, use descriptive
+  labels (pre-edge, white line, post-edge shoulder, etc.).
 - If the paper does not describe a specific spectral feature, you may supplement with
-  well-established textbook XANES knowledge, but mark those as "source": "standard_knowledge"
-  in the ground truth.
+  well-established textbook XANES knowledge, but mark those as "source": "standard_knowledge".
 - Do NOT fabricate spectral features. If a feature is unknown, write null.
-- Focus on features that can be verified against actual reference spectra we have.
+- The ground truth should be detailed enough to evaluate whether an LLM truly knows this
+  compound's spectral fingerprint at a research-paper level, not just textbook level.
 
 Return ONLY a single JSON object, no markdown fences, no extra text."""
 
@@ -699,6 +709,153 @@ def parse_json(raw_text):
 
     print(f"    JSON parse error: {text[:200]}...")
     return None
+
+
+def validate_scenarios(scenarios):
+    """Check for duplicates, conflicts, and inconsistencies. Auto-fix where possible."""
+    from collections import Counter, defaultdict
+    n_issues = 0
+
+    # --- 1. Duplicate IDs: auto-fix by appending suffix ---
+    id_counts = Counter(s["id"] for s in scenarios)
+    dupes = {k for k, v in id_counts.items() if v > 1}
+    if dupes:
+        seen = {}
+        for s in scenarios:
+            sid = s["id"]
+            if sid in dupes:
+                if sid not in seen:
+                    seen[sid] = 1
+                else:
+                    seen[sid] += 1
+                    new_id = f"{sid}_{seen[sid]}"
+                    print(f"  FIX duplicate ID: '{sid}' -> '{new_id}'")
+                    s["id"] = new_id
+                    n_issues += 1
+    else:
+        print("  Duplicate IDs: none")
+
+    # --- 2. Identical fractions within same paper + same element/edge ---
+    paper_groups = defaultdict(list)
+    for s in scenarios:
+        paper = s.get("source_paper", "")[:60]
+        elem = s.get("element", "")
+        edge = s.get("edge", "")
+        key = (paper, elem, edge)
+        gt = s.get("ground_truth", {})
+        fracs = gt.get("fractions", {})
+        paper_groups[key].append({
+            "id": s["id"],
+            "fracs": fracs,
+            "fracs_str": json.dumps(fracs, sort_keys=True),
+        })
+
+    ids_to_remove = set()
+    frac_dupes = 0
+    for (paper, elem, edge), items in paper_groups.items():
+        frac_groups = defaultdict(list)
+        for it in items:
+            frac_groups[it["fracs_str"]].append(it["id"])
+        for frac_str, ids in frac_groups.items():
+            if len(ids) > 1 and frac_str != "{}":
+                keep = ids[0]
+                remove = ids[1:]
+                print(f"  REMOVING redundant: {len(ids)} scenarios with same fractions={frac_str}")
+                print(f"    KEEP:   {keep}")
+                for i in remove:
+                    print(f"    REMOVE: {i}")
+                    ids_to_remove.add(i)
+                frac_dupes += len(remove)
+                n_issues += 1
+    if ids_to_remove:
+        scenarios = [s for s in scenarios if s["id"] not in ids_to_remove]
+        print(f"  Removed {len(ids_to_remove)} redundant scenario(s), {len(scenarios)} remain")
+    else:
+        print("  Redundant fractions: none")
+
+    # --- 3. Conflicting scenarios: same sample description, different fractions ---
+    conflicts = 0
+    for (paper, elem, edge), items in paper_groups.items():
+        for i, a in enumerate(items):
+            for b in items[i+1:]:
+                if a["id"] in ids_to_remove or b["id"] in ids_to_remove:
+                    continue
+                # Only flag if IDs are exactly the same (after dedup fix)
+                # or one is the _2 suffix version of the other
+                if a["id"] == b["id"] or a["id"] + "_2" == b["id"] or b["id"] + "_2" == a["id"]:
+                    if a["fracs_str"] != b["fracs_str"]:
+                        print(f"  CONFLICT: same condition '{a['id']}' but different fractions:")
+                        print(f"    KEEP:   {a['id']}: {a['fracs_str']}")
+                        print(f"    REMOVE: {b['id']}: {b['fracs_str']}")
+                        ids_to_remove.add(b["id"])
+                        conflicts += 1
+                        n_issues += 1
+    if conflicts > 0:
+        scenarios = [s for s in scenarios if s["id"] not in ids_to_remove]
+        print(f"  Removed {conflicts} conflicting scenario(s), {len(scenarios)} remain")
+    else:
+        print("  Conflicting scenarios: none")
+
+    # --- 4. Element/edge consistency: prompt must mention the right element ---
+    elem_issues = 0
+    for s in scenarios:
+        elem = s.get("element", "")
+        edge = s.get("edge", "")
+        prompt = s.get("prompt", "")
+        cat = s.get("category", "")
+
+        if cat != "pure_phase":
+            expected_measurement = f"{elem} {edge}"
+            if expected_measurement not in prompt:
+                alt = f"{elem} {edge}-edge"
+                if alt not in prompt:
+                    print(f"  ELEMENT MISMATCH: {s['id']} — element={elem} edge={edge} "
+                          f"not found in prompt measurement section")
+                    elem_issues += 1
+                    n_issues += 1
+    if elem_issues == 0:
+        print("  Element/edge consistency: OK")
+
+    # --- 5. Fraction sum check (non-pure-phase) ---
+    sum_issues = 0
+    for s in scenarios:
+        if s.get("category") == "pure_phase":
+            continue
+        fracs = s.get("ground_truth", {}).get("fractions", {})
+        if not fracs:
+            continue
+        total = sum(fracs.values())
+        if abs(total - 1.0) > 0.05:
+            print(f"  BAD SUM: {s['id']} — fractions sum to {total:.3f}: {fracs}")
+            sum_issues += 1
+            n_issues += 1
+    if sum_issues == 0:
+        print("  Fraction sums: all OK")
+
+    # --- 6. Missing ground truth fields ---
+    missing = 0
+    for s in scenarios:
+        gt = s.get("ground_truth", {})
+        cat = s.get("category", "")
+        if cat == "pure_phase":
+            if not gt.get("compound"):
+                print(f"  MISSING: {s['id']} — no compound in ground truth")
+                missing += 1
+                n_issues += 1
+        else:
+            if not gt.get("fractions"):
+                print(f"  MISSING: {s['id']} — no fractions in ground truth")
+                missing += 1
+                n_issues += 1
+            if not gt.get("key_reasoning"):
+                print(f"  MISSING: {s['id']} — no key_reasoning in ground truth")
+                missing += 1
+                n_issues += 1
+    if missing == 0:
+        print("  Ground truth completeness: OK")
+
+    print(f"\n  Total issues: {n_issues}")
+    return scenarios, n_issues
 
 
 def main():
@@ -878,9 +1035,15 @@ def main():
 
         print(f"    Generated {paper_ok}/{len(conditions_with_fracs)} scenarios from this paper")
 
+    # ── Post-generation validation: duplicates, conflicts, inconsistencies ──
+    print(f"\n{'=' * 60}")
+    print("VALIDATION 1 — Duplicates, conflicts, and consistency")
+    print(f"{'=' * 60}")
+    scenarios, n_issues = validate_scenarios(scenarios)
+
     # Validate structured prompts
     print(f"\n{'=' * 60}")
-    print("VALIDATION — Checking structured prompt completeness")
+    print("VALIDATION 2 — Checking structured prompt completeness")
     print(f"{'=' * 60}")
 
     # Category-specific required headers
