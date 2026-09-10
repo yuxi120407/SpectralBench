@@ -238,16 +238,16 @@ def build_html(scenarios):
                 </div>
                 <div class="condition-body" style="display:none">
                     <div class="section">
+                        <div class="section-title">LLM Prompt</div>
+                        <div class="prompt-box">{prompt_html}</div>
+                    </div>
+                    <div class="section">
                         <div class="section-title">Ground Truth</div>
                         <div class="gt-box">{gt_html}</div>
                     </div>
                     <div class="section">
                         <div class="section-title">Scoring Rubric (total: {sum(v.get('max_score', 0) for v in s.get('rubric', dict()).values())} pts)</div>
                         <div class="rubric-box">{rubric_html}</div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">LLM Prompt</div>
-                        <div class="prompt-box">{prompt_html}</div>
                     </div>
                     <div class="section review-section">
                         <div class="section-title">Review</div>
