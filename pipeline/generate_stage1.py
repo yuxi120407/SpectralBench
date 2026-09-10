@@ -16,6 +16,7 @@ Usage:
 
 import os
 import json
+import re
 import argparse
 import subprocess
 
@@ -858,6 +859,41 @@ def validate_scenarios(scenarios):
     return scenarios, n_issues
 
 
+def resolve_condition_elements(condition, paper_element, paper_edge):
+    """Resolve per-condition element/edge for multi-element papers.
+
+    Returns list of (element, edge, id_suffix) tuples.
+    Single-element papers return one tuple with empty suffix.
+    Multi-element papers try: sample_id regex, material field, formula start, then split.
+    """
+    sample_id = condition.get("sample_id", "")
+    elements = [e.strip() for e in paper_element.split(",")]
+
+    if len(elements) <= 1:
+        return [(paper_element, paper_edge, "")]
+
+    edge_match = re.search(r'\((\w+)\s+(K|L\d?)-edge\)', sample_id)
+    if edge_match:
+        return [(edge_match.group(1), edge_match.group(2) + "-edge", "")]
+
+    material = condition.get("material") or ""
+    if material:
+        found = [e for e in elements if e.lower() in material.lower()]
+        if len(found) == 1:
+            return [(found[0], paper_edge, "")]
+        # Binary compound without hyphen: first element is primary absorber
+        if len(found) > 1 and "-" not in material:
+            starts = [e for e in elements if material.startswith(e)]
+            if len(starts) == 1:
+                return [(starts[0], paper_edge, "")]
+
+    results = []
+    for e in elements:
+        suffix = f" ({e} {paper_edge})"
+        results.append((e, paper_edge, suffix))
+    return results
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Generate Stage 1 benchmark scenarios using Gemini"
@@ -954,63 +990,57 @@ def main():
 
         paper_ok = 0
         for ci, condition in enumerate(conditions_with_fracs):
-            cond_idx += 1
             sample_id = condition.get("sample_id", f"sample_{ci}")
             paper_short = (paper.get("title", "paper") or "paper")[:20].lower()
             paper_short = "".join(c if c.isalnum() else "_" for c in paper_short).strip("_")
-            suggested_id = f"{paper_short}_{sample_id}"
 
-            # Per-condition element/edge: parse from sample_id if present
-            # e.g., "Combinatorial film, fTi = 0.1 (Ti K-edge)" → Ti, K-edge
-            cond_elem = elem
-            cond_edge = edge
-            import re as _re
-            edge_match = _re.search(r'\((\w+)\s+(K|L\d?)-edge\)', sample_id)
-            if edge_match:
-                cond_elem = edge_match.group(1)
-                cond_edge = edge_match.group(2) + "-edge"
+            resolved = resolve_condition_elements(condition, elem, edge)
 
-            condition_data = json.dumps(condition, indent=2)
+            for cond_elem, cond_edge, id_suffix in resolved:
+                cond_idx += 1
+                effective_id = sample_id + id_suffix
+                suggested_id = f"{paper_short}_{effective_id}"
 
-            # Select generation prompt based on category
-            if category == "pure_phase":
-                prompt = GENERATION_PROMPT_PURE_PHASE.format(
-                    element=cond_elem,
-                    edge=cond_edge,
-                    key_finding=a.get("key_finding", ""),
-                    condition_data=condition_data,
-                    references=AVAILABLE_REFERENCES,
-                    suggested_id=suggested_id,
-                    source_paper=paper.get("title", "")[:80],
-                    benchmark_template=benchmark_template.format(
-                        element=cond_elem, edge=cond_edge,
-                    ),
-                )
-            else:
-                prompt = GENERATION_PROMPT.format(
-                    element=cond_elem,
-                    edge=cond_edge,
-                    category=category,
-                    key_finding=a.get("key_finding", ""),
-                    causal_reasoning=a.get("causal_reasoning", "")[:500],
-                    condition_data=condition_data,
-                    references=AVAILABLE_REFERENCES,
-                    suggested_id=suggested_id,
-                    source_paper=paper.get("title", "")[:80],
-                    benchmark_template=benchmark_template.format(
-                        element=cond_elem, edge=cond_edge,
-                    ),
-                )
+                condition_data = json.dumps(condition, indent=2)
 
-            raw = call_gemini(prompt)
-            if not raw:
-                print(f"    [{cond_idx}/{total_conditions}] {sample_id}: FAILED (Gemini call)")
-                continue
+                if category == "pure_phase":
+                    prompt = GENERATION_PROMPT_PURE_PHASE.format(
+                        element=cond_elem,
+                        edge=cond_edge,
+                        key_finding=a.get("key_finding", ""),
+                        condition_data=condition_data,
+                        references=AVAILABLE_REFERENCES,
+                        suggested_id=suggested_id,
+                        source_paper=paper.get("title", "")[:80],
+                        benchmark_template=benchmark_template.format(
+                            element=cond_elem, edge=cond_edge,
+                        ),
+                    )
+                else:
+                    prompt = GENERATION_PROMPT.format(
+                        element=cond_elem,
+                        edge=cond_edge,
+                        category=category,
+                        key_finding=a.get("key_finding", ""),
+                        causal_reasoning=a.get("causal_reasoning", "")[:500],
+                        condition_data=condition_data,
+                        references=AVAILABLE_REFERENCES,
+                        suggested_id=suggested_id,
+                        source_paper=paper.get("title", "")[:80],
+                        benchmark_template=benchmark_template.format(
+                            element=cond_elem, edge=cond_edge,
+                        ),
+                    )
 
-            parsed = parse_json(raw)
-            if parsed:
-                if isinstance(parsed, list):
-                    parsed = parsed[0] if parsed else None
+                raw = call_gemini(prompt)
+                if not raw:
+                    print(f"    [{cond_idx}/{total_conditions}] {effective_id}: FAILED (Gemini call)")
+                    continue
+
+                parsed = parse_json(raw)
+                if parsed:
+                    if isinstance(parsed, list):
+                        parsed = parsed[0] if parsed else None
                 if parsed:
                     parsed["source_paper_full"] = paper_meta
                     parsed["category"] = category
@@ -1026,12 +1056,10 @@ def main():
                         print(f"    [{cond_idx}/{total_conditions}] OK: {parsed.get('id', '?')} — {frac_str}")
                     paper_ok += 1
                 else:
-                    print(f"    [{cond_idx}/{total_conditions}] {sample_id}: FAILED (empty parse)")
-            else:
-                print(f"    [{cond_idx}/{total_conditions}] {sample_id}: FAILED (JSON parse)")
+                    print(f"    [{cond_idx}/{total_conditions}] {effective_id}: FAILED (parse)")
 
-            import time
-            time.sleep(2)
+                import time
+                time.sleep(2)
 
         print(f"    Generated {paper_ok}/{len(conditions_with_fracs)} scenarios from this paper")
 
