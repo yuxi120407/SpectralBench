@@ -105,25 +105,58 @@ def format_ground_truth_html(gt, category):
             if dist:
                 parts.append(f'<div class="gt-field"><span class="gt-key">Distinguishing features:</span> {html.escape(dist)}</div>')
     else:
+        # v4 material/measurement/fit_method (top of GT block for context)
+        material = gt.get("material", "")
+        if material:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Material:</span> {html.escape(material)}</div>')
+        measurement = gt.get("measurement", "")
+        if measurement:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Measurement:</span> {html.escape(measurement)}</div>')
+        fit_method = gt.get("fit_method", "")
+        if fit_method:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Fit method:</span> {html.escape(fit_method)}</div>')
+
+        # Phase fractions
         fracs = gt.get("fractions", {})
         if fracs:
-            parts.append('<div class="gt-field"><span class="gt-key">Phase fractions:</span></div>')
+            unc = gt.get("fractions_uncertainty_pct")
+            unc_label = f' <span style="color:#666;font-size:0.9em">(±{unc}%)</span>' if unc else ''
+            parts.append(f'<div class="gt-field"><span class="gt-key">Phase fractions:{unc_label}</span></div>')
             parts.append('<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>')
             for phase, frac in fracs.items():
                 parts.append(f'<tr><td>{html.escape(phase)}</td><td>{frac}</td></tr>')
             parts.append('</table>')
 
-        candidates = gt.get("candidate_phases", [])
-        if candidates:
-            parts.append(f'<div class="gt-field"><span class="gt-key">Candidate phases:</span> {html.escape(", ".join(candidates))}</div>')
+        # v4 fit_basis (preferred) or v3 candidate_phases / recommended_references
+        fit_basis = gt.get("fit_basis", [])
+        if fit_basis:
+            parts.append('<div class="gt-field"><span class="gt-key">Fit basis (paper\'s reference spectra):</span></div>')
+            parts.append('<ul style="margin:4px 0 4px 20px;padding:0">')
+            for r in fit_basis:
+                parts.append(f'<li>{html.escape(str(r))}</li>')
+            parts.append('</ul>')
+        else:
+            candidates = gt.get("candidate_phases", [])
+            if candidates:
+                parts.append(f'<div class="gt-field"><span class="gt-key">Candidate phases:</span> {html.escape(", ".join(candidates))}</div>')
+            refs = gt.get("recommended_references", [])
+            if refs:
+                parts.append(f'<div class="gt-field"><span class="gt-key">Recommended references:</span> {html.escape(", ".join(refs))}</div>')
 
-        refs = gt.get("recommended_references", [])
-        if refs:
-            parts.append(f'<div class="gt-field"><span class="gt-key">Recommended references:</span> {html.escape(", ".join(refs))}</div>')
+        # v4 source_evidence
+        se = gt.get("source_evidence", "")
+        if se:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Source evidence:</span> {html.escape(se)}</div>')
 
+    # Key reasoning (both v3 and v4)
     reasoning = gt.get("key_reasoning", "")
     if reasoning:
         parts.append(f'<div class="gt-field"><span class="gt-key">Key reasoning:</span> {html.escape(reasoning)}</div>')
+
+    # v4 reasoning_source
+    rs = gt.get("reasoning_source", "")
+    if rs:
+        parts.append(f'<div class="gt-field"><span class="gt-key">Reasoning source:</span> {html.escape(rs)}</div>')
 
     return "\n".join(parts)
 

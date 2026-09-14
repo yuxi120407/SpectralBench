@@ -144,7 +144,11 @@ IMPORTANT:
 - Note which figure/table in data_source (e.g., "figure_3", "table_2")
 - Include ALL conditions/samples, even if phases are outside our reference set
 - If NO quantitative results exist at all, set relevant=false
-- If preparation details come from a CITED reference, put the DOI in conditions_from_ref
+- If preparation details come from a CITED reference:
+  - Put the DOI in `conditions_from_ref` (if you're confident) OR leave null if uncertain
+  - ALWAYS fill `conditions_ref_citation` with title, first_author family name, year, and journal
+  - DO NOT invent DOIs — if you're not sure of the DOI, leave it null and rely on the title/author lookup
+  - The pipeline will resolve the DOI from Semantic Scholar / Crossref using the citation info
 - For fields not reported in the paper, use null — do NOT invent values
 
 CRITICAL RULES to prevent downstream conflicts:
@@ -224,7 +228,8 @@ Return ONLY a JSON object:
       ],
       "data_source": "text/table_N/figure_N",
       "r_factor": number or null,
-      "conditions_from_ref": "DOI if conditions from another paper, else null"
+      "conditions_from_ref": "DOI if conditions from another paper, else null",
+      "conditions_ref_citation": {{"title": "cited paper title", "first_author": "first author family name", "year": 2021, "journal": "e.g. J. Phys. Chem. C"}} or null
     }}
   ],
   "causal_reasoning": "Why these synthesis conditions produce these phases",
@@ -612,12 +617,15 @@ def read_xlsx(path=None):
 GEMINI_MODEL = None  # set from CLI in main()
 
 def call_gemini(prompt, pdf_path=None, image_paths=None, timeout=180):
-    """Call Gemini via gemini_call_v2.py subprocess. Supports PDF and/or images."""
+    """Call Gemini via gemini_call_v2.py subprocess. Supports PDF and/or images.
+    pdf_path can be a str (single PDF) or list of strs (multi-PDF fusion)."""
     cmd = [GEMINI_PYTHON, GEMINI_SCRIPT]
     if GEMINI_MODEL:
         cmd += ["--model", GEMINI_MODEL]
     if pdf_path:
-        cmd += ["--pdf", pdf_path]
+        pdf_list = pdf_path if isinstance(pdf_path, list) else [pdf_path]
+        for p in pdf_list:
+            cmd += ["--pdf", p]
     if image_paths:
         cmd += ["--images"] + image_paths
     try:
@@ -654,6 +662,91 @@ def parse_json_response(text):
             return json.loads(text[start:end+1])
         except json.JSONDecodeError:
             pass
+    return None
+
+
+# ── DOI resolution (verify / find canonical DOI) ───────────────
+
+def _title_similarity(a, b):
+    """Simple word-overlap similarity between two titles (0-1)."""
+    if not a or not b:
+        return 0.0
+    words_a = set(w.lower() for w in a.split() if len(w) > 3)
+    words_b = set(w.lower() for w in b.split() if len(w) > 3)
+    if not words_a or not words_b:
+        return 0.0
+    return len(words_a & words_b) / max(len(words_a), len(words_b))
+
+
+def resolve_doi(title=None, first_author=None, year=None, doi_hint=None):
+    """Resolve a citation to a canonical DOI using Semantic Scholar (primary)
+    and Crossref (fallback). Verifies title match to avoid returning wrong papers."""
+    if not title:
+        return None
+
+    if doi_hint and doi_hint.startswith("10."):
+        try:
+            r = requests.get(
+                f"https://api.crossref.org/works/{doi_hint}",
+                headers={"User-Agent": "XanesBench/1.0 (mailto:xanes@bnl.gov)"},
+                timeout=10,
+            )
+            if r.status_code == 200:
+                cr_title = " ".join(r.json().get("message", {}).get("title", [""]))
+                if _title_similarity(title, cr_title) >= 0.5:
+                    return doi_hint
+        except Exception:
+            pass
+
+    try:
+        q = title
+        if first_author:
+            q = f"{title} {first_author}"
+        r = requests.get(
+            "https://api.semanticscholar.org/graph/v1/paper/search",
+            params={"query": q, "fields": "title,authors,externalIds,year", "limit": 5},
+            timeout=15,
+        )
+        if r.status_code == 200:
+            for paper in r.json().get("data", []):
+                ss_title = paper.get("title", "")
+                sim = _title_similarity(title, ss_title)
+                if sim < 0.5:
+                    continue
+                if year and paper.get("year") and abs(int(paper["year"]) - int(year)) > 1:
+                    continue
+                doi = (paper.get("externalIds") or {}).get("DOI")
+                if doi:
+                    return doi
+    except Exception:
+        pass
+
+    try:
+        params = {"query.bibliographic": title, "rows": 5}
+        if first_author:
+            params["query.author"] = first_author
+        r = requests.get(
+            "https://api.crossref.org/works",
+            params=params,
+            headers={"User-Agent": "XanesBench/1.0 (mailto:xanes@bnl.gov)"},
+            timeout=15,
+        )
+        if r.status_code == 200:
+            for item in r.json().get("message", {}).get("items", []):
+                cr_title = " ".join(item.get("title", [""]))
+                sim = _title_similarity(title, cr_title)
+                if sim < 0.5:
+                    continue
+                if year:
+                    pub_year = (item.get("published", {}).get("date-parts", [[0]])[0][0])
+                    if pub_year and abs(int(pub_year) - int(year)) > 1:
+                        continue
+                doi = item.get("DOI")
+                if doi:
+                    return doi
+    except Exception:
+        pass
+
     return None
 
 
@@ -1170,6 +1263,26 @@ def process_one_paper(paper, api_keys, text_only=False):
         conds = paper["fulltext_analysis"].get("sample_conditions", [])
         for c in conds:
             ref_doi = c.get("conditions_from_ref")
+            citation = c.get("conditions_ref_citation") or {}
+
+            # Resolve/verify DOI via Semantic Scholar + Crossref
+            if citation.get("title"):
+                resolved = resolve_doi(
+                    title=citation.get("title"),
+                    first_author=citation.get("first_author"),
+                    year=citation.get("year"),
+                    doi_hint=ref_doi,
+                )
+                if resolved and resolved != ref_doi:
+                    print(f"  DOI resolved: {ref_doi} → {resolved} (via Semantic Scholar/Crossref)")
+                    c["conditions_from_ref_original"] = ref_doi
+                    ref_doi = resolved
+                    c["conditions_from_ref"] = resolved
+                elif not resolved and not ref_doi:
+                    print(f"  Could not resolve DOI for '{citation.get('title','?')[:60]}'")
+                elif not resolved and ref_doi:
+                    print(f"  ⚠ DOI {ref_doi} not verified against citation title — using as-is")
+
             if not ref_doi or not ref_doi.startswith("10."):
                 continue
             print(f"  Looking up conditions from {ref_doi}...", end=" ", flush=True)
@@ -1197,9 +1310,23 @@ def process_one_paper(paper, api_keys, text_only=False):
                 category=category,
             )
 
+            # Multi-PDF fusion: send BOTH source paper + cited ref
             ref_pdf_file = os.path.join(PAPERS_DIR, f"{doi_to_filename(ref_doi)}.pdf")
+            source_pdf_file = os.path.join(PAPERS_DIR, f"{doi_to_filename(doi)}.pdf")
+
             if ref_pdf and os.path.exists(ref_pdf_file):
-                lookup_raw = call_gemini(lookup_prompt, pdf_path=ref_pdf_file)
+                pdf_list = []
+                if os.path.exists(source_pdf_file):
+                    pdf_list.append(source_pdf_file)
+                pdf_list.append(ref_pdf_file)
+                fusion_note = (
+                    f"\n\nNOTE: You have {len(pdf_list)} PDFs attached: "
+                    f"(1) the source paper ({doi}) that references this sample, and "
+                    f"(2) the cited reference ({ref_doi}) that contains preparation details. "
+                    f"Extract preparation/synthesis from the cited reference; "
+                    f"use the source paper only for context."
+                ) if len(pdf_list) > 1 else ""
+                lookup_raw = call_gemini(lookup_prompt + fusion_note, pdf_path=pdf_list)
             elif ref_text:
                 lookup_raw = call_gemini(lookup_prompt + f"\n\nPaper text:\n{ref_text[:60000]}")
             else:
