@@ -86,7 +86,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
     </div>
 
     <div class="filters">
-        <button class="filter-btn active" data-cat="all">All (58)</button><button class="filter-btn" data-cat="synthesis" style="background:#e2efda">Synthesis (5)</button><button class="filter-btn" data-cat="electrochemistry" style="background:#d6e4f0">Electrochemistry (15)</button><button class="filter-btn" data-cat="pure_phase" style="background:#fff2cc">Pure Phase (12)</button><button class="filter-btn" data-cat="thin_film" style="background:#f2dcdb">Thin Film (19)</button><button class="filter-btn" data-cat="catalyst" style="background:#e4dfec">Catalyst (5)</button><button class="filter-btn" data-cat="environmental" style="background:#d9ead3">Environmental (2)</button>
+        <button class="filter-btn active" data-cat="all">All (58)</button><button class="filter-btn" data-cat="synthesis" style="background:#e2efda">Synthesis (3)</button><button class="filter-btn" data-cat="electrochemistry" style="background:#d6e4f0">Electrochemistry (17)</button><button class="filter-btn" data-cat="pure_phase" style="background:#fff2cc">Pure Phase (12)</button><button class="filter-btn" data-cat="thin_film" style="background:#f2dcdb">Thin Film (19)</button><button class="filter-btn" data-cat="catalyst" style="background:#e4dfec">Catalyst (5)</button><button class="filter-btn" data-cat="environmental" style="background:#d9ead3">Environmental (2)</button>
     </div>
 
     <div class="expand-all">
@@ -149,7 +149,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>Isolated Ti defects in wurtzite ZnO (TiUD)</td><td>1.0</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), TiO2 (rutile/anatase), Zinc titanate (TiZn2O4)</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate, Ti-doped ZnO (outside_references)</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, Ti-doped ZnO (outside_references)</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> At a low Ti fraction (fTi = 0.1), the Ti atoms are incorporated into the wurtzite ZnO host lattice as isolated defects rather than forming separate titanium oxide or zinc titanate phases. The PLD growth at 600 °C provides enough thermal energy for crystalline ZnO formation, and the low concentration of Ti remains below the threshold for forming complex amorphous/polycrystalline mixed motifs or TiO2.</div></div>
                     </div>
                     <div class="section">
@@ -214,8 +214,8 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>Layered Ti-Zn-O motif (Ti6L)</td><td>0.2</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Layered Ti-Zn-O motif (Ti6L), TiZn2O4 motifs, Ti3Zn2O8 motifs, Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate</div>
-<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a low Ti fraction of 0.2, the film structure is predominantly dictated by the host wurtzite ZnO lattice. Ti incorporates primarily as isolated defects (TiUD) substituting Zn or in interstitial sites. As the Ti concentration reaches 0.2, it begins to exceed the dilute solubility limit in ZnO, triggering the onset of secondary layered Ti-induced structural motifs (Ti6L). This represents a transition state before the formation of more complex amorphous/polycrystalline zinc titanate phases at higher Ti fractions.</div></div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
+<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction of 0.2, the film is at the boundary between Region II and Region III. In Region II (0.1 &lt; fTi &lt;= 0.2), Ti incorporates predominantly as layered TiZn+Oi defect complexes within the wurtzite ZnO host, which are classified under the distorted/under-coordinated TiUD motif (~0.8 fraction). As the Ti fraction reaches 0.2, the 6-coordinated Ti6L motif characteristic of TiZn2O4 emerges (~0.2 fraction), marking the transition toward crystalline/polycrystalline TiZn2O4 and amorphous zinc titanate phases.</div></div>
                     </div>
                     <div class="section">
                         <div class="section-title">Scoring Rubric (total: 100 pts)</div>
@@ -275,12 +275,12 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                         <div class="section-title">Ground Truth</div>
                         <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
 <table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
-<tr><td>Isolated Ti defects in wurtzite ZnO (TiUD)</td><td>0.55</td></tr>
-<tr><td>Layered Ti-Zn-O motif (Ti6L)</td><td>0.45</td></tr>
+<tr><td>Under-coordinated or distorted Ti sites / defects (TiUD)</td><td>0.55</td></tr>
+<tr><td>6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)</td><td>0.45</td></tr>
 </table>
-<div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Layered Ti-Zn-O motif (Ti6L), Zinc titanate (TiZn2O4 / Ti3Zn2O8), Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8), Rutile TiO2</div>
+<div class="gt-field"><span class="gt-key">Candidate phases:</span> Under-coordinated or distorted Ti sites / defects (TiUD), 6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L), 6-coordinated Ti with high-Ti second shell, e.g., Ti3Zn2O8 (Ti6H), TiO2</div>
 <div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
-<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction (fTi) of 0.3, the system has surpassed the solubility limit of isolated Ti defects in the wurtzite ZnO lattice (which dominates at very low fTi) but has not yet reached the higher Ti fractions required for complex spinel-like zinc titanates (TiZn2O4) or amorphous TiO2. Therefore, the structure is a mixture of the initial Ti-in-ZnO defect motif (TiUD) and an emergent layered Ti-induced structural motif (Ti6L). The PLD growth at 600 °C with alternating targets promotes these metastable, mixed local motifs rather than fully phase-separated bulk crystals.</div></div>
+<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction (fTi) of 0.3 (Region III, 0.2 &lt; fTi &lt;= 0.39), the system exhibits coexistence of 6-coordinated Ti sites with low Ti second-shell fraction corresponding to spinel TiZn2O4 (Ti6L) and under-coordinated or distorted Ti defect motifs (TiUD). The layered and isolated Ti defects in ZnO (TiUD) dominate at lower fTi (0.1-0.2), whereas between fTi = 0.2 and 0.39, the Ti6L motif emerges and reaches a substantial fraction (~0.45) alongside decaying TiUD (~0.55).</div></div>
                     </div>
                     <div class="section">
                         <div class="section-title">Scoring Rubric (total: 100 pts)</div>
@@ -340,13 +340,13 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                         <div class="section-title">Ground Truth</div>
                         <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
 <table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
-<tr><td>Isolated Ti defects in wurtzite ZnO (TiUD)</td><td>0.45</td></tr>
-<tr><td>Layered Ti-Zn-O motif (Ti6L)</td><td>0.45</td></tr>
-<tr><td>Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)</td><td>0.1</td></tr>
+<tr><td>Under-coordinated or distorted Ti (TiUD)</td><td>0.45</td></tr>
+<tr><td>6-coordinated Ti with low second-shell Ti (Ti6L, e.g., TiZn2O4)</td><td>0.45</td></tr>
+<tr><td>6-coordinated Ti with high second-shell Ti (Ti6H, e.g., Ti3Zn2O8)</td><td>0.1</td></tr>
 </table>
-<div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Layered Ti-Zn-O motif (Ti6L), Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8), Rutile TiO2</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate</div>
-<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction of 0.4, the film is in a transitional state between Ti-doped ZnO and pure TiO2. The high fraction of Ti (40%) exceeds the solubility limit of Ti in wurtzite ZnO, driving a structural evolution. This results in a complex mixture where isolated Ti defects in the ZnO lattice (TiUD) coexist with complex layered Ti-Zn-O motifs (Ti6L, such as TiZn2O4 or Ti3Zn2O8) and a small emerging fraction of amorphous TiO2-like motifs (Ti6H).</div></div>
+<div class="gt-field"><span class="gt-key">Candidate phases:</span> Under-coordinated or distorted Ti (TiUD), 6-coordinated Ti with low second-shell Ti (Ti6L, e.g., TiZn2O4), 6-coordinated Ti with high second-shell Ti (Ti6H, e.g., Ti3Zn2O8), TiO2</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
+<div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction of 0.4 (Region IV: fTi = 0.39 - 0.71), the film exhibits a mixture of three local structural motifs (Table II and Figure 10b): under-coordinated or distorted Ti sites (TiUD, ~45%), 6-coordinated Ti sites with low second-shell Ti fraction corresponding to TiZn2O4 (Ti6L, ~45%), and an emerging fraction of 6-coordinated Ti sites with high second-shell Ti fraction corresponding to Ti3Zn2O8 (Ti6H, ~10%).</div></div>
                     </div>
                     <div class="section">
                         <div class="section-title">Scoring Rubric (total: 100 pts)</div>
@@ -411,7 +411,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)</td><td>0.2</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Layered Ti-Zn-O motif (Ti6L), Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8), rutile (TiO2), wurtzite ZnO with Ti defects</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate, outside_references: true</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, outside_references: true</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction of 0.5, the film is in a transitional compositional region between Ti-doped ZnO and pure TiO2. The 600 °C deposition temperature and alternating PLD targets promote mixing, but the stoichiometry (Ti:Zn ~ 1:1) does not correspond to a single stable simple phase. Instead, it forms a mixture of complex amorphous/polycrystalline motifs (such as TiZn2O4 and Ti3Zn2O8-like local structures) identified via blind signal separation as TiUD, Ti6L, and Ti6H. The high oxygen ambient (10 mTorr) ensures Ti is fully oxidized to Ti4+. Standard reference spectra are insufficient for this highly mixed state, requiring principal component analysis or blind signal separation to extract pure motif spectra.</div></div>
                     </div>
                     <div class="section">
@@ -477,7 +477,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>Layered Ti-Zn-O motif (Ti6L)</td><td>0.05</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8), Layered Ti-Zn-O motif (Ti6L), Wurtzite ZnO with Ti defects, Rutile TiO2</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> At a Ti fraction (fTi) of 0.6, the composition is titanium-rich relative to stoichiometric zinc titanates. The system has evolved past the solubility limit of Ti in wurtzite ZnO (isolated defects) and past the intermediate layered structures. At this composition, the film consists of a complex mixture of amorphous/polycrystalline regions dominated by amorphous TiO2-like motifs (TiUD, ~60%) and complex zinc titanate motifs such as TiZn2O4 or Ti3Zn2O8 (Ti6H, ~35%), with a small residual amount of layered Ti-induced structures (Ti6L, ~5%).</div></div>
                     </div>
                     <div class="section">
@@ -543,7 +543,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>rutile</td><td>0.1</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> Isolated Ti defects in wurtzite ZnO (TiUD), Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8), rutile</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> At a high Ti fraction of 0.7, the system has transitioned well past the solubility limit of Ti in wurtzite ZnO and beyond stoichiometric zinc titanate phases (e.g., Zn2TiO4). The high Ti content drives the structural evolution into a region dominated by complex amorphous/polycrystalline mixed motifs (identified via blind signal separation as TiUD and Ti6H, representing under-coordinated/disordered and octahedral Ti-Zn-O environments) which make up ~90% of the film, while phase-separated TiO2 begins to emerge (~10%).</div></div>
                     </div>
                     <div class="section">
@@ -609,7 +609,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>rutile</td><td>0.2</td></tr>
 </table>
 <div class="gt-field"><span class="gt-key">Candidate phases:</span> wurtzite ZnO with Ti defects, Ti-Zn-O complex motifs (TiUD), Ti-Zn-O complex motifs (Ti6H), TiO2</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile, strontium_titanate</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> rutile</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> At a high Ti fraction of fTi = 0.8, the system has transitioned far beyond the wurtzite ZnO solid solution regime. The high Ti content drives the formation of complex amorphous/polycrystalline mixed motifs (TiUD and Ti6H, representing intermediate Ti-Zn-O structures like TiZn2O4 or Ti3Zn2O8) which dominate the film (80%). Additionally, phase separation begins to occur, precipitating a distinct TiO2 phase (20%) as the composition approaches pure TiO2.</div></div>
                     </div>
                     <div class="section">
@@ -964,159 +964,6 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             </div>
         </div>
         
-        <div class="paper" data-cat="synthesis">
-            <div class="paper-header" style="border-left: 5px solid #e2efda;" onclick="togglePaper(this)">
-                <div class="paper-title">Harnessing Neural Networks for Elucidating X-ray Absorption Structure–Spectrum Relationships in Amorphous Carbon</div>
-                <div class="paper-meta">
-                    <span class="cat-badge" style="background:#e2efda">Synthesis</span>
-                    <span class="paper-authors">Hyuna Kwon et al.</span>
-                    <span class="paper-doi">DOI: 10.1021/acs.jpcc.3c02029</span>
-                    <span class="paper-count">2 scenarios</span>
-                </div>
-                <span class="toggle-icon">&#9654;</span>
-            </div>
-            <div class="paper-body" style="display:none">
-                
-            <div class="condition">
-                <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#14</span>
-                    <span class="condition-material">Annealed graphene</span>
-                    <span class="condition-elem">C K</span>
-                    <span class="condition-kv">material type = graphene</span>
-                    <span class="toggle-icon">&#9654;</span>
-                </div>
-                <div class="condition-body" style="display:none">
-                    <div class="section">
-                        <div class="section-title">LLM Prompt</div>
-                        <div class="prompt-box"><h4 class="prompt-h">Sample Information</h4>
-<div class="prompt-field"><span class="prompt-key">Material:</span> Annealed graphene</div>
-<div class="prompt-field"><span class="prompt-key">Application/Context:</span> Carbon allotrope characterization and structural motif analysis</div>
-<h4 class="prompt-h">Synthesis / Preparation</h4>
-<div class="prompt-field"><span class="prompt-key">Method:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Precursors:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Temperature:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Duration:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Heating rate:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Atmosphere:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Cooling:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Post-treatment:</span> annealed</div>
-<h4 class="prompt-h">Sample-Specific Conditions</h4>
-<div class="prompt-line">- Material type: graphene</div>
-<div class="prompt-line">- Post-treatment: annealed</div>
-<h4 class="prompt-h">Measurement</h4>
-<div class="prompt-line">We plan to measure the C K XANES spectrum of this sample.</div>
-<h4 class="prompt-h">Questions</h4>
-<div class="prompt-line">Based on ALL the synthesis and preparation information above:</div>
-<div class="prompt-q">1. What phases (oxidation states / compounds of C) could possibly exist in this sample?</div>
-<div class="prompt-q">2. How many of these phases are significant (&gt;5% fraction)?</div>
-<div class="prompt-q">3. For each significant phase, estimate its fraction (fractions should sum to 1.0).</div>
-<div class="prompt-q">4. What reference spectra should be prepared for linear combination fitting?</div>
-<div class="prompt-q">5. What scientific reasoning connects the specific preparation conditions to your predicted phases and fractions?</div></div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Ground Truth</div>
-                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
-<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
-<tr><td>sp2 carbon</td><td>0.979</td></tr>
-<tr><td>sp3 carbon</td><td>0.021</td></tr>
-</table>
-<div class="gt-field"><span class="gt-key">Candidate phases:</span> sp2 carbon, sp3 carbon</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> graphite (C, sp2 carbon)</div>
-<div class="gt-field"><span class="gt-key">Key reasoning:</span> Graphene is fundamentally a 2D material composed of a honeycomb lattice of sp2-hybridized carbon atoms. Annealing the sample provides thermal energy to heal structural defects and drive off residual oxygen-containing functional groups, resulting in a nearly pure sp2 carbon network (&gt;95%) with only trace amounts of sp3 hybridized carbon remaining at edges or residual defect sites.</div></div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Scoring Rubric (total: 100 pts)</div>
-                        <div class="rubric-box"><table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>
-<tr><td class="rubric-cat">Phase Identification</td><td class="rubric-max">30</td><td class="rubric-criteria">20 pts — Identifies sp2 carbon (or graphite-like carbon) as the primary phase.<br>10 pts — Identifies sp3 carbon (or defect/edge carbon) as a possible minor phase.</td></tr>
-<tr><td class="rubric-cat">N Phases</td><td class="rubric-max">10</td><td class="rubric-criteria">10 pts — Correctly predicts exactly 1 significant phase (&gt;5%).<br>0 pts — Predicts 2 or more significant phases.</td></tr>
-<tr><td class="rubric-cat">Fraction Accuracy</td><td class="rubric-max">30</td><td class="rubric-criteria">30 pts — Predicts sp2 carbon fraction between 0.95 and 1.0.<br>20 pts — Predicts sp2 carbon fraction between 0.90 and 0.94.<br>10 pts — Predicts sp2 carbon fraction between 0.80 and 0.89.<br>0 pts — Predicts sp2 carbon fraction below 0.80.</td></tr>
-<tr><td class="rubric-cat">Reasoning Quality</td><td class="rubric-max">30</td><td class="rubric-criteria">15 pts — Explains that graphene is intrinsically composed of an sp2-hybridized carbon network.<br>15 pts — Explains that the annealing post-treatment heals defects and removes functional groups, leading to an extremely high sp2 purity and minimizing sp3 content.</td></tr>
-</table></div>
-                    </div>
-                    <div class="section review-section">
-                        <div class="section-title">Review</div>
-                        <div class="review-controls">
-                            <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
-                            <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
-                            <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 14, 'harnessing_neural_ne_Annealed graphene', 'C', 'synthesis', '10.1021/acs.jpcc.3c02029')">&#9888; Report Issue</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="condition">
-                <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#15</span>
-                    <span class="condition-material">Diamond (Nanodiamond powders)</span>
-                    <span class="condition-elem">C K</span>
-                    <span class="condition-kv">material type = diamond</span>
-                    <span class="toggle-icon">&#9654;</span>
-                </div>
-                <div class="condition-body" style="display:none">
-                    <div class="section">
-                        <div class="section-title">LLM Prompt</div>
-                        <div class="prompt-box"><h4 class="prompt-h">Sample Information</h4>
-<div class="prompt-field"><span class="prompt-key">Material:</span> Diamond (Nanodiamond powders)</div>
-<div class="prompt-field"><span class="prompt-key">Application/Context:</span> Evaluating intrinsic bonding nature and structural motifs of carbon allotropes</div>
-<h4 class="prompt-h">Synthesis / Preparation</h4>
-<div class="prompt-field"><span class="prompt-key">Method:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Precursors:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Temperature:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Duration:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Heating rate:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Atmosphere:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Cooling:</span> not reported</div>
-<div class="prompt-field"><span class="prompt-key">Post-treatment:</span> not reported</div>
-<h4 class="prompt-h">Sample-Specific Conditions</h4>
-<div class="prompt-line">- Material type: diamond</div>
-<div class="prompt-line">- The sample consists of nanodiamond powders (synthesis details in cited reference 10.1021/ja063303n)</div>
-<h4 class="prompt-h">Measurement</h4>
-<div class="prompt-line">We plan to measure the C K XANES spectrum of this sample.</div>
-<h4 class="prompt-h">Questions</h4>
-<div class="prompt-line">Based on ALL the synthesis and preparation information above:</div>
-<div class="prompt-q">1. What phases (oxidation states / compounds of C) could possibly exist in this sample?</div>
-<div class="prompt-q">2. How many of these phases are significant (&gt;5% fraction)?</div>
-<div class="prompt-q">3. For each significant phase, estimate its fraction (fractions should sum to 1.0).</div>
-<div class="prompt-q">4. What reference spectra should be prepared for linear combination fitting?</div>
-<div class="prompt-q">5. What scientific reasoning connects the specific preparation conditions to your predicted phases and fractions?</div></div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Ground Truth</div>
-                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
-<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
-<tr><td>sp3 carbon</td><td>0.533</td></tr>
-<tr><td>sp2 carbon</td><td>0.246</td></tr>
-<tr><td>sp carbon</td><td>0.221</td></tr>
-</table>
-<div class="gt-field"><span class="gt-key">Candidate phases:</span> sp3 carbon, sp2 carbon, sp carbon</div>
-<div class="gt-field"><span class="gt-key">Recommended references:</span> graphite, diamond, carbyne</div>
-<div class="gt-field"><span class="gt-key">Key reasoning:</span> Nanodiamond powders possess a very high surface-to-volume ratio. To stabilize dangling bonds at the surface, the diamond (sp3) core undergoes significant surface reconstruction, forming a shell of sp2 (graphitic/fullerene-like) and sp carbon. This results in a highly mixed hybridization state where the sp3 fraction is only around ~53%, with substantial sp2 (~25%) and sp (~22%) contributions from the surface and defects.</div></div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Scoring Rubric (total: 100 pts)</div>
-                        <div class="rubric-box"><table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>
-<tr><td class="rubric-cat">Phase Identification</td><td class="rubric-max">30</td><td class="rubric-criteria">10 pts — Identifies sp3 carbon (diamond core) as a significant phase<br>10 pts — Identifies sp2 carbon (graphitic/surface reconstruction) as a significant phase<br>10 pts — Identifies sp carbon (defects/edges) as a significant phase</td></tr>
-<tr><td class="rubric-cat">N Phases</td><td class="rubric-max">10</td><td class="rubric-criteria">10 pts — Predicts exactly 3 significant phases<br>5 pts — Predicts 2 significant phases (likely missing sp carbon)<br>0 pts — Predicts 1 phase (assumes pure sp3 diamond)</td></tr>
-<tr><td class="rubric-cat">Fraction Accuracy</td><td class="rubric-max">30</td><td class="rubric-criteria">30 pts — Predicts sp3 between 45-65%, sp2 between 15-35%, and sp between 15-30%<br>20 pts — Predicts sp3 between 65-85%, with remaining fractions split between sp2 and sp<br>10 pts — Predicts sp3 &gt; 85% (fails to account for the extent of nanodiamond surface reconstruction)<br>0 pts — Predicts sp3 &lt; 45% or completely misses the dominant phases</td></tr>
-<tr><td class="rubric-cat">Reasoning Quality</td><td class="rubric-max">30</td><td class="rubric-criteria">15 pts — Explicitly mentions that the &#x27;nano&#x27; nature of the diamond powders leads to a high surface-to-volume ratio<br>15 pts — Connects the high surface area to surface reconstruction, defect formation, or dangling bond stabilization, which introduces the significant sp2 and sp carbon fractions</td></tr>
-</table></div>
-                    </div>
-                    <div class="section review-section">
-                        <div class="section-title">Review</div>
-                        <div class="review-controls">
-                            <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
-                            <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
-                            <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 15, 'harnessing_neural_ne_Diamond', 'C', 'synthesis', '10.1021/acs.jpcc.3c02029')">&#9888; Report Issue</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            </div>
-        </div>
-        
         <div class="paper" data-cat="pure_phase">
             <div class="paper-header" style="border-left: 5px solid #fff2cc;" onclick="togglePaper(this)">
                 <div class="paper-title">Prediction of the Cu oxidation state from EELS and XAS spectra using supervised machine learning</div>
@@ -1132,7 +979,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#16</span>
+                    <span class="condition-num">#14</span>
                     <span class="condition-material">Cu, metallic copper</span>
                     <span class="condition-elem">Cu L</span>
                     <span class="condition-kv"></span>
@@ -1194,7 +1041,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 16, 'prediction_of_the_cu_Cu Metal EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 14, 'prediction_of_the_cu_Cu Metal EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1202,7 +1049,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#17</span>
+                    <span class="condition-num">#15</span>
                     <span class="condition-material">Cu2O (cuprite)</span>
                     <span class="condition-elem">Cu L</span>
                     <span class="condition-kv"></span>
@@ -1237,7 +1084,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <div class="gt-field"><span class="gt-key">Crystal structure:</span> Cubic / Pn-3m</div>
 <div class="gt-field"><span class="gt-key">Coordination:</span> Linear, 2</div>
 <div class="gt-field"><span class="gt-key">Edge position:</span> ~932.5</div>
-<div class="gt-field"><span class="gt-key">Spectral shape:</span> The spectrum lacks a sharp, intense white line at the edge onset. Instead, it exhibits a broader L3 absorption peak/step at almost exactly the same energy as metallic Cu(0), followed by the L2 edge approximately 20 eV higher.</div>
+<div class="gt-field"><span class="gt-key">Spectral shape:</span> The Cu2O L2,3-edge spectrum features a sharp, distinct L3 absorption peak at the edge onset (~932.5-933.0 eV) and an L2 peak ~20 eV higher. Although the Cu(I) 3d10 shell is filled (so the peak does not arise from a 2p -&gt; 3d transition), the L3 feature is still a sharp, high-intensity edge-onset peak, easily distinguishable in intensity and shape from the lower-intensity, multiplet-split L3 profile of metallic Cu(0). (Per Fig 3b of the paper.)</div>
 <div class="gt-field"><span class="gt-key">Labeled peaks:</span></div>
 <table class="gt-table"><tr><th>Label</th><th>Energy (eV)</th><th>Intensity</th><th>Origin</th><th>Source</th></tr>
 <tr><td>L3 edge peak</td><td>~932.5 - 933.0</td><td>moderate/weak (relative to Cu2+ white line)</td><td>2p3/2 -&gt; 4s / continuum states (3d band is full)</td><td>paper_data and standard_knowledge</td></tr>
@@ -1263,7 +1110,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 17, 'prediction_of_the_cu_Cu2O_EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 15, 'prediction_of_the_cu_Cu2O_EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1271,7 +1118,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#18</span>
+                    <span class="condition-num">#16</span>
                     <span class="condition-material">CuO (Tenorite)</span>
                     <span class="condition-elem">Cu L</span>
                     <span class="condition-kv"></span>
@@ -1301,10 +1148,10 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                     </div>
                     <div class="section">
                         <div class="section-title">Ground Truth</div>
-                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Compound:</span> CuO (Tenorite)</div>
+                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Compound:</span> CuO</div>
 <div class="gt-field"><span class="gt-key">Oxidation state:</span> +2</div>
-<div class="gt-field"><span class="gt-key">Crystal structure:</span> Monoclinic (C2/c)</div>
-<div class="gt-field"><span class="gt-key">Coordination:</span> Square planar (4-coordinate)</div>
+<div class="gt-field"><span class="gt-key">Crystal structure:</span> ?</div>
+<div class="gt-field"><span class="gt-key">Coordination:</span> ?</div>
 <div class="gt-field"><span class="gt-key">Edge position:</span> ~930.5 eV (L3 edge)</div>
 <div class="gt-field"><span class="gt-key">Spectral shape:</span> The spectrum is dominated by two sharp, intense white line peaks corresponding to the L3 and L2 edges, separated by approximately 20 eV due to spin-orbit coupling. The L3 peak is significantly more intense than the L2 peak.</div>
 <div class="gt-field"><span class="gt-key">Labeled peaks:</span></div>
@@ -1312,7 +1159,6 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
 <tr><td>L3 White Line</td><td>~930.5 eV</td><td>Very strong</td><td>Dipole-allowed 2p3/2 -&gt; 3d transition (specifically into the unoccupied 3d x2-y2 hole)</td><td>paper_data and standard_knowledge</td></tr>
 <tr><td>L2 White Line</td><td>~950.5 eV</td><td>Strong (but weaker than L3)</td><td>Dipole-allowed 2p1/2 -&gt; 3d transition</td><td>standard_knowledge</td></tr>
 </table>
-<div class="gt-field"><span class="gt-key">Structural sensitivity:</span> The intensity and exact energy of the white lines are sensitive to the covalency of the Cu-O bonds and the local square planar crystal field, which dictates the energy of the half-empty dx2-y2 orbital.</div>
 <div class="gt-field"><span class="gt-key">Distinguishing features:</span> The L3 edge is roughly 2 eV lower in energy than Cu(I) and Cu(0). Furthermore, the presence of a sharp, intense white line at the edge onset is a definitive marker for the d9 Cu(II) state, as Cu(I) and Cu(0) have full d10 configurations and lack this strong 2p-&gt;3d transition.</div>
 <div class="gt-field"><span class="gt-key">Key reasoning:</span> Cu(II) in CuO has a d9 electronic configuration. The single hole in the 3d band (specifically the dx2-y2 orbital in square planar coordination) allows for a very strong, dipole-allowed transition from the 2p core levels (2p3/2 for L3, 2p1/2 for L2). Because this transition is to a highly localized 3d state, it appears as a sharp, intense white line at a lower energy (~930.5 eV) than the continuum transitions seen in d10 systems like Cu(I) and Cu(0), which occur around ~932.5 eV.</div></div>
                     </div>
@@ -1332,7 +1178,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 18, 'prediction_of_the_cu_CuO EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 16, 'prediction_of_the_cu_CuO EELS', 'Cu', 'pure_phase', '10.1038/s41524-024-01408-1')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1356,7 +1202,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#19</span>
+                    <span class="condition-num">#17</span>
                     <span class="condition-material">β-NiAl(100) single crystal surface</span>
                     <span class="condition-elem">Ni L</span>
                     <span class="condition-kv">surface region = pristine area</span>
@@ -1415,7 +1261,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 19, 'thermally_driven_sur_Pristine_beta-NiAl_100', 'Ni', 'synthesis', '10.1038/s41467-025-67397-x')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 17, 'thermally_driven_sur_Pristine_beta-NiAl_100', 'Ni', 'synthesis', '10.1038/s41467-025-67397-x')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1423,7 +1269,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#20</span>
+                    <span class="condition-num">#18</span>
                     <span class="condition-material">Bulk β-NiAl(100) single crystal</span>
                     <span class="condition-elem">Ni L</span>
                     <span class="condition-kv">surface region = precipitate island</span>
@@ -1482,7 +1328,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 20, 'thermally_driven_sur_γ‘-Ni3Al_precipitate_island', 'Ni', 'synthesis', '10.1038/s41467-025-67397-x')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 18, 'thermally_driven_sur_γ‘-Ni3Al_precipitate_island', 'Ni', 'synthesis', '10.1038/s41467-025-67397-x')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1506,7 +1352,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#21</span>
+                    <span class="condition-num">#19</span>
                     <span class="condition-material">Li2S (lithium sulfide)</span>
                     <span class="condition-elem">S K</span>
                     <span class="condition-kv"></span>
@@ -1569,7 +1415,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 21, 'simulated_sulfur_k_e_Li2S', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 19, 'simulated_sulfur_k_e_Li2S', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1577,7 +1423,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#22</span>
+                    <span class="condition-num">#20</span>
                     <span class="condition-material">P2S5 (phosphorus pentasulfide)</span>
                     <span class="condition-elem">S K</span>
                     <span class="condition-kv"></span>
@@ -1638,7 +1484,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 22, 'simulated_sulfur_k_e_P2S5', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 20, 'simulated_sulfur_k_e_P2S5', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1646,7 +1492,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#23</span>
+                    <span class="condition-num">#21</span>
                     <span class="condition-material">NiS (nickel sulfide)</span>
                     <span class="condition-elem">S K</span>
                     <span class="condition-kv"></span>
@@ -1708,7 +1554,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 23, 'simulated_sulfur_k_e_NiS', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 21, 'simulated_sulfur_k_e_NiS', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1716,7 +1562,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#24</span>
+                    <span class="condition-num">#22</span>
                     <span class="condition-material">beta-Li3PS4 (beta-phase lithium thiophosphate)</span>
                     <span class="condition-elem">S K</span>
                     <span class="condition-kv"></span>
@@ -1777,7 +1623,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 24, 'simulated_sulfur_k_e_beta-Li3PS4', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 22, 'simulated_sulfur_k_e_beta-Li3PS4', 'S', 'pure_phase', '10.1038/s41597-023-02262-4')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1801,7 +1647,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#25</span>
+                    <span class="condition-num">#23</span>
                     <span class="condition-material">croconic acid (C5H2O5)</span>
                     <span class="condition-elem">O K</span>
                     <span class="condition-kv"></span>
@@ -1864,7 +1710,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 25, 'probing_ferroelectri_croconic acid film', 'O', 'pure_phase', '10.1103/PhysRevMaterials.4.034401')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 23, 'probing_ferroelectri_croconic acid film', 'O', 'pure_phase', '10.1103/PhysRevMaterials.4.034401')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1888,7 +1734,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#26</span>
+                    <span class="condition-num">#24</span>
                     <span class="condition-material">Pristine lithium titanate before cycling, Li4Ti5O12</span>
                     <span class="condition-elem">Li K</span>
                     <span class="condition-kv">State of charge = x=0</span>
@@ -1951,7 +1797,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 26, 'kinetic_pathways_of_Pristine_LTO', 'Li', 'electrochemistry', '10.1126/science.aax3520')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 24, 'kinetic_pathways_of_Pristine_LTO', 'Li', 'electrochemistry', '10.1126/science.aax3520')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -1959,7 +1805,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#27</span>
+                    <span class="condition-num">#25</span>
                     <span class="condition-material">Lithium titanate (Li4Ti5O12) anode</span>
                     <span class="condition-elem">Li K</span>
                     <span class="condition-kv">C-rate = 1C</span>
@@ -2023,7 +1869,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 27, 'kinetic_pathways_of_Intermediate LTO (Low Rate)', 'Li', 'electrochemistry', '10.1126/science.aax3520')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 25, 'kinetic_pathways_of_Intermediate LTO (Low Rate)', 'Li', 'electrochemistry', '10.1126/science.aax3520')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2050,7 +1896,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#28</span>
+                    <span class="condition-num">#26</span>
                     <span class="condition-material">Pristine TiS2 cathode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">state_of_charge = 0%</span>
@@ -2113,7 +1959,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 28, 'i_operando__i_State 0 (Pristine)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 26, 'i_operando__i_State 0 (Pristine)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2121,7 +1967,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#29</span>
+                    <span class="condition-num">#27</span>
                     <span class="condition-material">TiS2 cathode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">state_of_charge = 40%</span>
@@ -2186,7 +2032,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 29, 'i_operando__i_State 1 (40% relative capacity)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 27, 'i_operando__i_State 1 (40% relative capacity)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2194,7 +2040,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#30</span>
+                    <span class="condition-num">#28</span>
                     <span class="condition-material">TiS2 cathode for sodium-ion batteries</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">state_of_charge = 82%</span>
@@ -2259,7 +2105,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 30, 'i_operando__i_State 2 (82% relative capacity)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 28, 'i_operando__i_State 2 (82% relative capacity)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2267,7 +2113,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#31</span>
+                    <span class="condition-num">#29</span>
                     <span class="condition-material">TiS2 cathode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">state_of_charge = 100%</span>
@@ -2330,7 +2176,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 31, 'i_operando__i_State 3 (Full sodiation)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 29, 'i_operando__i_State 3 (Full sodiation)', 'Ti', 'electrochemistry', '10.1039/d0ta00226g')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2354,7 +2200,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#32</span>
+                    <span class="condition-num">#30</span>
                     <span class="condition-material">Amorphous TiO2 shell on ZnO nanowires</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Analysis method = LCF of computed crystalline polymorph spectra</span>
@@ -2412,7 +2258,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 32, 'ultrathin_amorphous_ZnO-APT', 'Ti', 'thin_film', '10.1021/acs.nanolett.8b04888')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 30, 'ultrathin_amorphous_ZnO-APT', 'Ti', 'thin_film', '10.1021/acs.nanolett.8b04888')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2438,7 +2284,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#33</span>
+                    <span class="condition-num">#31</span>
                     <span class="condition-material">Pristine Li4/3Ti5/3O4 electrode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Li concentration x = 0.0</span>
@@ -2501,7 +2347,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 33, 'multi_stage_structur_Pristine Li4/3Ti5/3O4', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 31, 'multi_stage_structur_Pristine Li4/3Ti5/3O4', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2509,7 +2355,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#34</span>
+                    <span class="condition-num">#32</span>
                     <span class="condition-material">Lithium titanate (Li4/3Ti5/3O4) electrode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Li concentration x = 0.5</span>
@@ -2573,7 +2419,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 34, 'multi_stage_structur_Intermediate x=0.5', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 32, 'multi_stage_structur_Intermediate x=0.5', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2581,7 +2427,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#35</span>
+                    <span class="condition-num">#33</span>
                     <span class="condition-material">Lithium titanate (Li4/3Ti5/3O4) electrode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Li concentration x = 0.6</span>
@@ -2645,7 +2491,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 35, 'multi_stage_structur_Intermediate x=0.6', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 33, 'multi_stage_structur_Intermediate x=0.6', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2653,7 +2499,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#36</span>
+                    <span class="condition-num">#34</span>
                     <span class="condition-material">Lithium titanate (Li4/3Ti5/3O4) electrode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Li concentration x = 0.87</span>
@@ -2717,7 +2563,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 36, 'multi_stage_structur_Intermediate x=0.87', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 34, 'multi_stage_structur_Intermediate x=0.87', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2725,7 +2571,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#37</span>
+                    <span class="condition-num">#35</span>
                     <span class="condition-material">Lithium titanate electrode</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Li concentration x = 1.0</span>
@@ -2788,7 +2634,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 37, 'multi_stage_structur_Fully discharged x=1.0', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 35, 'multi_stage_structur_Fully discharged x=1.0', 'Ti', 'electrochemistry', '10.1021/jacs.7b07628')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2812,7 +2658,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#38</span>
+                    <span class="condition-num">#36</span>
                     <span class="condition-material">1 at. % Mn doped lithium titanate (Mn-doped Li4/3Ti5/3O4)</span>
                     <span class="condition-elem">Mn K</span>
                     <span class="condition-kv">Mn doping concentration = 1 at. %</span>
@@ -2871,7 +2717,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 38, 'identification_of_do_1% Mn-LTO', 'Mn', 'synthesis', '10.1103/PhysRevMaterials.2.125403')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 36, 'identification_of_do_1% Mn-LTO', 'Mn', 'synthesis', '10.1103/PhysRevMaterials.2.125403')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2895,7 +2741,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#39</span>
+                    <span class="condition-num">#37</span>
                     <span class="condition-material">Pt</span>
                     <span class="condition-elem">Pt L</span>
                     <span class="condition-kv">reference material = bulk</span>
@@ -2952,7 +2798,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 39, 'supervised_machine_l_Foil', 'Pt', 'catalyst', '10.1021/acs.jpclett.7b02364')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 37, 'supervised_machine_l_Foil', 'Pt', 'catalyst', '10.1021/acs.jpclett.7b02364')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -2976,7 +2822,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#40</span>
+                    <span class="condition-num">#38</span>
                     <span class="condition-material">Pd-doped Au25(SC8H9)18</span>
                     <span class="condition-elem">Pd K</span>
                     <span class="condition-kv">treatment = none</span>
@@ -3034,7 +2880,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 40, 'solving_local_struct_Au25_6Pd_as_prepared', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 38, 'solving_local_struct_Au25_6Pd_as_prepared', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3042,7 +2888,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#41</span>
+                    <span class="condition-num">#39</span>
                     <span class="condition-material">Pd-doped Au25(SC8H9)18</span>
                     <span class="condition-elem">Pd K</span>
                     <span class="condition-kv">treatment = chemical (LiBH4)</span>
@@ -3101,7 +2947,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 41, 'solving_local_struct_Au25 + 6 Pd, chemically treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 39, 'solving_local_struct_Au25 + 6 Pd, chemically treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3109,7 +2955,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#42</span>
+                    <span class="condition-num">#40</span>
                     <span class="condition-material">Pd-doped Au25(SC8H9)18</span>
                     <span class="condition-elem">Pd K</span>
                     <span class="condition-kv">treatment = thermal (250C air, then H2)</span>
@@ -3168,7 +3014,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 42, 'solving_local_struct_Au25_6_Pd_thermally_treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 40, 'solving_local_struct_Au25_6_Pd_thermally_treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3176,7 +3022,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#43</span>
+                    <span class="condition-num">#41</span>
                     <span class="condition-material">Pd-doped Au25(SC8H9)18</span>
                     <span class="condition-elem">Pd K</span>
                     <span class="condition-kv">treatment = chemical (LiBH4)</span>
@@ -3235,7 +3081,7 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 43, 'solving_local_struct_Au25 + 0.5 Pd, chemically treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 41, 'solving_local_struct_Au25 + 0.5 Pd, chemically treated', 'Pd', 'catalyst', '10.1039/c6cp04030f')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3261,7 +3107,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#44</span>
+                    <span class="condition-num">#42</span>
                     <span class="condition-material">arsenopyrite mineral</span>
                     <span class="condition-elem">As K-edge</span>
                     <span class="condition-kv">spatial region = core</span>
@@ -3316,7 +3162,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 44, 'sub_20_nm_hard_x_ray_Pristine As-Pyr (core)', 'As', 'environmental', '10.1021/acsnano.6c05068')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 42, 'sub_20_nm_hard_x_ray_Pristine As-Pyr (core)', 'As', 'environmental', '10.1021/acsnano.6c05068')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3324,7 +3170,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#45</span>
+                    <span class="condition-num">#43</span>
                     <span class="condition-material">reacted arsenopyrite</span>
                     <span class="condition-elem">As K-edge</span>
                     <span class="condition-kv">particle size/morphology = &lt;200 nm</span>
@@ -3380,7 +3226,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 45, 'sub_20_nm_hard_x_ray_Rctd-As-Pyr (nanoparticle regions)', 'As', 'environmental', '10.1021/acsnano.6c05068')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 43, 'sub_20_nm_hard_x_ray_Rctd-As-Pyr (nanoparticle regions)', 'As', 'environmental', '10.1021/acsnano.6c05068')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3404,7 +3250,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#46</span>
+                    <span class="condition-num">#44</span>
                     <span class="condition-material">Physically mixed stainless steel and hematite nanoparticles</span>
                     <span class="condition-elem">Fe K-edge</span>
                     <span class="condition-kv">sample type = reference standard</span>
@@ -3468,7 +3314,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 46, 'high_sensitivity_nan_Reference mixture', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 44, 'high_sensitivity_nan_Reference mixture', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3476,7 +3322,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#47</span>
+                    <span class="condition-num">#45</span>
                     <span class="condition-material">Carbon-coated lithium iron phosphate particle</span>
                     <span class="condition-elem">Fe K-edge</span>
                     <span class="condition-kv">state of charge = pristine</span>
@@ -3540,7 +3386,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 47, 'high_sensitivity_nan_Pristine LFP', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 45, 'high_sensitivity_nan_Pristine LFP', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3548,7 +3394,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#48</span>
+                    <span class="condition-num">#46</span>
                     <span class="condition-material">LixFePO4, cathode material</span>
                     <span class="condition-elem">Fe K-edge</span>
                     <span class="condition-kv">state of charge = partially (de)lithiated</span>
@@ -3612,7 +3458,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 48, 'high_sensitivity_nan_Partially (de)lithiated LFP (Particle 1)', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 46, 'high_sensitivity_nan_Partially (de)lithiated LFP (Particle 1)', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3620,7 +3466,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#49</span>
+                    <span class="condition-num">#47</span>
                     <span class="condition-material">LixFePO4 with trace secondary phases from high-temperature carbon coating</span>
                     <span class="condition-elem">Fe K-edge</span>
                     <span class="condition-kv">state of charge = partially (de)lithiated</span>
@@ -3684,7 +3530,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 49, 'high_sensitivity_nan_Partially (de)lithiated LFP (Particle 2)', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 47, 'high_sensitivity_nan_Partially (de)lithiated LFP (Particle 2)', 'Fe', 'electrochemistry', '10.1126/sciadv.abb3615')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3708,7 +3554,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#50</span>
+                    <span class="condition-num">#48</span>
                     <span class="condition-material">TiO2 thin film on fused silica</span>
                     <span class="condition-elem">Ti K</span>
                     <span class="condition-kv">Reference material = Pure TiO2</span>
@@ -3765,7 +3611,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 50, 'deciphering_phase_ev_Pure TiO2 reference film', 'Ti', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 48, 'deciphering_phase_ev_Pure TiO2 reference film', 'Ti', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3773,7 +3619,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#51</span>
+                    <span class="condition-num">#49</span>
                     <span class="condition-material">Pure ZnO thin film on fused silica</span>
                     <span class="condition-elem">Zn K</span>
                     <span class="condition-kv">Reference material = Pure ZnO</span>
@@ -3829,7 +3675,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 51, 'deciphering_phase_ev_Pure ZnO reference film', 'Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 49, 'deciphering_phase_ev_Pure ZnO reference film', 'Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3837,7 +3683,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#52</span>
+                    <span class="condition-num">#50</span>
                     <span class="condition-material">Ti-Zn-O combinatorial thin film on fused silica</span>
                     <span class="condition-elem">Ti, Zn K</span>
                     <span class="condition-kv">Composition = fTi = 0.15</span>
@@ -3895,7 +3741,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 52, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.15', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 50, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.15', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3903,7 +3749,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#53</span>
+                    <span class="condition-num">#51</span>
                     <span class="condition-material">Ti-Zn-O thin film on fused silica</span>
                     <span class="condition-elem">Ti, Zn K</span>
                     <span class="condition-kv">Composition = fTi = 0.33</span>
@@ -3961,7 +3807,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 53, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.33', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 51, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.33', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -3969,7 +3815,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#54</span>
+                    <span class="condition-num">#52</span>
                     <span class="condition-material">Ti-Zn-O thin film on fused silica</span>
                     <span class="condition-elem">Ti, Zn K</span>
                     <span class="condition-kv">Composition = fTi = 0.60</span>
@@ -4027,7 +3873,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 54, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.60', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 52, 'deciphering_phase_ev_Combinatorial film at fTi ~ 0.60', 'Ti, Zn', 'thin_film', '10.1088/1361-6528/acad09')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4051,7 +3897,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#55</span>
+                    <span class="condition-num">#53</span>
                     <span class="condition-material">[Cu(H2O)5]2+ (Liquid aqueous Cu(II))</span>
                     <span class="condition-elem">Cu K</span>
                     <span class="condition-kv"></span>
@@ -4113,7 +3959,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 55, 'a_high_resolution_xa_Liquid aqueous Cu(II)', 'Cu', 'pure_phase', '10.1063/1.4908266')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 53, 'a_high_resolution_xa_Liquid aqueous Cu(II)', 'Cu', 'pure_phase', '10.1063/1.4908266')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4137,7 +3983,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                 
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#56</span>
+                    <span class="condition-num">#54</span>
                     <span class="condition-material">MnO (Manganese(II) oxide)</span>
                     <span class="condition-elem">Mn L</span>
                     <span class="condition-kv"></span>
@@ -4199,7 +4045,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 56, 'towards_calibration_MnO (Mn2+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 54, 'towards_calibration_MnO (Mn2+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4207,7 +4053,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#57</span>
+                    <span class="condition-num">#55</span>
                     <span class="condition-material">Mn2O3 (Manganese(III) oxide)</span>
                     <span class="condition-elem">Mn L</span>
                     <span class="condition-kv"></span>
@@ -4268,7 +4114,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 57, 'towards_calibration_Mn2O3 (Mn3+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 55, 'towards_calibration_Mn2O3 (Mn3+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
@@ -4276,7 +4122,7 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
             
             <div class="condition">
                 <div class="condition-header" onclick="toggleCondition(this)">
-                    <span class="condition-num">#58</span>
+                    <span class="condition-num">#56</span>
                     <span class="condition-material">MnO2 (Manganese(IV) oxide)</span>
                     <span class="condition-elem">Mn L</span>
                     <span class="condition-kv"></span>
@@ -4338,7 +4184,135 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
-                            <button class="review-btn issue" onclick="reportIssue(this, 58, 'towards_calibration_MnO2 (Mn4+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
+                            <button class="review-btn issue" onclick="reportIssue(this, 56, 'towards_calibration_MnO2 (Mn4+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="paper" data-cat="electrochemistry">
+            <div class="paper-header" style="border-left: 5px solid #d6e4f0;" onclick="togglePaper(this)">
+                <div class="paper-title">Harnessing Neural Networks for Elucidating X-ray Absorption Structure–Spectrum Relationships in Amorphous Carbon</div>
+                <div class="paper-meta">
+                    <span class="cat-badge" style="background:#d6e4f0">Electrochemistry</span>
+                    <span class="paper-authors">Cheng et al.</span>
+                    <span class="paper-doi">DOI: 10.1021/acs.jpcc.3c02029</span>
+                    <span class="paper-count">2 scenarios</span>
+                </div>
+                <span class="toggle-icon">&#9654;</span>
+            </div>
+            <div class="paper-body" style="display:none">
+                
+            <div class="condition">
+                <div class="condition-header" onclick="toggleCondition(this)">
+                    <span class="condition-num">#57</span>
+                    <span class="condition-material">harnessing_neural_ne_annealed_graphene</span>
+                    <span class="condition-elem">C K</span>
+                    <span class="condition-kv"></span>
+                    <span class="toggle-icon">&#9654;</span>
+                </div>
+                <div class="condition-body" style="display:none">
+                    <div class="section">
+                        <div class="section-title">LLM Prompt</div>
+                        <div class="prompt-box"><div class="prompt-line">### Sample Information</div>
+<div class="prompt-line">The sample is an annealed graphene thin-film material investigated as a benchmark system for evaluating the structure-spectrum relationships of sp²-rich carbonaceous nanomaterials.</div>
+<div class="prompt-line">### Preparation</div>
+<div class="prompt-line">The graphene sample was prepared via thermal annealing under controlled atmosphere to reduce oxygen content and induce thermal restoration of the conjugated carbon lattice. As reported by Aarva et al. (*J. Phys. Chem. C* 2021, 125, 18234–18246), the resulting sample exhibits low oxygen content, high sp² carbon content, and a distribution of structural defects such as single vacancies and non-hexagonal ring topologies formed during high-temperature relaxation.</div>
+<div class="prompt-line">### Measurement</div>
+<div class="prompt-line">Carbon K-edge (C 1s) X-ray absorption near-edge structure (XANES) spectroscopy was conducted at beamline 8-2 of the Stanford Synchrotron Radiation Lightsource (SSRL). The beamline utilizes a bending magnet and a spherical grating monochromator providing an energy resolution of ~200 meV (40 × 40 µm² slit settings). The incident photon beam (~10¹⁰ photons/s, 1 × 1 mm² beam spot) was aligned at the magic incidence angle of 55° relative to the sample normal to eliminate orientation-dependent polarization effects. Spectra were recorded from 260 to 350 eV in total electron yield (TEY) mode, normalized against incoming beam intensity recorded via a gold-coated nickel mesh, and energy-calibrated by setting the π* resonance of highly oriented pyrolytic graphite (HOPG) to 285.4 eV.</div>
+<div class="prompt-line">### Questions</div>
+<div class="prompt-q">1. Identify the hybridization phases present in this carbon material from the set of candidate phases: sp carbon, sp² carbon, and sp³ carbon.</div>
+<div class="prompt-q">2. Specify the appropriate reference standard basis set for quantifying carbon hybridization states from C K-edge XANES.</div>
+<div class="prompt-q">3. Based on neural network inversion of the experimental XANES spectrum, predict the quantitative fractions of sp, sp², and sp³ carbon in the annealed graphene sample.</div>
+<div class="prompt-q">4. Rationalize the predicted distribution of carbon hybridization states in terms of the dominant spectral features (π* peak at ~285 eV and σ* threshold at ~291–293 eV) and the microscopic structural motifs of the annealed graphene network.</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Ground Truth</div>
+                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
+<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
+<tr><td>sp2 carbon</td><td>0.979</td></tr>
+<tr><td>sp3 carbon</td><td>0.021</td></tr>
+<tr><td>sp carbon</td><td>0.0</td></tr>
+</table>
+<div class="gt-field"><span class="gt-key">Candidate phases:</span> sp carbon, sp2 carbon, sp3 carbon</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> sp carbon reference, sp2 carbon reference (graphite), sp3 carbon reference (diamond)</div>
+<div class="gt-field"><span class="gt-key">Key reasoning:</span> The C K-edge XANES spectrum of annealed graphene is strongly dominated by the sharp π* resonance near 285 eV and the σ* transition starting at ~291.7 eV, characteristic of planar, predominantly sp²-bonded conjugated carbon sheets. Deconvolution via the neural network model trained on theoretical XANES spectra predicts 97.9% sp² carbon and 2.1% sp³ carbon (with negligible/0% sp carbon). The small sp³ component arises from local distortions, out-of-plane buckling, and residual functionalized or cross-linking defect sites formed during the thermal annealing process.</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Scoring Rubric (total: 100 pts)</div>
+                        <div class="rubric-box"><table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>
+<tr><td class="rubric-cat">Phase Identification</td><td class="rubric-max">25</td><td class="rubric-criteria">25 pts — Full marks (25 pts) for identifying sp² carbon as the primary phase and sp³ carbon as the minor phase, with sp carbon absent or near zero. Partial credit (15 pts) if all three hybridizations are listed without distinguishing primary vs. minor phases.</td></tr>
+<tr><td class="rubric-cat">Fraction Estimation</td><td class="rubric-max">40</td><td class="rubric-criteria">40 pts — Full marks (40 pts) for estimating sp² carbon fraction within ±0.03 of 0.979 (~95–100%), sp³ carbon within ±0.03 of 0.021 (0–5%), and sp carbon ≤0.01. Proportional partial credit for estimates correctly identifying sp² as &gt;90%.</td></tr>
+<tr><td class="rubric-cat">Reference Selection</td><td class="rubric-max">15</td><td class="rubric-criteria">15 pts — Full marks (15 pts) for defining an orthogonal three-component basis consisting of pure sp (acetylenic/carbyne-like), sp² (graphitic/graphene), and sp³ (diamond-like) carbon references, and noting that theoretical or external experimental standards are required.</td></tr>
+<tr><td class="rubric-cat">Reasoning</td><td class="rubric-max">20</td><td class="rubric-criteria">20 pts — Full marks (20 pts) for explaining the correspondence between the high π* resonance intensity at ~285 eV and the predominantly sp² honeycomb lattice, alongside attributing the minor sp³ fraction to local lattice distortion, topological defects (e.g., vacancy reconstruction), or surface buckling.</td></tr>
+</table></div>
+                    </div>
+                    <div class="section review-section">
+                        <div class="section-title">Review</div>
+                        <div class="review-controls">
+                            <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
+                            <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
+                            <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 57, 'harnessing_neural_ne_annealed_graphene', 'C', 'electrochemistry', '10.1021/acs.jpcc.3c02029')">&#9888; Report Issue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="condition">
+                <div class="condition-header" onclick="toggleCondition(this)">
+                    <span class="condition-num">#58</span>
+                    <span class="condition-material">harnessing_neural_ne_diamond</span>
+                    <span class="condition-elem">C K</span>
+                    <span class="condition-kv"></span>
+                    <span class="toggle-icon">&#9654;</span>
+                </div>
+                <div class="condition-body" style="display:none">
+                    <div class="section">
+                        <div class="section-title">LLM Prompt</div>
+                        <div class="prompt-box"><div class="prompt-line">### Sample Information</div>
+<div class="prompt-line">The sample is nanodiamond powder — a commercially available detonation-synthesized nanodiamond used as a benchmark sp³-rich carbon reference material.</div>
+<div class="prompt-line">### Preparation</div>
+<div class="prompt-line">Nanodiamond powders (~5 nm primary particle size) were produced by detonation of TNT/hexogen mixtures in a closed chamber. As reported by Osswald et al. (*J. Am. Chem. Soc.* 2006, 128, 11635–11642), the as-received nanodiamond contains a significant fraction of amorphous sp² carbon and functionalized surface groups (C=O, C-OH). Selective air oxidation at 425 °C is used to remove non-diamond sp² carbon while preserving the sp³ diamond core. The specific sample used in the neural-network validation is either as-received or partially oxidized nanodiamond, retaining a mixture of sp, sp², and sp³ hybridizations.</div>
+<div class="prompt-line">### Measurement</div>
+<div class="prompt-line">Carbon K-edge (C 1s) X-ray absorption near-edge structure (XANES) spectroscopy was measured in total electron yield (TEY) mode from ~275 to 335 eV. Spectra were normalized to the incoming beam intensity and energy-calibrated using standard references (e.g., HOPG π* at 285.4 eV).</div>
+<div class="prompt-line">### Questions</div>
+<div class="prompt-q">1. Identify the hybridization phases present in this nanodiamond sample from the set of candidate phases: sp carbon, sp² carbon, and sp³ carbon.</div>
+<div class="prompt-q">2. Specify the appropriate reference standard basis set for quantifying carbon hybridization states from C K-edge XANES.</div>
+<div class="prompt-q">3. Based on neural network inversion of the experimental XANES spectrum, predict the quantitative fractions of sp, sp², and sp³ carbon in the nanodiamond sample.</div>
+<div class="prompt-q">4. Rationalize the predicted composition in terms of spectral signatures (π* peak at ~285 eV, surface functional groups at ~286.5 eV, diamond σ* threshold at ~289 eV) and the known microstructure of detonation nanodiamond (sp³ core + sp²/sp shell + surface functionalities).</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Ground Truth</div>
+                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Phase fractions:</span></div>
+<table class="gt-table"><tr><th>Phase</th><th>Fraction</th></tr>
+<tr><td>sp3 carbon</td><td>0.528</td></tr>
+<tr><td>sp2 carbon</td><td>0.244</td></tr>
+<tr><td>sp carbon</td><td>0.219</td></tr>
+</table>
+<div class="gt-field"><span class="gt-key">Candidate phases:</span> sp carbon, sp2 carbon, sp3 carbon</div>
+<div class="gt-field"><span class="gt-key">Recommended references:</span> sp carbon reference, sp2 carbon reference (graphite), sp3 carbon reference (diamond)</div>
+<div class="gt-field"><span class="gt-key">Key reasoning:</span> Nanodiamond has an sp³ crystalline core (~53%) but is not pure — detonation-synthesized nanodiamond has a well-known onion-like structure with an sp²/sp shell and surface functionalities. The C K-edge XANES thus shows contributions from all three hybridization states: strong σ* resonance near 289 eV (sp³ diamond), residual π* at ~285 eV (sp² surface graphitic-like carbon), and additional intensity attributable to sp-like coordinated carbon at the interface. The NN inversion trained on amorphous carbon references captures this heterogeneity, yielding a significant non-sp³ contribution (~47% combined sp+sp²).</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Scoring Rubric (total: 100 pts)</div>
+                        <div class="rubric-box"><table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>
+<tr><td class="rubric-cat">Phase Identification</td><td class="rubric-max">25</td><td class="rubric-criteria">25 pts — Correctly identifies sp³ as dominant and recognizes significant sp² and sp contributions (not pure sp³).</td></tr>
+<tr><td class="rubric-cat">Fraction Estimation</td><td class="rubric-max">40</td><td class="rubric-criteria">40 pts — Predicted sp³ within 10 percentage points of 0.528; sp² within 10 pp of 0.244; sp within 10 pp of 0.219.</td></tr>
+<tr><td class="rubric-cat">Reference Selection</td><td class="rubric-max">15</td><td class="rubric-criteria">15 pts — Correctly specifies sp/sp²/sp³ basis (or graphite + diamond + sp reference) for LCF/NN inversion.</td></tr>
+<tr><td class="rubric-cat">Reasoning</td><td class="rubric-max">20</td><td class="rubric-criteria">20 pts — Explains contributions from diamond core (sp³), graphitic surface shell (sp²), and interfacial sp-like sites; references specific spectral features (285 eV π*, 289 eV σ* threshold).</td></tr>
+</table></div>
+                    </div>
+                    <div class="section review-section">
+                        <div class="section-title">Review</div>
+                        <div class="review-controls">
+                            <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
+                            <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
+                            <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 58, 'harnessing_neural_ne_diamond', 'C', 'electrochemistry', '10.1021/acs.jpcc.3c02029')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>

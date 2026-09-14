@@ -580,10 +580,10 @@ def load_api_keys():
     return keys
 
 
-def read_xlsx():
+def read_xlsx(path=None):
     import openpyxl
-    wb = openpyxl.load_workbook(XLSX_FILE)
-    ws = wb["Sheet1"]
+    wb = openpyxl.load_workbook(path or XLSX_FILE)
+    ws = wb.active
 
     papers = []
     for r in range(2, ws.max_row + 1):
@@ -609,9 +609,13 @@ def read_xlsx():
 
 # ── Gemini call ────────────────────────────────────────────────
 
+GEMINI_MODEL = None  # set from CLI in main()
+
 def call_gemini(prompt, pdf_path=None, image_paths=None, timeout=180):
     """Call Gemini via gemini_call_v2.py subprocess. Supports PDF and/or images."""
     cmd = [GEMINI_PYTHON, GEMINI_SCRIPT]
+    if GEMINI_MODEL:
+        cmd += ["--model", GEMINI_MODEL]
     if pdf_path:
         cmd += ["--pdf", pdf_path]
     if image_paths:
@@ -955,6 +959,18 @@ def download_paper(paper, api_keys):
     text = None
     source = None
 
+    # For BNL / DOE-funded papers, try OSTI first (higher hit rate, bypasses paywalls)
+    contributor = (paper.get("contributor") or "").lower()
+    is_bnl = ("bnl" in contributor or "nsls" in contributor or "brookhaven" in contributor
+              or "doe" in contributor)
+
+    if is_bnl:
+        pdf_bytes = download_pdf_osti(doi)
+        if pdf_bytes:
+            with open(pdf_path, "wb") as f:
+                f.write(pdf_bytes)
+            return pdf_bytes, None, "osti_pdf"
+
     # 1. Try PDF from Unpaywall
     pdf_bytes = download_pdf_unpaywall(doi)
     if pdf_bytes:
@@ -962,12 +978,13 @@ def download_paper(paper, api_keys):
             f.write(pdf_bytes)
         return pdf_bytes, None, "unpaywall_pdf"
 
-    # 1b. Try PDF from OSTI API (BNL institutional access)
-    pdf_bytes = download_pdf_osti(doi)
-    if pdf_bytes:
-        with open(pdf_path, "wb") as f:
-            f.write(pdf_bytes)
-        return pdf_bytes, None, "osti_pdf"
+    # 1b. Try OSTI as fallback for non-BNL papers
+    if not is_bnl:
+        pdf_bytes = download_pdf_osti(doi)
+        if pdf_bytes:
+            with open(pdf_path, "wb") as f:
+                f.write(pdf_bytes)
+            return pdf_bytes, None, "osti_pdf"
 
     # 2. Try PDF from PMC
     pmcid = lookup_pmcid(doi)
@@ -1160,7 +1177,16 @@ def process_one_paper(paper, api_keys, text_only=False):
             ref_paper = {"doi": ref_doi}
             ref_pdf, ref_text, ref_src = download_paper(ref_paper, api_keys)
             if not ref_pdf and not ref_text:
-                print("can't download")
+                print("can't download → flagging as missing context")
+                c["has_missing_context"] = True
+                c["missing_context_note"] = (
+                    f"Synthesis/preparation conditions unknown — details reported in "
+                    f"cited reference {ref_doi} which could not be accessed."
+                )
+                for k in ("preparation", "synthesis", "annealing"):
+                    v = c.get(k)
+                    if v and "cited reference" in str(v).lower():
+                        c[k] = f"UNKNOWN — see cited reference {ref_doi} (not accessible)"
                 continue
 
             lookup_prompt = CONDITION_LOOKUP_PROMPT.format(
@@ -1189,9 +1215,19 @@ def process_one_paper(paper, api_keys, text_only=False):
                     if v is not None and v != "not reported" and v != "null":
                         c[k] = v
                 c["conditions_source_doi"] = ref_doi
+                c["has_missing_context"] = False
                 print(f"OK — filled in from {ref_src}")
             else:
-                print("conditions not found in ref")
+                print("conditions not found in ref → flagging as missing context")
+                c["has_missing_context"] = True
+                c["missing_context_note"] = (
+                    f"Synthesis/preparation conditions unknown — cited reference "
+                    f"{ref_doi} downloaded but did not contain the expected details."
+                )
+                for k in ("preparation", "synthesis", "annealing"):
+                    v = c.get(k)
+                    if v and "cited reference" in str(v).lower():
+                        c[k] = f"UNKNOWN — see cited reference {ref_doi}"
             time.sleep(1)
 
     # ── Find cited references ──
@@ -1401,6 +1437,8 @@ def main():
     parser = argparse.ArgumentParser(
         description="Extract spectral analysis data from curated XANES paper list"
     )
+    parser.add_argument("--xlsx", type=str, default=None,
+                        help="Path to input xlsx (default: xanes_literature_examples.xlsx)")
     parser.add_argument("--max-papers", type=int, default=None)
     parser.add_argument("--doi", type=str, default=None,
                         help="Process a specific DOI only")
@@ -1414,7 +1452,15 @@ def main():
                         help="Skip citation chasing (don't follow referenced papers)")
     parser.add_argument("--max-depth", type=int, default=1,
                         help="Max citation chase depth (default: 1)")
+    parser.add_argument("--model", type=str, default=None,
+                        help="Gemini model (e.g. gemini-3.8-flash, gemini-3.1-pro-preview). "
+                             "Default: gemini_call_v2.py default.")
     args = parser.parse_args()
+
+    global GEMINI_MODEL
+    GEMINI_MODEL = args.model
+    if GEMINI_MODEL:
+        print(f"Using Gemini model: {GEMINI_MODEL}")
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     api_keys = load_api_keys()
@@ -1437,7 +1483,7 @@ def main():
     if doi_list:
         # Try to get metadata from xlsx for known DOIs
         try:
-            all_xlsx = read_xlsx()
+            all_xlsx = read_xlsx(args.xlsx)
             xlsx_by_doi = {p["doi"]: p for p in all_xlsx}
         except Exception:
             xlsx_by_doi = {}
@@ -1449,8 +1495,8 @@ def main():
                 papers.append({"doi": d, "element": "", "edge": "", "material": "", "source": "doi_list"})
         print(f"Processing {len(papers)} DOIs ({sum(1 for d in doi_list if d in xlsx_by_doi)} matched xlsx metadata)")
     else:
-        papers = read_xlsx()
-        print(f"Papers in xlsx: {len(papers)}")
+        papers = read_xlsx(args.xlsx)
+        print(f"Papers in xlsx ({args.xlsx or 'default'}): {len(papers)}")
 
     if args.max_papers:
         papers = papers[:args.max_papers]
@@ -1546,8 +1592,9 @@ def main():
     # Always deduplicate (remove conditions with identical phase fractions within same paper)
     extracted = dedup_conditions(extracted)
 
-    # ── Save results ──
-    output_path = os.path.join(BASE_DIR, f"xlsx_extracted_{timestamp}.json")
+    # ── Save results — filename reflects input xlsx ──
+    xlsx_base = os.path.splitext(os.path.basename(args.xlsx or XLSX_FILE))[0]
+    output_path = os.path.join(BASE_DIR, f"{xlsx_base}_extracted_{timestamp}.json")
     with open(output_path, "w") as f:
         json.dump(extracted, f, indent=2)
 

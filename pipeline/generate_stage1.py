@@ -321,6 +321,7 @@ CRITICAL RULES FOR THE PROMPT:
 - If a value is not reported in the paper, write "not reported" — do NOT invent values.
 - NEVER use "(typical)" or "(typical for this method)" — only use actual reported values or "not reported".
 - The prompt must NOT reveal the answer (no phase fractions, no XANES results).
+- If the condition has "has_missing_context": true, INCLUDE an explicit "**Note**: Synthesis / preparation conditions unknown (cited reference [DOI] not accessible)." line in the Sample Information section. Do NOT invent synthesis details in that case. Propagate the flag to condition_details.has_missing_context in the output.
 
 The JSON object has this structure:
 
@@ -650,11 +651,16 @@ def classify_paper_from_metadata(paper):
             "reasoning": "classification failed, defaulting to synthesis"}
 
 
+GEMINI_MODEL = None  # set from CLI in main()
+
 def call_gemini(prompt):
     """Call Gemini via subprocess."""
+    cmd = [GEMINI_PYTHON, GEMINI_SCRIPT]
+    if GEMINI_MODEL:
+        cmd += ["--model", GEMINI_MODEL]
     try:
         result = subprocess.run(
-            [GEMINI_PYTHON, GEMINI_SCRIPT],
+            cmd,
             input=prompt,
             capture_output=True,
             text=True,
@@ -1214,7 +1220,14 @@ def main():
                         help="Path to fulltext_analyzed_papers*.json (default: latest)")
     parser.add_argument("--max-papers", type=int, default=None,
                         help="Max papers to process")
+    parser.add_argument("--model", type=str, default=None,
+                        help="Gemini model (e.g. gemini-3.8-flash). Default: gemini_call.py's default.")
     args = parser.parse_args()
+
+    global GEMINI_MODEL
+    GEMINI_MODEL = args.model
+    if GEMINI_MODEL:
+        print(f"Using Gemini model: {GEMINI_MODEL}")
 
     input_file = args.input or LITERATURE_FILE
     if not os.path.exists(input_file):
@@ -1316,7 +1329,15 @@ def main():
 
                 condition_data = json.dumps(condition, indent=2)
 
-                if category == "pure_phase":
+                # Route reference-material conditions through the pure_phase prompt
+                effective_category = category
+                if condition.get("is_reference") is True:
+                    effective_category = "pure_phase"
+                effective_template = (get_benchmark_template("pure_phase")
+                                       if effective_category == "pure_phase"
+                                       else benchmark_template)
+
+                if effective_category == "pure_phase":
                     prompt = GENERATION_PROMPT_PURE_PHASE.format(
                         element=cond_elem,
                         edge=cond_edge,
@@ -1325,7 +1346,7 @@ def main():
                         references=AVAILABLE_REFERENCES,
                         suggested_id=suggested_id,
                         source_paper=paper.get("title", "")[:80],
-                        benchmark_template=benchmark_template.format(
+                        benchmark_template=effective_template.format(
                             element=cond_elem, edge=cond_edge,
                         ),
                     )
@@ -1356,11 +1377,11 @@ def main():
                         parsed = parsed[0] if parsed else None
                 if parsed:
                     parsed["source_paper_full"] = paper_meta
-                    parsed["category"] = category
+                    parsed["category"] = effective_category
                     parsed["classification"] = classification
                     scenarios.append(parsed)
                     gt = parsed.get("ground_truth", {})
-                    if category == "pure_phase":
+                    if effective_category == "pure_phase":
                         compound = gt.get("compound", "?")
                         print(f"    [{cond_idx}/{total_conditions}] OK: {parsed.get('id', '?')} — {compound} (spectral fingerprint)")
                     else:
@@ -1443,10 +1464,15 @@ def main():
     if n_typical:
         print(f"  Scenarios with (typical) values: {n_typical} — these should be 0")
 
-    # Save with timestamp
+    # Save with timestamp — filename reflects input basename
     import time
     timestamp = time.strftime("%Y%m%d_%H%M%S")
-    output_path = os.path.join(BASE_DIR, f"stage1_examples_v3_{timestamp}.json")
+    input_base = os.path.splitext(os.path.basename(input_file))[0]
+    input_base = re.sub(r'_extracted_\d{8}_\d{6}$', '', input_base)
+    if input_base in ("extracted_papers", "xlsx_extracted"):
+        output_path = os.path.join(BASE_DIR, f"stage1_examples_v3_{timestamp}.json")
+    else:
+        output_path = os.path.join(BASE_DIR, f"{input_base}_stage1_{timestamp}.json")
     with open(output_path, "w") as f:
         json.dump(scenarios, f, indent=2)
 
