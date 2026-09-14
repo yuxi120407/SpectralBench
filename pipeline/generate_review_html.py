@@ -65,8 +65,18 @@ def format_ground_truth_html(gt, category):
     if category == "pure_phase":
         parts.append(f'<div class="gt-field"><span class="gt-key">Compound:</span> {html.escape(str(gt.get("compound", "?")))}</div>')
         parts.append(f'<div class="gt-field"><span class="gt-key">Oxidation state:</span> {html.escape(str(gt.get("oxidation_state", "?")))}</div>')
-        parts.append(f'<div class="gt-field"><span class="gt-key">Crystal structure:</span> {html.escape(str(gt.get("crystal_structure", "?")))}</div>')
-        parts.append(f'<div class="gt-field"><span class="gt-key">Coordination:</span> {html.escape(str(gt.get("coordination", "?")))}</div>')
+        # Only show crystal_structure / coordination if present (v3 legacy; v4 removed them
+        # when not stated in the paper, per Deyu's feedback that invented values are misleading)
+        cs = gt.get("crystal_structure")
+        if cs:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Crystal structure:</span> {html.escape(str(cs))}</div>')
+        coord = gt.get("coordination")
+        if coord:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Coordination:</span> {html.escape(str(coord))}</div>')
+        # v4 measurement field
+        meas = gt.get("measurement")
+        if meas:
+            parts.append(f'<div class="gt-field"><span class="gt-key">Measurement:</span> {html.escape(str(meas))}</div>')
 
         sf = gt.get("spectral_features", {})
         if sf:
