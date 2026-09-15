@@ -1,42 +1,42 @@
 # SpectralBench
 
-A benchmark for evaluating LLM domain knowledge of X-ray absorption near-edge structure (XANES) spectroscopy. Given sample preparation and measurement conditions, LLMs are asked to predict phase compositions or describe spectral features.
+A benchmark for evaluating LLM domain knowledge of X-ray absorption near-edge structure (XANES) spectroscopy. Given sample preparation and measurement conditions, LLMs are asked to predict phase compositions, identify reference spectra, and describe spectral features.
 
 ## Benchmark overview
 
-- **68 scenarios** from **18 published papers**
+- **60 scenarios** from **18 published papers**
 - **6 categories**: synthesis, electrochemistry, pure phase, thin film, catalyst, environmental
-- **12 elements**: As, C, Cu, Fe, Li, Mn, Ni, O, Pd, Pt, S, Ti
-- Each scenario includes a structured prompt (LLM input), ground truth (from the paper), and a scoring rubric
+- **14 elements**: As, C, Cu, Fe, Li, Mn, Ni, O, Pd, Pt, S, Ti, V, Zn
+- Each scenario includes: structured prompt (LLM input), paper-grounded ground truth, scoring rubric
+- All ground truth is **paper-only** -- no textbook/prior knowledge added
+- Questions are **LLM-generated** from the ground truth, tailored per scenario
 
-| Category         | Scenarios | Papers | Description |
-|------------------|-----------|--------|-------------|
-| Thin film        | 20        | 3      | Phase composition from deposition conditions and composition gradients |
-| Electrochemistry | 16        | 4      | Phase evolution during charge/discharge, varying C-rate, voltage, SOC |
-| Pure phase       | 12        | 5      | Spectral feature description for known reference compounds |
-| Catalyst         | 12        | 2      | Phase composition from catalyst preparation and treatment |
-| Synthesis        | 5         | 3      | Phase composition from synthesis conditions |
-| Environmental    | 3         | 1      | Phase composition from geochemical context |
+| Category         | Scenarios | Description |
+|------------------|-----------|-------------|
+| Thin film        | ~20       | Phase composition from deposition conditions and composition gradients |
+| Electrochemistry | ~16       | Phase evolution during charge/discharge, varying C-rate, voltage, SOC |
+| Pure phase       | ~12       | Spectral feature description for known reference compounds |
+| Catalyst         | ~12       | Phase composition from catalyst preparation and treatment |
+| Synthesis        | ~5        | Phase composition from synthesis conditions |
+| Environmental    | ~3        | Phase composition from geochemical context |
 
 ## Review
 
-Browse all scenarios interactively: open `review.html` in a browser.
-
-Review materials for domain experts are in `review/`:
-- `review_checklist.xlsx` -- spreadsheet with all scenarios, color-coded by category
-- `review_docs/` -- one Word document per paper with detailed prompts and ground truth
+Browse all scenarios interactively:
+- **Online**: https://yuxi120407.github.io/SpectralBench/review.html
+- **Local**: open `review.html` in a browser
+- Each scenario has a **Report Issue** button that opens a pre-filled GitHub issue
 
 ## Data
 
 | File | Description |
 |------|-------------|
-| `data/scenarios_v3.json` | All 68 benchmark scenarios (prompts, ground truth, rubrics) |
-| `data/extracted_papers.json` | Extracted conditions from 18 papers |
-| `data/xanes_literature_examples.xlsx` | Source DOI list with paper metadata |
+| `data/scenarios_v5.json` | Latest benchmark (v5: LLM-generated questions, paper-only GT, verified) |
+| `data/scenarios_v4.json` | Previous version (v4: template questions, paper-only GT) |
+| `data/xanes_literature_examples.xlsx` | Source DOI list (18 papers) |
+| `data/bnl_nsls_2_8_ID.xlsx` | BNL NSLS-II 8-ID beamline papers (339 papers, for scaling) |
 
-### Scenario structure
-
-Each scenario in `scenarios_v3.json` contains:
+### Scenario structure (v5)
 
 ```json
 {
@@ -44,69 +44,161 @@ Each scenario in `scenarios_v3.json` contains:
   "element": "Ti",
   "edge": "K",
   "category": "thin_film",
-  "prompt": "## Sample Information\n- **Material**: ...\n\n## Questions\n...",
+  "prompt": "## Sample Information\n...\n## Questions\n1. ...\n2. ...",
   "ground_truth": {
-    "fractions": {"phase_A": 0.6, "phase_B": 0.4},
-    "key_reasoning": "..."
+    "material": "Combinatorial Ti-Zn oxide thin film at fTi = 0.4",
+    "measurement": "Ti K-edge XANES",
+    "fit_method": "Cluster blind-signal-separation (cBSS)",
+    "fit_basis": ["TiUD", "Ti6L", "Ti6H"],
+    "fractions": {"TiUD": 0.45, "Ti6L": 0.45, "Ti6H": 0.1},
+    "fractions_uncertainty_pct": 10,
+    "source_evidence": "Figure 10",
+    "key_reasoning": "At fTi = 0.4, the film enters Region IV...",
+    "reasoning_source": "Figure 10 and Section IV B"
   },
-  "rubric": { ... }
+  "rubric": {
+    "q1": {"question": "...", "type": "identification", "max_score": 30, "criteria": "..."},
+    "q2": {"question": "...", "type": "quantification", "max_score": 35, "criteria": "..."},
+    "q3": {"question": "...", "type": "reasoning", "max_score": 35, "criteria": "..."}
+  },
+  "source_paper_full": {"title": "...", "doi": "...", "authors": [...]}
 }
 ```
-
-The `prompt` field is the LLM input. The `ground_truth` and `rubric` fields are for scoring.
 
 ## Pipeline
 
 The benchmark is generated from published papers through a multi-stage pipeline:
 
 ```
-DOI list (xlsx) --> Extract (Gemini) --> Deduplicate --> Generate scenarios (Gemini) --> Review
+Stage 0: Curation
+    Curate DOI list in xlsx with element/edge/material metadata
+    |
+    v
+Stage 1: Extraction (extract_from_xlsx_v2.py)
+    PDF download -> classify -> extract conditions -> resolve cited refs (Semantic Scholar)
+    |
+    v
+Stage 2: Generation (v5/generate_combined.py)
+    Paper PDF + conditions -> GT + tailored questions (1 Gemini call per scenario)
+    |
+    v
+Stage 3a: GT Verification (v5/verify_stage3_batch.py)
+    Source PDF + scenarios -> verify GT, fix contradictions, remove textbook content
+    |
+    v
+Stage 3b: Question Validation (same script, separate LLM call)
+    GT + questions -> remove unanswerable/method/answer-revealing questions
+    |
+    v
+Stage 4: Review HTML (pipeline/generate_review_html.py)
+    Scenarios -> review.html (GitHub Pages)
 ```
 
-### Step 1: Extract data from papers
+### Running the pipeline
 
-Reads PDFs via Gemini multimodal. Uses category-specific extraction prompts (electrochemistry gets battery fields, pure phase gets spectral descriptions, etc.). Deduplicates identical conditions and resolves conflicts.
+**Prerequisites**:
+- Google Cloud Vertex AI authentication (ADC)
+- Gemini API access (project: geminienterpriseprod-485218)
+- Python packages: `openpyxl`, `requests`, `google-auth`
+
+**Step 1: Extract data from papers**
 
 ```bash
-cd pipeline
-python extract_from_xlsx.py
-python extract_from_xlsx.py --doi 10.1126/science.aax3520   # single paper
-python extract_from_xlsx.py --no-chase                       # skip citation chasing
+cd /path/to/auto_literature_download
+
+# Default (18-paper set):
+python extract_from_xlsx_v2.py
+
+# With specific model:
+python extract_from_xlsx_v2.py --model gemini-3.8-flash
+
+# BNL papers:
+python extract_from_xlsx_v2.py --xlsx bnl_nsls_2_8_ID.xlsx --model gemini-3.8-flash
+
+# Single paper:
+python extract_from_xlsx_v2.py --doi 10.1021/acs.jpcc.3c02029 --model gemini-3.8-flash --no-chase
 ```
 
-**Requirements**: Google Cloud Vertex AI authentication (ADC), Gemini API access.
+Output: `<xlsx_name>_extracted_<timestamp>.json`
 
-The extraction output is saved as `xlsx_extracted_<timestamp>.json`.
-
-### Step 2: Generate benchmark scenarios
-
-Converts extracted conditions into structured benchmark scenarios with prompts, ground truth, and scoring rubrics.
+**Step 2: Generate benchmark scenarios (v5)**
 
 ```bash
-python generate_stage1.py --input ../data/extracted_papers.json
+cd v5
+
+# 1-call version (faster -- GT + questions in one call):
+python generate_combined.py --input ../xlsx_extracted_merged_20260914.json --model gemini-3.8-flash
+
+# 2-call version (better question alignment -- GT first, then questions):
+python generate_stage1.py --input ../xlsx_extracted_merged_20260914.json --model gemini-3.8-flash
 ```
 
-Output: `stage1_examples_v3_<timestamp>.json`
+Output: `<input_base>_v5_<timestamp>.json`
 
-### Step 3: Generate review page
-
-Builds a self-contained HTML review page from the scenarios JSON.
+**Step 3: Verify and patch (Stage 3)**
 
 ```bash
-python generate_review_html.py --input ../data/scenarios_v3.json
+# GT verification + question validation + auto-patch:
+python verify_stage3_batch.py \
+  --input <scenarios>.json \
+  --extraction ../xlsx_extracted_merged_20260914.json \
+  --model gemini-3.1-pro-preview \
+  --auto-patch \
+  --output xlsx_v5_final.json \
+  --report v5_verify_report.json \
+  --sleep 3
+
+# Single paper only:
+python verify_stage3_batch.py \
+  --input xlsx_v5_final.json \
+  --doi 10.1103/PhysRevMaterials.9.023802 \
+  --model gemini-3.1-pro-preview \
+  --auto-patch \
+  --output xlsx_v5_final.json \
+  --report v5_verify_resolving.json \
+  --sleep 3
 ```
 
-Output: `review.html`
+**Step 4: Generate review HTML**
 
-## Dependencies
+```bash
+# Copy to SpectralBench data:
+cp v5/xlsx_v5_final.json /path/to/SpectralBench/data/scenarios_v5.json
 
+# Generate HTML:
+cd /path/to/SpectralBench/pipeline
+python generate_review_html.py --input ../data/scenarios_v5.json
+cp review.html ../review.html
 ```
-openpyxl
-python-docx
-requests
-google-cloud-aiplatform
+
+**Step 5: Push to GitHub**
+
+```bash
+cd /path/to/SpectralBench
+git add data/scenarios_v5.json review.html pipeline/ README.md
+git commit -m "Update benchmark scenarios"
+git push
 ```
+
+## Pipeline versions
+
+| Version | Schema | Questions | Status |
+|---------|--------|-----------|--------|
+| v3 | candidate_phases, recommended_references, key_reasoning | Template per category | Deprecated |
+| v4 | fit_basis, source_evidence, fractions_uncertainty_pct | Template per category | Production (backup) |
+| v5 | Same as v4 | LLM-generated from GT | Current |
+
+## Key design decisions
+
+- **Paper-only GT**: every value must come from the source paper's text, figures, or tables. No textbook knowledge.
+- **Semantic Scholar DOI verification**: catches Gemini's DOI hallucinations by looking up citations by title/author.
+- **Multi-PDF fusion**: reads source paper + cited reference PDFs together for complete context.
+- **Stage 3 verification**: cross-checks GT against source PDF; catches textbook injection via ADDED_NOT_IN_PAPER status.
+- **Question validation**: separate LLM call to verify each question is answerable from GT.
+- **Fractions safety**: auto-patch never reduces number of phases (prevents data loss).
 
 ## Source papers
 
-The 18 papers in v3 cover XANES studies of batteries, catalysts, thin films, environmental samples, and reference compounds. The full DOI list is in `data/xanes_literature_examples.xlsx`. PDFs are not included in this repo.
+The 18 papers in the current benchmark cover XANES studies of batteries, catalysts, thin films, environmental samples, and reference compounds. The full DOI list is in `data/xanes_literature_examples.xlsx`. PDFs are not included in this repo.
+
+For scaling: 339 additional papers from NSLS-II beamline 8-ID are available in `data/bnl_nsls_2_8_ID.xlsx` (210 successfully extracted, 711 conditions).

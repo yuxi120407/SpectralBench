@@ -172,20 +172,38 @@ def format_ground_truth_html(gt, category):
 
 
 def format_rubric_html(rubric):
-    """Format rubric as HTML table."""
+    """Format rubric as HTML table. Handles both v4 (list criteria) and v5 (string criteria) formats."""
     if not rubric:
         return ""
     parts = ['<table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>']
     for cat_name, cat_data in rubric.items():
         max_score = cat_data.get("max_score", "?")
         criteria = cat_data.get("criteria", [])
-        criteria_lines = []
-        for c in criteria:
-            pts = c.get("points", "?")
-            desc = c.get("description", "")
-            criteria_lines.append(f'{pts} pts — {html.escape(desc)}')
-        criteria_html = "<br>".join(criteria_lines)
+
+        # v5 format: criteria is a string
+        if isinstance(criteria, str):
+            criteria_html = html.escape(criteria)
+        # v4 format: criteria is a list of dicts
+        elif isinstance(criteria, list):
+            criteria_lines = []
+            for c in criteria:
+                if isinstance(c, dict):
+                    pts = c.get("points", "?")
+                    desc = c.get("description", "")
+                    criteria_lines.append(f'{pts} pts — {html.escape(desc)}')
+                elif isinstance(c, str):
+                    criteria_lines.append(html.escape(c))
+            criteria_html = "<br>".join(criteria_lines)
+        else:
+            criteria_html = str(criteria)
+
+        # v5: show question text if available
+        question = cat_data.get("question", "")
+        qtype = cat_data.get("type", "")
         display_name = cat_name.replace("_", " ").title()
+        if question:
+            display_name = f'{qtype}' if qtype else display_name
+
         parts.append(f'<tr><td class="rubric-cat">{html.escape(display_name)}</td><td class="rubric-max">{max_score}</td><td class="rubric-criteria">{criteria_html}</td></tr>')
     parts.append('</table>')
     return "\n".join(parts)
