@@ -4,21 +4,22 @@ A benchmark for evaluating LLM domain knowledge of X-ray absorption near-edge st
 
 ## Benchmark overview
 
-- **60 scenarios** from **18 published papers**
+- **61 scenarios** from **18 published papers**
 - **6 categories**: synthesis, electrochemistry, pure phase, thin film, catalyst, environmental
 - **14 elements**: As, C, Cu, Fe, Li, Mn, Ni, O, Pd, Pt, S, Ti, V, Zn
-- Each scenario includes: structured prompt (LLM input), paper-grounded ground truth, scoring rubric
+- Each scenario includes: structured prompt (LLM input), paper-grounded ground truth, scoring rubric, reference answers
 - All ground truth is **paper-only** -- no textbook/prior knowledge added
 - Questions are **LLM-generated** from the ground truth, tailored per scenario
+- Reference answers are **LLM-generated** from GT + sample conditions, with reasoning for every answer
 
 | Category         | Scenarios | Description |
 |------------------|-----------|-------------|
-| Thin film        | ~20       | Phase composition from deposition conditions and composition gradients |
-| Electrochemistry | ~16       | Phase evolution during charge/discharge, varying C-rate, voltage, SOC |
-| Pure phase       | ~12       | Spectral feature description for known reference compounds |
-| Catalyst         | ~12       | Phase composition from catalyst preparation and treatment |
-| Synthesis        | ~5        | Phase composition from synthesis conditions |
-| Environmental    | ~3        | Phase composition from geochemical context |
+| Thin film        | 20        | Phase composition from deposition conditions and composition gradients |
+| Electrochemistry | 13        | Phase evolution during charge/discharge, varying C-rate, voltage, SOC |
+| Pure phase       | 12        | Spectral feature description for known reference compounds |
+| Catalyst         | 11        | Phase composition from catalyst preparation and treatment |
+| Environmental    | 3         | Phase composition from geochemical context |
+| Synthesis        | 2         | Phase composition from synthesis conditions |
 
 ## Review
 
@@ -57,9 +58,9 @@ Browse all scenarios interactively:
     "reasoning_source": "Figure 10 and Section IV B"
   },
   "rubric": {
-    "q1": {"question": "...", "type": "identification", "max_score": 30, "criteria": "..."},
-    "q2": {"question": "...", "type": "quantification", "max_score": 35, "criteria": "..."},
-    "q3": {"question": "...", "type": "reasoning", "max_score": 35, "criteria": "..."}
+    "q1": {"question": "...", "type": "identification", "max_score": 30, "criteria": "...", "answer": "The phases are ... because ..."},
+    "q2": {"question": "...", "type": "quantification", "max_score": 35, "criteria": "...", "answer": "The fractions are ... because ..."},
+    "q3": {"question": "...", "type": "reasoning", "max_score": 35, "criteria": "...", "answer": "Given the conditions ... therefore ..."}
   },
   "source_paper_full": {"title": "...", "doi": "...", "authors": [...]}
 }
@@ -88,6 +89,10 @@ Stage 3a: GT Verification (v5/verify_stage3_batch.py)
     v
 Stage 3b: Question Validation (same script, separate LLM call)
     GT + questions -> remove unanswerable/method/answer-revealing questions
+    |
+    v
+Stage 3c: Answer Generation (pipeline/generate_answers.py)
+    GT + sample conditions + questions -> reference answers with reasoning (1 Gemini call per scenario)
     |
     v
 Stage 4: Review HTML (pipeline/generate_review_html.py)
@@ -159,15 +164,32 @@ python verify_stage3_batch.py \
   --sleep 3
 ```
 
+**Step 3c: Generate reference answers**
+
+```bash
+# From v5 folder:
+python generate_answers.py \
+  --input xlsx_v5_final.json \
+  --output xlsx_v5_final_with_ans.json \
+  --model gemini-3.8-flash
+
+# Or from SpectralBench/pipeline:
+cd /path/to/SpectralBench/pipeline
+python generate_answers.py \
+  --input ../data/scenarios_v5.json \
+  --output ../data/scenarios_v5_with_ans.json \
+  --model gemini-3.8-flash
+```
+
 **Step 4: Generate review HTML**
 
 ```bash
 # Copy to SpectralBench data:
-cp v5/xlsx_v5_final.json /path/to/SpectralBench/data/scenarios_v5.json
+cp v5/xlsx_v5_final_with_ans.json /path/to/SpectralBench/data/scenarios_v5_with_ans.json
 
 # Generate HTML:
 cd /path/to/SpectralBench/pipeline
-python generate_review_html.py --input ../data/scenarios_v5.json
+python generate_review_html.py --input ../data/scenarios_v5_with_ans.json
 cp review.html ../review.html
 ```
 
