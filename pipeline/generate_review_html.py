@@ -172,18 +172,24 @@ def format_ground_truth_html(gt, category):
 
 
 def format_rubric_html(rubric):
-    """Format rubric as HTML table. Handles both v4 (list criteria) and v5 (string criteria) formats."""
+    """Format rubric as HTML table. Handles both v4 (list criteria) and v5 (string criteria) formats.
+    Shows question, answer, and scoring criteria for each rubric entry."""
     if not rubric:
         return ""
-    parts = ['<table class="rubric-table"><tr><th>Category</th><th>Max</th><th>Criteria</th></tr>']
+
+    has_answers = any(cat_data.get("answer") for cat_data in rubric.values())
+    header = '<tr><th>Q</th><th>Type</th><th>Max</th><th>Question</th>'
+    if has_answers:
+        header += '<th>Reference Answer</th>'
+    header += '<th>Scoring Criteria</th></tr>'
+    parts = [f'<table class="rubric-table">{header}']
+
     for cat_name, cat_data in rubric.items():
         max_score = cat_data.get("max_score", "?")
         criteria = cat_data.get("criteria", [])
 
-        # v5 format: criteria is a string
         if isinstance(criteria, str):
             criteria_html = html.escape(criteria)
-        # v4 format: criteria is a list of dicts
         elif isinstance(criteria, list):
             criteria_lines = []
             for c in criteria:
@@ -197,14 +203,19 @@ def format_rubric_html(rubric):
         else:
             criteria_html = str(criteria)
 
-        # v5: show question text if available
         question = cat_data.get("question", "")
         qtype = cat_data.get("type", "")
-        display_name = cat_name.replace("_", " ").title()
-        if question:
-            display_name = f'{qtype}' if qtype else display_name
+        answer = cat_data.get("answer", "")
 
-        parts.append(f'<tr><td class="rubric-cat">{html.escape(display_name)}</td><td class="rubric-max">{max_score}</td><td class="rubric-criteria">{criteria_html}</td></tr>')
+        row = f'<tr><td class="rubric-cat">{html.escape(cat_name)}</td>'
+        row += f'<td class="rubric-type">{html.escape(qtype)}</td>'
+        row += f'<td class="rubric-max">{max_score}</td>'
+        row += f'<td class="rubric-question">{html.escape(question)}</td>'
+        if has_answers:
+            row += f'<td class="rubric-answer">{html.escape(answer)}</td>'
+        row += f'<td class="rubric-criteria">{criteria_html}</td></tr>'
+        parts.append(row)
+
     parts.append('</table>')
     return "\n".join(parts)
 
@@ -395,7 +406,10 @@ h1 {{ font-size: 1.8em; margin-bottom: 5px; }}
 .rubric-table th {{ background: #edf2f7; padding: 6px 10px; text-align: left; font-weight: 600; font-size: 0.85em; border: 1px solid #e2e8f0; }}
 .rubric-table td {{ padding: 5px 10px; border: 1px solid #e2e8f0; vertical-align: top; }}
 .rubric-cat {{ font-weight: 500; white-space: nowrap; }}
+.rubric-type {{ font-size: 0.85em; color: #666; white-space: nowrap; }}
 .rubric-max {{ text-align: center; font-weight: 600; color: #2c5282; }}
+.rubric-question {{ font-size: 0.9em; }}
+.rubric-answer {{ font-size: 0.9em; color: #276749; background: #f0fff4; }}
 .rubric-criteria {{ font-size: 0.9em; color: #4a5568; }}
 .prompt-box {{ background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 12px; font-size: 0.85em; }}
 .prompt-h {{ font-weight: 600; margin: 8px 0 4px; color: #2d3748; }}
