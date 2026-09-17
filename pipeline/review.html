@@ -83,13 +83,13 @@ h1 { font-size: 1.8em; margin-bottom: 5px; }
     <div class="subtitle">XANES benchmark scenarios for domain expert review</div>
 
     <div class="stats">
-        <div class="stat"><div class="stat-num">61</div><div class="stat-label">Scenarios</div></div>
-        <div class="stat"><div class="stat-num">16</div><div class="stat-label">Papers</div></div>
+        <div class="stat"><div class="stat-num">62</div><div class="stat-label">Scenarios</div></div>
+        <div class="stat"><div class="stat-num">17</div><div class="stat-label">Papers</div></div>
         <div class="stat"><div class="stat-num">6</div><div class="stat-label">Categories</div></div>
     </div>
 
     <div class="filters">
-        <button class="filter-btn active" data-cat="all">All (61)</button><button class="filter-btn" data-cat="synthesis" style="background:#e2efda">Synthesis (2)</button><button class="filter-btn" data-cat="electrochemistry" style="background:#d6e4f0">Electrochemistry (13)</button><button class="filter-btn" data-cat="pure_phase" style="background:#fff2cc">Pure Phase (12)</button><button class="filter-btn" data-cat="thin_film" style="background:#f2dcdb">Thin Film (20)</button><button class="filter-btn" data-cat="catalyst" style="background:#e4dfec">Catalyst (11)</button><button class="filter-btn" data-cat="environmental" style="background:#d9ead3">Environmental (3)</button>
+        <button class="filter-btn active" data-cat="all">All (62)</button><button class="filter-btn" data-cat="synthesis" style="background:#e2efda">Synthesis (2)</button><button class="filter-btn" data-cat="electrochemistry" style="background:#d6e4f0">Electrochemistry (13)</button><button class="filter-btn" data-cat="pure_phase" style="background:#fff2cc">Pure Phase (13)</button><button class="filter-btn" data-cat="thin_film" style="background:#f2dcdb">Thin Film (20)</button><button class="filter-btn" data-cat="catalyst" style="background:#e4dfec">Catalyst (11)</button><button class="filter-btn" data-cat="environmental" style="background:#d9ead3">Environmental (3)</button>
     </div>
 
     <div class="expand-all">
@@ -4288,6 +4288,80 @@ Nanoscale Redox Heterogeneity in Ultrafine Particulates</div>
                             <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
                             <input type="text" class="review-comment" placeholder="Comments..." />
                             <button class="review-btn issue" onclick="reportIssue(this, 61, 'towards_calibration_MnO2 (Mn4+)', 'Mn', 'pure_phase', '10.1038/s41598-019-38482-1')">&#9888; Report Issue</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="paper" data-cat="pure_phase">
+            <div class="paper-header" style="border-left: 5px solid #fff2cc;" onclick="togglePaper(this)">
+                <div class="paper-title">Identification of dopant site and its effect on electrochemical activity in Mn-doped lithium titanate</div>
+                <div class="paper-meta">
+                    <span class="cat-badge" style="background:#fff2cc">Pure Phase</span>
+                    <span class="paper-authors">Harishchandra Singh et al.</span>
+                    <span class="paper-doi">DOI: 10.1103/PhysRevMaterials.2.125403</span>
+                    <span class="paper-count">1 scenario</span>
+                </div>
+                <span class="toggle-icon">&#9654;</span>
+            </div>
+            <div class="paper-body" style="display:none">
+                
+            <div class="condition">
+                <div class="condition-header" onclick="toggleCondition(this)">
+                    <span class="condition-num">#62</span>
+                    <span class="condition-material">Mn-doped Li4/3Ti5/3O4</span>
+                    <span class="condition-elem">Mn K</span>
+                    <span class="condition-kv"></span>
+                    <span class="toggle-icon">&#9654;</span>
+                </div>
+                <div class="condition-body" style="display:none">
+                    <div class="section">
+                        <div class="section-title">LLM Prompt</div>
+                        <div class="prompt-box"><h4 class="prompt-h">Sample Information</h4>
+<div class="prompt-field"><span class="prompt-key">Material:</span> Mn-doped Li4/3Ti5/3O4</div>
+<div class="prompt-field"><span class="prompt-key">Method:</span> solid-state</div>
+<h4 class="prompt-h">Sample-Specific Conditions</h4>
+<div class="prompt-line">- Mn doping concentration: 1 at. %</div>
+<div class="prompt-line">- 1 at. % Mn doped lithium titanate</div>
+<h4 class="prompt-h">Preparation</h4>
+<div class="prompt-line">- The samples of pristine and 1 at. % Mn doped LTO were prepared by solid state reactions as described previously [31].</div>
+<h4 class="prompt-h">Measurement</h4>
+<div class="prompt-line">We plan to measure the Mn K XANES spectrum of this sample.</div>
+<h4 class="prompt-h">Questions</h4>
+<div class="prompt-line">Based on all the information above:</div>
+<div class="prompt-q">1. Based on the synthesis conditions and low doping concentration (1 at. %), what is the expected oxidation state and local coordination environment (crystallographic site) of the Mn dopant in the Li4/3Ti5/3O4 lattice?</div>
+<div class="prompt-q">2. Describe the expected spectral shape of the Mn K-edge XANES for this sample, specifically focusing on the pre-edge and the rising edge features.</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Ground Truth</div>
+                        <div class="gt-box"><div class="gt-field"><span class="gt-key">Compound:</span> 1 at. % Mn-doped Li4/3Ti5/3O4 (Mn at Li-8a site)</div>
+<div class="gt-field"><span class="gt-key">Oxidation state:</span> 2+</div>
+<div class="gt-field"><span class="gt-key">Edge position:</span> E0 = 6540 eV</div>
+<div class="gt-field"><span class="gt-key">Spectral shape:</span> The spectrum exhibits a prominent pre-edge feature (Peak A) indicating a distorted or non-centrosymmetric environment, and a distinct sharp peak (Peak D) in the middle of the absorption edge rise.</div>
+<div class="gt-field"><span class="gt-key">Labeled peaks:</span></div>
+<table class="gt-table"><tr><th>Label</th><th>Energy (eV)</th><th>Intensity</th><th>Origin</th><th>Source</th></tr>
+<tr><td>Peak A</td><td>not reported</td><td>highest with respect to standards</td><td>1s → 3d transition (dipole-forbidden, activated by Mn 3d-4p hybridization)</td><td>paper_data</td></tr>
+<tr><td>Peak D</td><td>not reported</td><td>distinct sharp peak</td><td>1s → 4p transition</td><td>paper_data</td></tr>
+</table>
+<div class="gt-field"><span class="gt-key">Distinguishing features:</span> Peak D on the rising edge is a characteristic spectral fingerprint of tetrahedrally coordinated Mn, which is absent in Mn K-edge standards with pure six-coordinated (octahedral) Mn.</div></div>
+                    </div>
+                    <div class="section">
+                        <div class="section-title">Scoring Rubric (total: 100 pts)</div>
+                        <div class="rubric-box"><table class="rubric-table"><tr><th>Q</th><th>Type</th><th>Max</th><th>Question</th><th>Reference Answer</th><th>Scoring Criteria</th></tr>
+<tr><td class="rubric-cat">q1</td><td class="rubric-type">prediction</td><td class="rubric-max">40</td><td class="rubric-question">Based on the synthesis conditions and low doping concentration (1 at. %), what is the expected oxidation state and local coordination environment (crystallographic site) of the Mn dopant in the Li4/3Ti5/3O4 lattice?</td><td class="rubric-answer">The expected oxidation state of the Mn dopant is 2+, and it occupies the tetrahedral Li-8a crystallographic site in the Li4/3Ti5/3O4 lattice. This occurs because the solid-state synthesis with a low 1 at. % Mn doping concentration allows the Mn ions to successfully substitute into the host lattice rather than forming secondary phases. Specifically, the Mn dopants are accommodated in the non-centrosymmetric, tetrahedrally coordinated Li-8a sites of the lithium titanate structure. This specific tetrahedral coordination environment dictates and stabilizes the resulting 2+ oxidation state of the incorporated manganese.</td><td class="rubric-criteria">Award 10 points for identifying the oxidation state as 2+. Award 10 points for identifying the local coordination as tetrahedral (or specifically the Li-8a site).</td></tr>
+<tr><td class="rubric-cat">q2</td><td class="rubric-type">spectral</td><td class="rubric-max">60</td><td class="rubric-question">Describe the expected spectral shape of the Mn K-edge XANES for this sample, specifically focusing on the pre-edge and the rising edge features.</td><td class="rubric-answer">The expected Mn K-edge XANES spectrum (E0 = 6540 eV) will exhibit a prominent pre-edge feature (Peak A) with the highest intensity relative to standards, and a distinct sharp peak (Peak D) in the middle of the absorption edge rise. Peak A originates from a 1s → 3d transition that is dipole-forbidden but activated by Mn 3d-4p hybridization, while Peak D arises from a 1s → 4p transition. These specific features emerge because the solid-state synthesis of 1 at. % Mn-doped Li4/3Ti5/3O4 forces the Mn ions into non-centrosymmetric, tetrahedral Li-8a sites. This tetrahedral coordination produces the characteristic Peak D fingerprint and intense pre-edge, which are entirely absent in purely octahedral (six-coordinated) Mn standards.</td><td class="rubric-criteria">Award 15 points for mentioning a prominent pre-edge feature (indicating a non-centrosymmetric/distorted environment). Award 15 points for mentioning a distinct sharp peak in the middle of the absorption edge rise.</td></tr>
+</table></div>
+                    </div>
+                    <div class="section review-section">
+                        <div class="section-title">Review</div>
+                        <div class="review-controls">
+                            <button class="review-btn correct" onclick="markReview(this, 'correct')">&#10003; Correct</button>
+                            <button class="review-btn incorrect" onclick="markReview(this, 'incorrect')">&#10007; Incorrect</button>
+                            <input type="text" class="review-comment" placeholder="Comments..." />
+                            <button class="review-btn issue" onclick="reportIssue(this, 62, 'identification_of_do_1% Mn-LTO', 'Mn', 'pure_phase', '10.1103/PhysRevMaterials.2.125403')">&#9888; Report Issue</button>
                         </div>
                     </div>
                 </div>
