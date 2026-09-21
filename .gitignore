@@ -17,3 +17,4 @@ stage1_examples_*.json
 # OS
 .DS_Store
 Thumbs.db
+evidence/
