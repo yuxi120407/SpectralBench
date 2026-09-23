@@ -137,24 +137,25 @@
     "prompt": "## Sample Information\n- **Material**: Combinatorial Ti-Zn oxide thin film on fused silica\n- **Application/Context**: Combinatorial materials discovery and structural evolution study\n\n## Deposition / Film Details\n- **Deposition method**: pulsed laser deposition (PLD) using KrF excimer laser, alternating ZnO and TiO2 targets in 10 mTorr oxygen ambient\n- **Substrate**: fused silica (JGS2)\n- **Deposition temperature**: 600 \u00b0C\n- **Film thickness**: 100 nm\n- **Post-deposition annealing**: none reported\n\n## Sample-Specific Conditions\n- **Ti fraction (fTi)**: 0.2\n- Total of 250 cycles executed to achieve thorough mixing.\n\n## Measurement\nWe plan to measure the Ti K-edge XANES spectrum of this film.\n\n## Questions\nBased on ALL the deposition and film information above:\n1. What phases (oxidation states / structural motifs of Ti) could exist in this film?\n2. How many of these phases are significant (>5% fraction)?\n3. For each significant phase, estimate its fraction (fractions should sum to 1.0).\n4. What reference spectra should be prepared for linear combination fitting?\n5. What scientific reasoning connects the specific film conditions to your predicted phases and fractions?",
     "ground_truth": {
       "candidate_phases": [
-        "Isolated Ti defects in wurtzite ZnO (TiUD)",
-        "Layered Ti-Zn-O motif (Ti6L)",
-        "TiZn2O4 motifs",
-        "Ti3Zn2O8 motifs",
-        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)"
+        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)",
+        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)",
+        "6-coordinated Ti with high-Ti second shell, e.g., Ti3Zn2O8 (Ti6H)",
+        "TiO2"
       ],
       "significant_phases": [
-        "Isolated Ti defects in wurtzite ZnO (TiUD)",
-        "Layered Ti-Zn-O motif (Ti6L)"
+        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)",
+        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)"
       ],
       "n_significant": 2,
       "fractions": {
-        "Isolated Ti defects in wurtzite ZnO (TiUD)": 0.8,
-        "Layered Ti-Zn-O motif (Ti6L)": 0.2
+        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)": 0.8,
+        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)": 0.2
       },
       "outside_references": true,
       "recommended_references": [
-        "rutile"
+        "TiO2 reference (anatase/rutile)",
+        "ZnO (wurtzite)",
+        "cBSS basis functions for TiUD and Ti6L"
       ],
       "key_reasoning": "At a Ti fraction of 0.2, the film is at the boundary between Region II and Region III. In Region II (0.1 < fTi <= 0.2), Ti incorporates predominantly as layered TiZn+Oi defect complexes within the wurtzite ZnO host, which are classified under the distorted/under-coordinated TiUD motif (~0.8 fraction). As the Ti fraction reaches 0.2, the 6-coordinated Ti6L motif characteristic of TiZn2O4 emerges (~0.2 fraction), marking the transition toward crystalline/polycrystalline TiZn2O4 and amorphous zinc titanate phases.",
       "fractions_uncertainty_pct": 15,

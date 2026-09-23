@@ -21,11 +21,10 @@
       },
       "recommended_references": [
         "rutile",
+        "strontium_titanate",
         "Ti-doped ZnO (outside_references)"
       ],
-      "key_reasoning": "At a low Ti fraction (fTi = 0.1), the Ti atoms are incorporated into the wurtzite ZnO host lattice as isolated defects rather than forming separate titanium oxide or zinc titanate phases. The PLD growth at 600 \u00b0C provides enough thermal energy for crystalline ZnO formation, and the low concentration of Ti remains below the threshold for forming complex amorphous/polycrystalline mixed motifs or TiO2.",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a low Ti fraction (fTi = 0.1), the Ti atoms are incorporated into the wurtzite ZnO host lattice as isolated defects rather than forming separate titanium oxide or zinc titanate phases. The PLD growth at 600 \u00b0C provides enough thermal energy for crystalline ZnO formation, and the low concentration of Ti remains below the threshold for forming complex amorphous/polycrystalline mixed motifs or TiO2."
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -137,29 +136,27 @@
     "prompt": "## Sample Information\n- **Material**: Combinatorial Ti-Zn oxide thin film on fused silica\n- **Application/Context**: Combinatorial materials discovery and structural evolution study\n\n## Deposition / Film Details\n- **Deposition method**: pulsed laser deposition (PLD) using KrF excimer laser, alternating ZnO and TiO2 targets in 10 mTorr oxygen ambient\n- **Substrate**: fused silica (JGS2)\n- **Deposition temperature**: 600 \u00b0C\n- **Film thickness**: 100 nm\n- **Post-deposition annealing**: none reported\n\n## Sample-Specific Conditions\n- **Ti fraction (fTi)**: 0.2\n- Total of 250 cycles executed to achieve thorough mixing.\n\n## Measurement\nWe plan to measure the Ti K-edge XANES spectrum of this film.\n\n## Questions\nBased on ALL the deposition and film information above:\n1. What phases (oxidation states / structural motifs of Ti) could exist in this film?\n2. How many of these phases are significant (>5% fraction)?\n3. For each significant phase, estimate its fraction (fractions should sum to 1.0).\n4. What reference spectra should be prepared for linear combination fitting?\n5. What scientific reasoning connects the specific film conditions to your predicted phases and fractions?",
     "ground_truth": {
       "candidate_phases": [
-        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)",
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)",
-        "6-coordinated Ti with high-Ti second shell, e.g., Ti3Zn2O8 (Ti6H)",
-        "TiO2"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)",
+        "TiZn2O4 motifs",
+        "Ti3Zn2O8 motifs",
+        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)"
       ],
       "significant_phases": [
-        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)",
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)"
       ],
       "n_significant": 2,
       "fractions": {
-        "Under-coordinated or distorted Ti (TiUD, including layered TiZn+Oi defects)": 0.8,
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)": 0.2
+        "Isolated Ti defects in wurtzite ZnO (TiUD)": 0.8,
+        "Layered Ti-Zn-O motif (Ti6L)": 0.2
       },
       "outside_references": true,
       "recommended_references": [
-        "TiO2 reference (anatase/rutile)",
-        "ZnO (wurtzite)",
-        "cBSS basis functions for TiUD and Ti6L"
+        "rutile",
+        "strontium_titanate"
       ],
-      "key_reasoning": "At a Ti fraction of 0.2, the film is at the boundary between Region II and Region III. In Region II (0.1 < fTi <= 0.2), Ti incorporates predominantly as layered TiZn+Oi defect complexes within the wurtzite ZnO host, which are classified under the distorted/under-coordinated TiUD motif (~0.8 fraction). As the Ti fraction reaches 0.2, the 6-coordinated Ti6L motif characteristic of TiZn2O4 emerges (~0.2 fraction), marking the transition toward crystalline/polycrystalline TiZn2O4 and amorphous zinc titanate phases.",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a low Ti fraction of 0.2, the film structure is predominantly dictated by the host wurtzite ZnO lattice. Ti incorporates primarily as isolated defects (TiUD) substituting Zn or in interstitial sites. As the Ti concentration reaches 0.2, it begins to exceed the dilute solubility limit in ZnO, triggering the onset of secondary layered Ti-induced structural motifs (Ti6L). This represents a transition state before the formation of more complex amorphous/polycrystalline zinc titanate phases at higher Ti fractions."
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -280,27 +277,26 @@
     "prompt": "## Sample Information\n- **Material**: Combinatorial Ti-Zn oxide thin film on fused silica\n- **Application/Context**: Combinatorial materials discovery and phase evolution study\n\n## Deposition / Film Details\n- **Deposition method**: Pulsed laser deposition (PLD) using alternating ZnO and TiO2 targets in 10 mTorr oxygen\n- **Substrate**: Fused silica (JGS2)\n- **Deposition temperature**: 600 \u00b0C\n- **Film thickness**: 100 nm\n- **Post-deposition annealing**: none\n\n## Sample-Specific Conditions\n- Ti fraction (fTi): 0.3\n- Grown via 250 cycles of alternating target ablation.\n\n## Measurement\nWe plan to measure the Ti K-edge XANES spectrum of this film.\n\n## Questions\nBased on ALL the deposition and film information above:\n1. What phases (oxidation states / structural motifs of Ti) could exist in this film?\n2. How many of these phases are significant (>5% fraction)?\n3. For each significant phase, estimate its fraction (fractions should sum to 1.0).\n4. What reference spectra should be prepared for linear combination fitting?\n5. What scientific reasoning connects the specific film conditions to your predicted phases and fractions?",
     "ground_truth": {
       "candidate_phases": [
-        "Under-coordinated or distorted Ti sites / defects (TiUD)",
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)",
-        "6-coordinated Ti with high-Ti second shell, e.g., Ti3Zn2O8 (Ti6H)",
-        "TiO2"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)",
+        "Zinc titanate (TiZn2O4 / Ti3Zn2O8)",
+        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)",
+        "Rutile TiO2"
       ],
       "significant_phases": [
-        "Under-coordinated or distorted Ti sites / defects (TiUD)",
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)"
       ],
       "n_significant": 2,
       "fractions": {
-        "Under-coordinated or distorted Ti sites / defects (TiUD)": 0.55,
-        "6-coordinated Ti with low-Ti second shell, e.g., TiZn2O4 (Ti6L)": 0.45
+        "Isolated Ti defects in wurtzite ZnO (TiUD)": 0.55,
+        "Layered Ti-Zn-O motif (Ti6L)": 0.45
       },
       "recommended_references": [
         "rutile"
       ],
       "outside_references": true,
-      "key_reasoning": "At a Ti fraction (fTi) of 0.3 (Region III, 0.2 < fTi <= 0.39), the system exhibits coexistence of 6-coordinated Ti sites with low Ti second-shell fraction corresponding to spinel TiZn2O4 (Ti6L) and under-coordinated or distorted Ti defect motifs (TiUD). The layered and isolated Ti defects in ZnO (TiUD) dominate at lower fTi (0.1-0.2), whereas between fTi = 0.2 and 0.39, the Ti6L motif emerges and reaches a substantial fraction (~0.45) alongside decaying TiUD (~0.55).",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a Ti fraction (fTi) of 0.3, the system has surpassed the solubility limit of isolated Ti defects in the wurtzite ZnO lattice (which dominates at very low fTi) but has not yet reached the higher Ti fractions required for complex spinel-like zinc titanates (TiZn2O4) or amorphous TiO2. Therefore, the structure is a mixture of the initial Ti-in-ZnO defect motif (TiUD) and an emergent layered Ti-induced structural motif (Ti6L). The PLD growth at 600 \u00b0C with alternating targets promotes these metastable, mixed local motifs rather than fully phase-separated bulk crystals."
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -409,29 +405,28 @@
     "prompt": "## Sample Information\n- **Material**: Combinatorial Ti-Zn oxide on fused silica\n- **Application/Context**: Combinatorial thin film library to study structural evolution of zinc titanates\n\n## Deposition / Film Details\n- **Deposition method**: Pulsed laser deposition (PLD)\n- **Substrate**: Fused silica (JGS2)\n- **Deposition temperature**: 600 \u00b0C\n- **Film thickness**: 100 nm\n- **Post-deposition annealing**: none\n\n## Sample-Specific Conditions\n- Ti fraction (fTi): 0.4\n- Precursors: ZnO and TiO2 targets ablated alternatively under 10 mTorr oxygen ambient for 250 cycles\n\n## Measurement\nWe plan to measure the Ti K-edge XANES spectrum of this film.\n\n## Questions\nBased on ALL the deposition and film information above:\n1. What phases (oxidation states / structural motifs of Ti) could exist in this film?\n2. How many of these phases are significant (>5% fraction)?\n3. For each significant phase, estimate its fraction (fractions should sum to 1.0).\n4. What reference spectra should be prepared for linear combination fitting?\n5. What scientific reasoning connects the specific film conditions to your predicted phases and fractions?",
     "ground_truth": {
       "candidate_phases": [
-        "Under-coordinated or distorted Ti (TiUD)",
-        "6-coordinated Ti with low second-shell Ti (Ti6L, e.g., TiZn2O4)",
-        "6-coordinated Ti with high second-shell Ti (Ti6H, e.g., Ti3Zn2O8)",
-        "TiO2"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)",
+        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)",
+        "Rutile TiO2"
       ],
       "significant_phases": [
-        "Under-coordinated or distorted Ti (TiUD)",
-        "6-coordinated Ti with low second-shell Ti (Ti6L, e.g., TiZn2O4)",
-        "6-coordinated Ti with high second-shell Ti (Ti6H, e.g., Ti3Zn2O8)"
+        "Isolated Ti defects in wurtzite ZnO (TiUD)",
+        "Layered Ti-Zn-O motif (Ti6L)",
+        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)"
       ],
       "n_significant": 3,
       "fractions": {
-        "Under-coordinated or distorted Ti (TiUD)": 0.45,
-        "6-coordinated Ti with low second-shell Ti (Ti6L, e.g., TiZn2O4)": 0.45,
-        "6-coordinated Ti with high second-shell Ti (Ti6H, e.g., Ti3Zn2O8)": 0.1
+        "Isolated Ti defects in wurtzite ZnO (TiUD)": 0.45,
+        "Layered Ti-Zn-O motif (Ti6L)": 0.45,
+        "Ti6H (complex Ti-Zn-O motif, e.g., TiZn2O4/Ti3Zn2O8)": 0.1
       },
       "recommended_references": [
-        "rutile"
+        "rutile",
+        "strontium_titanate"
       ],
-      "key_reasoning": "At a Ti fraction of 0.4 (Region IV: fTi = 0.39 - 0.71), the film exhibits a mixture of three local structural motifs (Table II and Figure 10b): under-coordinated or distorted Ti sites (TiUD, ~45%), 6-coordinated Ti sites with low second-shell Ti fraction corresponding to TiZn2O4 (Ti6L, ~45%), and an emerging fraction of 6-coordinated Ti sites with high second-shell Ti fraction corresponding to Ti3Zn2O8 (Ti6H, ~10%).",
-      "outside_references": true,
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a Ti fraction of 0.4, the film is in a transitional state between Ti-doped ZnO and pure TiO2. The high fraction of Ti (40%) exceeds the solubility limit of Ti in wurtzite ZnO, driving a structural evolution. This results in a complex mixture where isolated Ti defects in the ZnO lattice (TiUD) coexist with complex layered Ti-Zn-O motifs (Ti6L, such as TiZn2O4 or Ti3Zn2O8) and a small emerging fraction of amorphous TiO2-like motifs (Ti6H).",
+      "outside_references": true
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -558,11 +553,10 @@
       },
       "recommended_references": [
         "rutile",
+        "strontium_titanate",
         "outside_references: true"
       ],
-      "key_reasoning": "At a Ti fraction of 0.5, the film is in a transitional compositional region between Ti-doped ZnO and pure TiO2. The 600 \u00b0C deposition temperature and alternating PLD targets promote mixing, but the stoichiometry (Ti:Zn ~ 1:1) does not correspond to a single stable simple phase. Instead, it forms a mixture of complex amorphous/polycrystalline motifs (such as TiZn2O4 and Ti3Zn2O8-like local structures) identified via blind signal separation as TiUD, Ti6L, and Ti6H. The high oxygen ambient (10 mTorr) ensures Ti is fully oxidized to Ti4+. Standard reference spectra are insufficient for this highly mixed state, requiring principal component analysis or blind signal separation to extract pure motif spectra.",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a Ti fraction of 0.5, the film is in a transitional compositional region between Ti-doped ZnO and pure TiO2. The 600 \u00b0C deposition temperature and alternating PLD targets promote mixing, but the stoichiometry (Ti:Zn ~ 1:1) does not correspond to a single stable simple phase. Instead, it forms a mixture of complex amorphous/polycrystalline motifs (such as TiZn2O4 and Ti3Zn2O8-like local structures) identified via blind signal separation as TiUD, Ti6L, and Ti6H. The high oxygen ambient (10 mTorr) ensures Ti is fully oxidized to Ti4+. Standard reference spectra are insufficient for this highly mixed state, requiring principal component analysis or blind signal separation to extract pure motif spectra."
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -692,12 +686,11 @@
         "Layered Ti-Zn-O motif (Ti6L)": 0.05
       },
       "recommended_references": [
-        "rutile"
+        "rutile",
+        "strontium_titanate"
       ],
       "outside_references": true,
-      "key_reasoning": "At a Ti fraction (fTi) of 0.6, the composition is titanium-rich relative to stoichiometric zinc titanates. The system has evolved past the solubility limit of Ti in wurtzite ZnO (isolated defects) and past the intermediate layered structures. At this composition, the film consists of a complex mixture of amorphous/polycrystalline regions dominated by amorphous TiO2-like motifs (TiUD, ~60%) and complex zinc titanate motifs such as TiZn2O4 or Ti3Zn2O8 (Ti6H, ~35%), with a small residual amount of layered Ti-induced structures (Ti6L, ~5%).",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a Ti fraction (fTi) of 0.6, the composition is titanium-rich relative to stoichiometric zinc titanates. The system has evolved past the solubility limit of Ti in wurtzite ZnO (isolated defects) and past the intermediate layered structures. At this composition, the film consists of a complex mixture of amorphous/polycrystalline regions dominated by amorphous TiO2-like motifs (TiUD, ~60%) and complex zinc titanate motifs such as TiZn2O4 or Ti3Zn2O8 (Ti6H, ~35%), with a small residual amount of layered Ti-induced structures (Ti6L, ~5%)."
     },
     "condition_details": {
       "key_variable": "Ti fraction (fTi)",
@@ -825,11 +818,10 @@
         "rutile": 0.1
       },
       "recommended_references": [
-        "rutile"
+        "rutile",
+        "strontium_titanate"
       ],
-      "key_reasoning": "At a high Ti fraction of 0.7, the system has transitioned well past the solubility limit of Ti in wurtzite ZnO and beyond stoichiometric zinc titanate phases (e.g., Zn2TiO4). The high Ti content drives the structural evolution into a region dominated by complex amorphous/polycrystalline mixed motifs (identified via blind signal separation as TiUD and Ti6H, representing under-coordinated/disordered and octahedral Ti-Zn-O environments) which make up ~90% of the film, while phase-separated TiO2 begins to emerge (~10%).",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a high Ti fraction of 0.7, the system has transitioned well past the solubility limit of Ti in wurtzite ZnO and beyond stoichiometric zinc titanate phases (e.g., Zn2TiO4). The high Ti content drives the structural evolution into a region dominated by complex amorphous/polycrystalline mixed motifs (identified via blind signal separation as TiUD and Ti6H, representing under-coordinated/disordered and octahedral Ti-Zn-O environments) which make up ~90% of the film, while phase-separated TiO2 begins to emerge (~10%)."
     },
     "condition_details": {
       "key_variable": "Ti fraction",
@@ -954,11 +946,10 @@
         "rutile": 0.2
       },
       "recommended_references": [
-        "rutile"
+        "rutile",
+        "strontium_titanate"
       ],
-      "key_reasoning": "At a high Ti fraction of fTi = 0.8, the system has transitioned far beyond the wurtzite ZnO solid solution regime. The high Ti content drives the formation of complex amorphous/polycrystalline mixed motifs (TiUD and Ti6H, representing intermediate Ti-Zn-O structures like TiZn2O4 or Ti3Zn2O8) which dominate the film (80%). Additionally, phase separation begins to occur, precipitating a distinct TiO2 phase (20%) as the composition approaches pure TiO2.",
-      "fractions_uncertainty_pct": 15,
-      "uncertainty_note": "Fractions determined from single-modality Ti K-edge XANES; \u00b115% error bar is typical. Values should be interpreted semi-quantitatively."
+      "key_reasoning": "At a high Ti fraction of fTi = 0.8, the system has transitioned far beyond the wurtzite ZnO solid solution regime. The high Ti content drives the formation of complex amorphous/polycrystalline mixed motifs (TiUD and Ti6H, representing intermediate Ti-Zn-O structures like TiZn2O4 or Ti3Zn2O8) which dominate the film (80%). Additionally, phase separation begins to occur, precipitating a distinct TiO2 phase (20%) as the composition approaches pure TiO2."
     },
     "condition_details": {
       "key_variable": "Ti fraction (fTi)",
@@ -1891,7 +1882,7 @@
             "source": "standard_knowledge"
           }
         ],
-        "spectral_shape_summary": "The Cu2O L2,3-edge spectrum features a sharp, distinct L3 absorption peak at the edge onset (~932.5-933.0 eV) and an L2 peak ~20 eV higher. Although the Cu(I) 3d10 shell is filled (so the peak does not arise from a 2p -> 3d transition), the L3 feature is still a sharp, high-intensity edge-onset peak, easily distinguishable in intensity and shape from the lower-intensity, multiplet-split L3 profile of metallic Cu(0). (Per Fig 3b of the paper.)",
+        "spectral_shape_summary": "The spectrum lacks a sharp, intense white line at the edge onset. Instead, it exhibits a broader L3 absorption peak/step at almost exactly the same energy as metallic Cu(0), followed by the L2 edge approximately 20 eV higher.",
         "structural_sensitivity": "The fine structure beyond the main edge is sensitive to the linear O-Cu-O coordination and multiple scattering paths in the cuprite lattice, but the primary absence of the white line is strictly dictated by the electronic configuration rather than geometry.",
         "distinguishing_features": "Cu2O is distinguished from CuO (Cu2+) by the complete absence of the intense L3 white line at ~930.5 eV. It is distinguished from Cu(0) by subtle differences in post-edge fine structure, though the main L3 peak energy is almost identical to Cu(0)."
       },
@@ -2009,8 +2000,10 @@
     "source_paper": "Prediction of the Cu oxidation state from EELS and XAS spectra using supervised ",
     "prompt": "## Sample Information\n- **Material**: CuO (Tenorite)\n- **Crystal structure**: not reported\n- **Oxidation state**: +2\n- **Coordination**: not reported\n\n## Sample Details\n- **Sample form**: powder\n- **Purity**: 99.99%\n- **Measurement mode**: EELS\n\n## Measurement\nThis is a Cu L XANES measurement of a known pure-phase reference compound.\n\n## Questions\nBased on the compound identity, crystal structure, and electronic configuration:\n\n1. **Spectral shape overview**: Describe the overall Cu L XANES spectral shape for this compound. How many distinct peaks or features are visible in the near-edge region? Label them (e.g., A1, A2, B, pre-edge, white line) and describe their relative positions and intensities.\n\n2. **Peak positions and energies**: For each labeled feature, provide the approximate energy position (in eV) or energy relative to the absorption edge. Include the edge position itself.\n\n3. **Electronic structure origin**: For each major spectral feature, explain its physical origin in terms of electronic transitions and orbital character (e.g., which bands or states: t2g, eg, 4p, hybridized states). Which transitions are dipole-allowed vs. quadrupole or hybridization-enabled?\n\n4. **Structural sensitivity**: How do the spectral features depend on the crystal structure, coordination geometry, or bond lengths? Would a different polymorph or structural variant show different features, and if so, which ones and why?\n\n5. **Distinguishing features**: What specific spectral features (peak positions, relative intensities, presence/absence of features) distinguish this compound from other common Cu phases with different oxidation states or crystal structures?",
     "ground_truth": {
-      "compound": "CuO",
+      "compound": "CuO (Tenorite)",
       "oxidation_state": "+2",
+      "crystal_structure": "Monoclinic (C2/c)",
+      "coordination": "Square planar (4-coordinate)",
       "spectral_features": {
         "edge_position_eV": "~930.5 eV (L3 edge)",
         "labeled_peaks": [
@@ -2032,10 +2025,10 @@
           }
         ],
         "spectral_shape_summary": "The spectrum is dominated by two sharp, intense white line peaks corresponding to the L3 and L2 edges, separated by approximately 20 eV due to spin-orbit coupling. The L3 peak is significantly more intense than the L2 peak.",
+        "structural_sensitivity": "The intensity and exact energy of the white lines are sensitive to the covalency of the Cu-O bonds and the local square planar crystal field, which dictates the energy of the half-empty dx2-y2 orbital.",
         "distinguishing_features": "The L3 edge is roughly 2 eV lower in energy than Cu(I) and Cu(0). Furthermore, the presence of a sharp, intense white line at the edge onset is a definitive marker for the d9 Cu(II) state, as Cu(I) and Cu(0) have full d10 configurations and lack this strong 2p->3d transition."
       },
-      "key_reasoning": "Cu(II) in CuO has a d9 electronic configuration. The single hole in the 3d band (specifically the dx2-y2 orbital in square planar coordination) allows for a very strong, dipole-allowed transition from the 2p core levels (2p3/2 for L3, 2p1/2 for L2). Because this transition is to a highly localized 3d state, it appears as a sharp, intense white line at a lower energy (~930.5 eV) than the continuum transitions seen in d10 systems like Cu(I) and Cu(0), which occur around ~932.5 eV.",
-      "data_source_note": "oxidation_state, edge_position_eV, and spectral_shape_summary are supported by the paper (Fig 3c, page 8). Detailed crystal structure/coordination/orbital assignments removed \u2014 not stated in the source paper."
+      "key_reasoning": "Cu(II) in CuO has a d9 electronic configuration. The single hole in the 3d band (specifically the dx2-y2 orbital in square planar coordination) allows for a very strong, dipole-allowed transition from the 2p core levels (2p3/2 for L3, 2p1/2 for L2). Because this transition is to a highly localized 3d state, it appears as a sharp, intense white line at a lower energy (~930.5 eV) than the continuum transitions seen in d10 systems like Cu(I) and Cu(0), which occur around ~932.5 eV."
     },
     "condition_details": {
       "compound": "CuO",
@@ -7805,39 +7798,19 @@
     "rubric": {
       "phase_identification": {
         "max_score": 25,
-        "criteria": [
-          {
-            "points": 25,
-            "description": "Full marks (25 pts) for identifying sp\u00b2 carbon as the primary phase and sp\u00b3 carbon as the minor phase, with sp carbon absent or near zero. Partial credit (15 pts) if all three hybridizations are listed without distinguishing primary vs. minor phases."
-          }
-        ]
+        "criteria": "Full marks (25 pts) for identifying sp\u00b2 carbon as the primary phase and sp\u00b3 carbon as the minor phase, with sp carbon absent or near zero. Partial credit (15 pts) if all three hybridizations are listed without distinguishing primary vs. minor phases."
       },
       "fraction_estimation": {
         "max_score": 40,
-        "criteria": [
-          {
-            "points": 40,
-            "description": "Full marks (40 pts) for estimating sp\u00b2 carbon fraction within \u00b10.03 of 0.979 (~95\u2013100%), sp\u00b3 carbon within \u00b10.03 of 0.021 (0\u20135%), and sp carbon \u22640.01. Proportional partial credit for estimates correctly identifying sp\u00b2 as >90%."
-          }
-        ]
+        "criteria": "Full marks (40 pts) for estimating sp\u00b2 carbon fraction within \u00b10.03 of 0.979 (~95\u2013100%), sp\u00b3 carbon within \u00b10.03 of 0.021 (0\u20135%), and sp carbon \u22640.01. Proportional partial credit for estimates correctly identifying sp\u00b2 as >90%."
       },
       "reference_selection": {
         "max_score": 15,
-        "criteria": [
-          {
-            "points": 15,
-            "description": "Full marks (15 pts) for defining an orthogonal three-component basis consisting of pure sp (acetylenic/carbyne-like), sp\u00b2 (graphitic/graphene), and sp\u00b3 (diamond-like) carbon references, and noting that theoretical or external experimental standards are required."
-          }
-        ]
+        "criteria": "Full marks (15 pts) for defining an orthogonal three-component basis consisting of pure sp (acetylenic/carbyne-like), sp\u00b2 (graphitic/graphene), and sp\u00b3 (diamond-like) carbon references, and noting that theoretical or external experimental standards are required."
       },
       "reasoning": {
         "max_score": 20,
-        "criteria": [
-          {
-            "points": 20,
-            "description": "Full marks (20 pts) for explaining the correspondence between the high \u03c0* resonance intensity at ~285 eV and the predominantly sp\u00b2 honeycomb lattice, alongside attributing the minor sp\u00b3 fraction to local lattice distortion, topological defects (e.g., vacancy reconstruction), or surface buckling."
-          }
-        ]
+        "criteria": "Full marks (20 pts) for explaining the correspondence between the high \u03c0* resonance intensity at ~285 eV and the predominantly sp\u00b2 honeycomb lattice, alongside attributing the minor sp\u00b3 fraction to local lattice distortion, topological defects (e.g., vacancy reconstruction), or surface buckling."
       }
     },
     "source_paper_full": {
@@ -7889,39 +7862,19 @@
     "rubric": {
       "phase_identification": {
         "max_score": 25,
-        "criteria": [
-          {
-            "points": 25,
-            "description": "Correctly identifies sp\u00b3 as dominant and recognizes significant sp\u00b2 and sp contributions (not pure sp\u00b3)."
-          }
-        ]
+        "criteria": "Correctly identifies sp\u00b3 as dominant and recognizes significant sp\u00b2 and sp contributions (not pure sp\u00b3)."
       },
       "fraction_estimation": {
         "max_score": 40,
-        "criteria": [
-          {
-            "points": 40,
-            "description": "Predicted sp\u00b3 within 10 percentage points of 0.528; sp\u00b2 within 10 pp of 0.244; sp within 10 pp of 0.219."
-          }
-        ]
+        "criteria": "Predicted sp\u00b3 within 10 percentage points of 0.528; sp\u00b2 within 10 pp of 0.244; sp within 10 pp of 0.219."
       },
       "reference_selection": {
         "max_score": 15,
-        "criteria": [
-          {
-            "points": 15,
-            "description": "Correctly specifies sp/sp\u00b2/sp\u00b3 basis (or graphite + diamond + sp reference) for LCF/NN inversion."
-          }
-        ]
+        "criteria": "Correctly specifies sp/sp\u00b2/sp\u00b3 basis (or graphite + diamond + sp reference) for LCF/NN inversion."
       },
       "reasoning": {
         "max_score": 20,
-        "criteria": [
-          {
-            "points": 20,
-            "description": "Explains contributions from diamond core (sp\u00b3), graphitic surface shell (sp\u00b2), and interfacial sp-like sites; references specific spectral features (285 eV \u03c0*, 289 eV \u03c3* threshold)."
-          }
-        ]
+        "criteria": "Explains contributions from diamond core (sp\u00b3), graphitic surface shell (sp\u00b2), and interfacial sp-like sites; references specific spectral features (285 eV \u03c0*, 289 eV \u03c3* threshold)."
       }
     },
     "source_paper_full": {
